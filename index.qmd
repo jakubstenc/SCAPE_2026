@@ -167,21 +167,51 @@ Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perenn
 :::
 
 ::: {.column width="53%"}
-::: {.fragment fragment-index=1 style="background-color: #F0FDF4; border: 2px solid #22C55E; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(34,197,94,0.1);"}
-<h4 style="color: #15803D; margin: 0 0 4px 0; font-size: 20px;">🟢 Peripheral Spoke Loss</h4>
-<div style="font-size: 17px; line-height: 1.35; color: #1F2937;">
-• <strong>✈️ Aviation:</strong> Regional airfields fail (<em>Røros, Kristianstad</em>) ➔ 99% of European routes remain active.<br>
-• <strong>🌸 Meadow:</strong> Peripheral plants fail (<em>Lathyrus</em>) ➔ Pollinators are buffered by the core.<br>
-• <strong>Robustness:</strong> <strong style="color: #15803D;">$R \approx 0.85$ (High Buffering Capacity)</strong>
+::: {.fragment fragment-index=1 style="background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border: 2px solid #16A34A; border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; box-shadow: 0 3px 10px rgba(22,163,74,0.12);"}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+  <span style="font-weight: 800; font-size: 20px; color: #166534; letter-spacing: -0.3px;">
+    🟢 Peripheral Spoke Loss
+  </span>
+  <span style="background-color: #16A34A; color: white; font-weight: bold; font-size: 19px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(22,163,74,0.3);">
+    $R \approx 0.85$
+  </span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #14532D;">
+  <div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #16A34A;">
+    ✈️ <strong>Aviation:</strong> Regional airfields fail (<em>Røros</em>) ➔ <strong>Continental grid intact</strong>
+  </div>
+  <div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #16A34A;">
+    🌸 <strong>Meadow:</strong> Peripheral flora lost (<em>Lathyrus</em>) ➔ <strong>Pollinators buffered by core</strong>
+  </div>
+</div>
+
+<div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: #15803D; text-align: right;">
+  ✓ High Structural Redundancy • Shock Absorbed
 </div>
 :::
 
-::: {.fragment fragment-index=2 style="background-color: #FEF2F2; border: 2px solid #EF4444; border-radius: 8px; padding: 12px 16px; box-shadow: 0 2px 6px rgba(239,68,68,0.1);"}
-<h4 style="color: #B91C1C; margin: 0 0 4px 0; font-size: 20px;">🔴 Core Hub Loss</h4>
-<div style="font-size: 17px; line-height: 1.35; color: #1F2937;">
-• <strong>✈️ Aviation:</strong> Mega-hubs shut down (<em>Heathrow, Frankfurt</em>) ➔ Continental transit paralyzes.<br>
-• <strong>🌸 Meadow:</strong> The 6 Core Hubs fail (<em>Centaurea, Succisa</em>) ➔ Pollinators collapse; community unravels.<br>
-• <strong>Robustness:</strong> <strong style="color: #B91C1C;">$R \approx 0.45$ (Catastrophic Collapse / The Achilles' Heel)</strong>
+::: {.fragment fragment-index=2 style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #DC2626; border-radius: 10px; padding: 12px 16px; box-shadow: 0 3px 10px rgba(220,38,38,0.12);"}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+  <span style="font-weight: 800; font-size: 20px; color: #991B1B; letter-spacing: -0.3px;">
+    🔴 Core Hub Loss
+  </span>
+  <span style="background-color: #DC2626; color: white; font-weight: bold; font-size: 19px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(220,38,38,0.3);">
+    $R \approx 0.45$
+  </span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #7F1D1D;">
+  <div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #DC2626;">
+    ✈️ <strong>Aviation:</strong> Mega-hubs shut (<em>Heathrow</em>) ➔ <strong>Transit paralyzed</strong>
+  </div>
+  <div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #DC2626;">
+    🌸 <strong>Meadow:</strong> 6 Core Hubs wither (<em>Centaurea</em>) ➔ <strong>Secondary cascades</strong>
+  </div>
+</div>
+
+<div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: #B91C1C; text-align: right;">
+  ⚠ Systemic Vulnerability • The Achilles' Heel
 </div>
 :::
 :::
