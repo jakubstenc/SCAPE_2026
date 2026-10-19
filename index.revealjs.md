@@ -293,10 +293,10 @@ Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the netwo
 
 ## Identifying the Meadow's Permanent Hubs
 
-::: {style="background-color: #F8F9FA; border-left: 6px solid #1D2D6B; padding: 24px 28px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-size: 24px; line-height: 1.6; margin-top: 60px;"}
+::: {style="background-color: #F8F9FA; border-left: 6px solid #1D2D6B; padding: 26px 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-size: 24px; line-height: 1.6; margin-top: 60px;"}
+::: {style="border-bottom: 1px solid #CBD5E1; padding-bottom: 18px; margin-bottom: 18px;"}
 Are the network hubs just an **ephemeral accident** of whoever happens to produce the most flowers in a given year?
-
-<hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 20px 0;">
+:::
 
 Or does the meadow possess a **permanent set of topological anchors** that maintain core roles across 15 years—irrespective of climatic extremes?
 :::
