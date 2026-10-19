@@ -112,6 +112,13 @@
     "text": "Macro-Dynamics: Two Decoupled Timescales\n\n\n\n\n\n\nNon-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106). Vector fitting identifies two decoupled, orthogonal axes: 1. Axis 1 (Horizontal - Acute Climate Pulse): Summer drought severity (r² = 0.55, p = 0.008) and summer temperature (r² = 0.67, p = 0.001) displace the network during severe droughts (2015 and 2018) far to the right into centralized topological states. 2. Axis 2 (Vertical - Decadal Press): Steady successional progression across 15 years (r² = 0.71, p = 0.0008). Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2."
   },
   {
+    "objectID": "index.html#network-architecture-the-airport-analogy",
+    "href": "index.html#network-architecture-the-airport-analogy",
+    "title": "SCAPE 2026",
+    "section": "Network Architecture: The Airport Analogy",
+    "text": "Network Architecture: The Airport Analogy\n\n\n\n\n✈️ Regional Airstrips\n\n\nThe Periphery\n\n\nSporadic, fluctuating connections\nHigh annual turnover—links appear & disappear\nIf an airstrip closes for a week, the continental flight network doesn’t blink\nEasily bypassed by alternative routes\n\n\n\n\n\n🌐 International Hubs\n\n\nThe Core (“Heathrow & Frankfurt”)\n\n\nDensely wired, perennial anchors\nRoutes shared pollinators across the whole meadow\nIf a major hub shuts down, the entire continental system collapses\nThe life-support backbone of the community\n\n\n\n\n\n\nThe Core Question: Is the meadow’s core just an accident of whoever has a busy flowering day?\nOr is there a permanent set of ecological “Heathrows” that hold the system together?\n\n\n\nUse the airport analogy to set up the intuition: Think of European aviation. If a tiny regional airstrip in the Lofoten islands closes for a few days due to fog, nobody outside that valley notices. But if Heathrow or Frankfurt shuts down, thousands of connecting flights are cancelled across the entire globe. In pollination networks, the core species are the Heathrows. They route the shared mutualistic visits across the whole meadow. The question is: across 15 years, does the meadow actually have permanent Heathrows, or does the core just drift randomly every year based on who blooms most? Let’s look at the data!"
+  },
+  {
     "objectID": "index.html#discovering-the-true-core",
     "href": "index.html#discovering-the-true-core",
     "title": "SCAPE 2026",
@@ -156,13 +163,6 @@
   {
     "objectID": "index.html#ecoflor-2027",
     "href": "index.html#ecoflor-2027",
-    "title": "SCAPE 2026",
-    "section": "Ecoflor 2027!",
-    "text": "Ecoflor 2027!"
-  },
-  {
-    "objectID": "index.html#ecoflor-2027-1",
-    "href": "index.html#ecoflor-2027-1",
     "title": "SCAPE 2026",
     "section": "Ecoflor 2027!",
     "text": "Ecoflor 2027!"

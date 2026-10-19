@@ -269,6 +269,51 @@ Vector fitting identifies two decoupled, orthogonal axes:
 Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2.
 :::
 
+## Network Architecture: The Airport Analogy
+
+::::: columns
+::: {.column width="48%"}
+::: {style="background-color: #F8F9FA; border: 2px solid #E0E0E0; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"}
+<h3 style="color: #D6604D; margin-top: 0; font-size: 26px;">✈️ Regional Airstrips</h3>
+<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Periphery</h4>
+
+- **Sporadic, fluctuating connections**
+- High annual turnover—links appear & disappear
+- If an airstrip closes for a week, the continental flight network doesn't blink
+- **Easily bypassed** by alternative routes
+:::
+:::
+
+::: {.column width="48%"}
+::: {style="background-color: #F0F4FA; border: 2px solid #1D2D6B; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(29,45,107,0.15);"}
+<h3 style="color: #1D2D6B; margin-top: 0; font-size: 26px;">🌐 International Hubs</h3>
+<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Core ("Heathrow & Frankfurt")</h4>
+
+- **Densely wired, perennial anchors**
+- Routes shared pollinators across the whole meadow
+- If a major hub shuts down, the **entire continental system collapses**
+- The life-support backbone of the community
+:::
+:::
+:::::
+
+<br>
+
+:::: {.fragment .fade-up}
+::: {style="background-color: #1D2D6B; color: white; padding: 14px; border-radius: 8px; text-align: center; font-size: 22px;"}
+**The Core Question:** Is the meadow's core just an accident of whoever has a busy flowering day?  
+Or is there a **permanent set of ecological "Heathrows"** that hold the system together?
+:::
+::::
+
+::: notes
+Use the airport analogy to set up the intuition:
+Think of European aviation. If a tiny regional airstrip in the Lofoten islands closes for a few days due to fog, nobody outside that valley notices. But if Heathrow or Frankfurt shuts down, thousands of connecting flights are cancelled across the entire globe.
+In pollination networks, the core species are the Heathrows. They route the shared mutualistic visits across the whole meadow.
+The question is: across 15 years, does the meadow actually have permanent Heathrows, or does the core just drift randomly every year based on who blooms most?
+Let's look at the data!
+:::
+
 ## Discovering the True Core
 
 ![](images/core_stability_simplified.png){fig-align="center" height="540"}
@@ -408,9 +453,6 @@ Linking visitation architecture to actual stigmatic pollen deposition, heterospe
 
 ![](images/logo2027.png){fig-align="center" width="700"}
 
-## Ecoflor 2027!
-
-![](images/IMG_1108_Praha.jpg){fig-align="center" width="800"}
 
 ##  {background-image="images/Fin.jpg"}
 
