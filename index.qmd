@@ -111,13 +111,13 @@ To examine apparent competition and structural reliance, we construct unipartite
 :::
 
 ::: r-stack
-![](images/airport_step1_map.png){.fragment .fade-in-then-out fragment-index=1 height="410px" fig-align="center"}
+![](images/airport_step1_map.png){.fragment .fade-in-then-out fragment-index=1 height="520px" fig-align="center"}
 
-![](images/airport_step2_airports.png){.fragment .fade-in-then-out fragment-index=2 height="410px" fig-align="center"}
+![](images/airport_step2_airports.png){.fragment .fade-in-then-out fragment-index=2 height="520px" fig-align="center"}
 
-![](images/airport_step3_routes.png){.fragment .fade-in-then-out fragment-index=3 height="410px" fig-align="center"}
+![](images/airport_step3_routes.png){.fragment .fade-in-then-out fragment-index=3 height="520px" fig-align="center"}
 
-![](images/airport_step4_coreness.png){.fragment .fade-in fragment-index=4 height="410px" fig-align="center"}
+![](images/airport_step4_coreness.png){.fragment .fade-in fragment-index=4 height="520px" fig-align="center"}
 :::
 :::
 
@@ -127,18 +127,14 @@ To examine apparent competition and structural reliance, we construct unipartite
 :::
 
 ::: r-stack
-![](images/plant_step2_plants.png){.fragment .fade-in-then-out fragment-index=5 height="410px" fig-align="center"}
+![](images/plant_step2_plants.png){.fragment .fade-in-then-out fragment-index=5 height="520px" fig-align="center"}
 
-![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=6 height="410px" fig-align="center"}
+![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=6 height="520px" fig-align="center"}
 
-![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=7 height="410px" fig-align="center"}
+![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=7 height="520px" fig-align="center"}
 :::
 :::
 :::::
-
-::: {.fragment fragment-index=7 style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 8px 16px; border-radius: 6px; font-size: 15px; margin-top: 6px; line-height: 1.35; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.06);"}
-**Shared Topology:** Replace airports with plant species, and flight routes with shared pollinators. Just **6 perennial plant species** act as the meadow's "Heathrows" ($k \approx 34, G_c > 1.1$), anchoring >60% of floral visitor traffic.
-:::
 
 ::: notes
 Step 0 (Title only): To understand the stability of our pollination web, let's step outside ecology and look at an analogy from human infrastructure: the European aviation network.
