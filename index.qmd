@@ -151,34 +151,22 @@ Step 6 (Plant Routes): Add empirical pollinator sharing: visitors constantly lin
 Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species (Centaurea, Succisa, Selinum, Pimpinella, Achillea, Ranunculus) form the central routing core, while peripheral flora connect through them.
 :::
 
-## The Fragility Paradox: Regional Spokes vs. Core Hubs
+## Network Robustness: Spokes vs. Core Hubs {style="margin-top: -12px; margin-bottom: 6px;"}
 
 ::::: columns
-::: {.column width="48%"}
-::: {style="background-color: #FEF2F2; border: 2px solid #EF4444; border-radius: 8px; padding: 16px 18px; box-shadow: 0 3px 8px rgba(239,68,68,0.12); font-size: 20px;"}
-<h3 style="color: #B91C1C; margin: 0 0 6px 0; font-size: 23px;">✈️ Regional Spoke Failure</h3>
-<h4 style="color: #666; font-size: 15px; margin: 0 0 12px 0; font-weight: normal;">Røros Airport / <em>Lathyrus pratensis</em></h4>
-
-- If fog shuts down Røros for a week, continental European air travel **doesn't blink**
-- If drought suppresses a peripheral flower, the meadow community **absorbs the shock**
-- High redundancy and alternative rewiring routes
-:::
+::: {.column width="49.5%"}
+![](images/robustness_step1_spoke.png){height="475px" fig-align="center"}
 :::
 
-::: {.column width="48%"}
-::: {style="background-color: #EFF6FF; border: 2px solid #1D4ED8; border-radius: 8px; padding: 16px 18px; box-shadow: 0 3px 8px rgba(29,78,216,0.12); font-size: 20px;"}
-<h3 style="color: #1D4ED8; margin: 0 0 6px 0; font-size: 23px;">🌐 Core Hub Failure</h3>
-<h4 style="color: #666; font-size: 15px; margin: 0 0 12px 0; font-weight: normal;">Frankfurt & Heathrow / <em>Centaurea & Succisa</em></h4>
-
-- If Frankfurt or Heathrow shuts down, the **entire continental system collapses**
-- If the 6 Core plant hubs fail, shared pollinator services unravel across the meadow
-- **Critical question:** How robust is this network when extreme drought hits?
+::: {.column width="49.5%"}
+::: {.fragment fragment-index=1}
+![](images/robustness_step2_hub.png){height="475px" fig-align="center"}
 :::
 :::
 :::::
 
-::: {.fragment .fade-up style="background-color: #1D2D6B; color: white; padding: 14px 20px; border-radius: 8px; text-align: center; font-size: 21px; margin-top: 18px;"}
-**The Ecological Dilemma:** Across 15 years, does climate stress break the core, or does the core buffer the community?
+::: {.fragment fragment-index=2 style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 4px;"}
+**The Ecological Dilemma:** In scale-free systems, hubs are the Achilles' heel. Across 15 years, did extreme climate warming break our core hubs—or did the core hold?
 :::
 
 ::: notes
