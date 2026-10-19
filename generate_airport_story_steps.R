@@ -107,4 +107,62 @@ p4 <- ggplot() +
 ggsave("images/airport_step4_coreness.png", p4, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved airport_step4_coreness.png\n")
 
-cat("All steps generated successfully!\n")
+# --- Stage 5: Spoke Loss (Røros & Kristianstad knocked out) ---
+p5 <- ggplot() +
+  geom_polygon(data = europe_poly, aes(x = long, y = lat, group = group), fill = "#F1F5F9", color = "#CBD5E1", linewidth = 0.35) +
+  geom_segment(data = edges_air, aes(x = lon1, y = lat1, xend = lon2, yend = lat2),
+               color = "#60A5FA", alpha = 0.10, linewidth = 0.35) +
+  geom_point(data = subset(air_nodes, Role == "Peripheral Spoke" & !(IATA %in% key_regional)),
+             aes(x = Lon, y = Lat), color = "#F87171", alpha = 0.6, size = 2.2) +
+  geom_point(data = subset(air_nodes, Role == "Core Hub"),
+             aes(x = Lon, y = Lat), color = "#1E3A8A", size = 5.2, alpha = 0.95) +
+  geom_point(data = subset(air_nodes, IATA %in% key_hubs),
+             aes(x = Lon, y = Lat), color = "#FBBF24", size = 3.0) +
+  # Red X on knocked out spokes
+  geom_point(data = subset(air_nodes, IATA %in% key_regional),
+             aes(x = Lon, y = Lat), color = "#DC2626", size = 6.5, shape = 4, stroke = 2.8) +
+  geom_label_repel(data = subset(labeled_airports, IATA %in% key_hubs),
+                   aes(x = Lon, y = Lat, label = Label),
+                   fontface = "bold", size = 3.4, color = "#0F172A", fill = alpha("white", 0.92),
+                   box.padding = 0.45, point.padding = 0.35, segment.color = "#1E3A8A", segment.size = 0.5) +
+  geom_label_repel(data = subset(labeled_airports, IATA %in% key_regional),
+                   aes(x = Lon, y = Lat, label = paste0("❌ ", City, " (", IATA, ")\nSPOKE FAILED")),
+                   fontface = "bold", size = 3.3, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
+                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  # Top banner
+  annotate("label", x = 7.5, y = 66.8, label = "🟢 SPOKE LOSS: System Absorbs Shock (>99% routes intact)",
+           fill = "#F0FDF4", color = "#15803D", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-8.5, 23.5), ylim = c(37, 67.5), ratio = 1.3) +
+  base_theme
+
+ggsave("images/airport_step5_spoke.png", p5, width = 7.5, height = 6.4, dpi = 300)
+cat("Saved airport_step5_spoke.png\n")
+
+# --- Stage 6: Hub Loss (Heathrow, Frankfurt, Amsterdam, Paris knocked out) ---
+edges_surviving <- subset(edges_air, !(from %in% key_hubs | to %in% key_hubs))
+
+p6 <- ggplot() +
+  geom_polygon(data = europe_poly, aes(x = long, y = lat, group = group), fill = "#F1F5F9", color = "#CBD5E1", linewidth = 0.35) +
+  # Surviving peripheral edges only
+  geom_segment(data = edges_surviving, aes(x = lon1, y = lat1, xend = lon2, yend = lat2),
+               color = "#94A3B8", alpha = 0.15, linewidth = 0.3) +
+  # Peripheral airports stranded
+  geom_point(data = subset(air_nodes, Role == "Peripheral Spoke"),
+             aes(x = Lon, y = Lat), color = "#EF4444", alpha = 0.6, size = 2.0) +
+  # Huge Red X over mega hubs
+  geom_point(data = subset(air_nodes, IATA %in% key_hubs),
+             aes(x = Lon, y = Lat), color = "#DC2626", size = 11, shape = 4, stroke = 3.5) +
+  geom_label_repel(data = subset(labeled_airports, IATA %in% key_hubs),
+                   aes(x = Lon, y = Lat, label = paste0("❌ ", City, "\nHUB CLOSED!")),
+                   fontface = "bold", size = 3.5, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+                   box.padding = 0.5, point.padding = 0.4, segment.color = "#DC2626", segment.size = 0.6) +
+  # Top banner
+  annotate("label", x = 7.5, y = 66.8, label = "🔴 HUB COLLAPSE: Continental Network Shatters!",
+           fill = "#FEF2F2", color = "#B91C1C", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-8.5, 23.5), ylim = c(37, 67.5), ratio = 1.3) +
+  base_theme
+
+ggsave("images/airport_step6_hub.png", p6, width = 7.5, height = 6.4, dpi = 300)
+cat("Saved airport_step6_hub.png\n")
+
+cat("All airport steps generated successfully!\n")

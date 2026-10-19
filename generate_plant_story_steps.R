@@ -153,6 +153,74 @@ p4 <- ggplot() +
 
 ggsave("images/plant_step4_coreness.png", p4, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step4_coreness.png\n")
-cat("Saved plant_step4_coreness.png\n")
+
+# --- Stage 5: Spoke Loss (Peripheral species like Lathyrus knocked out) ---
+p5 <- ggplot() +
+  geom_path(data = outer_circle, aes(x = x, y = y), color = "#E2E8F0", linetype = "dashed", linewidth = 0.5) +
+  geom_path(data = inner_circle, aes(x = x, y = y), color = "#DBEAFE", linetype = "dotted", linewidth = 0.5) +
+  # Spoke edges
+  geom_segment(data = subset(edges_plot, EdgeType != "Core-Core"),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               color = "#93C5FD", alpha = 0.25, linewidth = 0.4) +
+  # Core-Core backbone edges
+  geom_segment(data = subset(edges_plot, EdgeType == "Core-Core"),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               color = "#1D4ED8", alpha = 0.88, linewidth = 1.3) +
+  # Peripheral plants surviving
+  geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% ex_periph[1:2])),
+             aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
+  # Core plants intact
+  geom_point(data = subset(plant_nodes, Role == "Core Plant"),
+             aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
+  geom_point(data = subset(plant_nodes, Role == "Core Plant"),
+             aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
+  # Knocked out peripheral plants (Red X)
+  geom_point(data = subset(plant_nodes, Species %in% ex_periph[1:2]),
+             aes(x = x, y = y), color = "#DC2626", size = 6.5, shape = 4, stroke = 2.8) +
+  # Labels
+  geom_label_repel(data = subset(plant_nodes, Role == "Core Plant"),
+                   aes(x = x, y = y, label = Label),
+                   fontface = "bold.italic", size = 3.4, color = "#0F172A", fill = alpha("white", 0.92),
+                   box.padding = 0.5, point.padding = 0.4, segment.color = "#1E3A8A", segment.size = 0.5) +
+  geom_label_repel(data = subset(plant_nodes, Species %in% ex_periph[1:2]),
+                   aes(x = x, y = y, label = paste0("❌ ", Species, "\nSPOKE FAILED")),
+                   fontface = "italic", size = 3.2, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
+                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  # Top banner
+  annotate("label", x = 0, y = 4.8, label = "🟢 SPOKE LOSS: Meadow Web Absorbs Shock (Core intact)",
+           fill = "#F0FDF4", color = "#15803D", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 5.1)) +
+  base_theme
+
+ggsave("images/plant_step5_spoke.png", p5, width = 7.5, height = 6.4, dpi = 300)
+cat("Saved plant_step5_spoke.png\n")
+
+# --- Stage 6: Hub Loss (Centaurea & Core Perennials knocked out) ---
+edges_spoke_only <- subset(edges_plot, EdgeType == "Spoke-Spoke")
+
+p6 <- ggplot() +
+  geom_path(data = outer_circle, aes(x = x, y = y), color = "#E2E8F0", linetype = "dashed", linewidth = 0.5) +
+  # Surviving spoke-spoke edges only (rare, weak)
+  geom_segment(data = edges_spoke_only,
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               color = "#94A3B8", alpha = 0.25, linewidth = 0.35) +
+  # Peripheral plants isolated (stranded)
+  geom_point(data = subset(plant_nodes, Role == "Peripheral Plant"),
+             aes(x = x, y = y), color = "#EF4444", alpha = 0.6, size = 2.6) +
+  # Huge Red X over the 6 core plants
+  geom_point(data = subset(plant_nodes, Role == "Core Plant"),
+             aes(x = x, y = y), color = "#DC2626", size = 11, shape = 4, stroke = 3.5) +
+  geom_label_repel(data = subset(plant_nodes, Role == "Core Plant"),
+                   aes(x = x, y = y, label = paste0("❌ ", Species, "\nHUB WITHERED!")),
+                   fontface = "bold.italic", size = 3.3, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  # Top banner
+  annotate("label", x = 0, y = 4.8, label = "🔴 HUB COLLAPSE: Shared Pollinator Web Unravels!",
+           fill = "#FEF2F2", color = "#B91C1C", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 5.1)) +
+  base_theme
+
+ggsave("images/plant_step6_hub.png", p6, width = 7.5, height = 6.4, dpi = 300)
+cat("Saved plant_step6_hub.png\n")
 
 cat("All plant steps generated successfully!\n")

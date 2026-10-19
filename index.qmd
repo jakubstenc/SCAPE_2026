@@ -118,6 +118,10 @@ To examine apparent competition and structural reliance, we construct unipartite
 ![](images/airport_step3_routes.png){.fragment .fade-in-then-out fragment-index=3 height="485px" fig-align="center"}
 
 ![](images/airport_step4_coreness.png){.fragment .fade-in fragment-index=4 height="485px" fig-align="center"}
+
+![](images/airport_step5_spoke.png){.fragment .fade-in fragment-index=8 height="485px" fig-align="center"}
+
+![](images/airport_step6_hub.png){.fragment .fade-in fragment-index=9 height="485px" fig-align="center"}
 :::
 :::
 
@@ -132,12 +136,26 @@ To examine apparent competition and structural reliance, we construct unipartite
 ![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=6 height="485px" fig-align="center"}
 
 ![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=7 height="485px" fig-align="center"}
+
+![](images/plant_step5_spoke.png){.fragment .fade-in fragment-index=8 height="485px" fig-align="center"}
+
+![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=9 height="485px" fig-align="center"}
 :::
 :::
 :::::
 
-::: {.fragment fragment-index=7 style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
+::: r-stack
+::: {.fragment .fade-in-then-out fragment-index=7 style="width: 100%; background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
 **Shared Topology:** Replace airports with plant species, and flight routes with shared pollinators. Just **6 perennial plant species** act as the meadow's "Heathrows" ($k \approx 34, G_c > 1.1$), anchoring >60% of floral visitor traffic.
+:::
+
+::: {.fragment .fade-in-then-out fragment-index=8 style="width: 100%; background-color: #F0FDF4; border-left: 5px solid #15803D; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
+**Robustness to Spoke Loss:** When peripheral nodes fail (*Røros fog / Lathyrus drought*), the network easily absorbs the shock (>95% of routes stay intact).
+:::
+
+::: {.fragment .fade-in fragment-index=9 style="width: 100%; background-color: #FEF2F2; border-left: 5px solid #DC2626; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
+**Catastrophic Hub Collapse:** When core hubs fail (*Heathrow shut / Centaurea withered*), the entire network collapses. **The 15-Year Dilemma:** Did unprecedented droughts break our core hubs?
+:::
 :::
 
 ::: notes
@@ -145,36 +163,13 @@ Step 0 (Title only): To understand the stability of our pollination web, let's s
 Step 1 (Map): Here is European airspace.
 Step 2 (Airports): Across Europe are 895 airports—geographically scattered, seemingly uniform.
 Step 3 (Routes): Add 15,000 empirical commercial flight routes—a complex topological web appears.
-Step 4 (Airport Coreness): Calculate coreness and degree: a tiny core of international mega-hubs (London, Amsterdam, Frankfurt, Paris) anchors continental travel, while regional airfields (Røros, Kristianstad) are peripheral spokes.
+Step 4 (Airport Coreness): Calculate coreness: a tiny core of mega-hubs (London, Amsterdam, Frankfurt, Paris) anchors continental travel, while regional airfields (Røros, Kristianstad) are peripheral spokes.
 Step 5 (Plant Nodes): Now look at our meadow: 57 co-flowering plant species in Handrkov.
-Step 6 (Plant Routes): Add empirical pollinator sharing: visitors constantly link plants together through shared service.
-Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species (Centaurea, Succisa, Selinum, Pimpinella, Achillea, Ranunculus) form the central routing core, while peripheral flora connect through them.
-:::
-
-## Network Robustness: Spokes vs. Core Hubs {style="margin-top: -12px; margin-bottom: 6px;"}
-
-::::: columns
-::: {.column width="49.5%"}
-![](images/robustness_step1_spoke.png){height="475px" fig-align="center"}
-:::
-
-::: {.column width="49.5%"}
-::: {.fragment fragment-index=1}
-![](images/robustness_step2_hub.png){height="475px" fig-align="center"}
-:::
-:::
-:::::
-
-::: {.fragment fragment-index=2 style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 4px;"}
-**The Ecological Dilemma:** In scale-free systems, hubs are the Achilles' heel. Across 15 years, did extreme climate warming break our core hubs—or did the core hold?
-:::
-
-::: notes
-This sets up the core tension of the talk:
-Network theory teaches us that scale-free / hub-and-spoke networks are remarkably robust to random failure of spokes, but catastrophically fragile to targeted attack on hubs.
-In Handrkov, during 15 years, we experienced unprecedented summer droughts (2015, 2018).
-What happened to the core? What happened to the whole community?
-Let's look at the climate history of the meadow!
+Step 6 (Plant Routes): Add empirical pollinator sharing: visitors link plants together through shared service.
+Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species form the central routing core, while peripheral flora connect through them.
+Step 8 (Spoke Loss): What happens when nodes fail? If a spoke fails (fog in Røros, or a rare flower dries up), the network easily absorbs the shock.
+Step 9 (Hub Collapse): BUT if the core hubs fail (Heathrow closes, or Centaurea and Succisa wither), the entire network collapses. This is the Achilles' heel.
+Now let's see what happened during 15 years of extreme climate droughts!
 :::
 
 ## Questions
