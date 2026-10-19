@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "index.html#the-paradox-of-pollinator-sharing",
+    "href": "index.html#the-paradox-of-pollinator-sharing",
+    "title": "SCAPE 2026",
+    "section": "The Paradox of Pollinator Sharing",
+    "text": "The Paradox of Pollinator Sharing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart with pollination biology: In species-rich meadows, pollinators are a shared, limiting mutualistic service. Co-flowering plants do not interact in isolation; sharing insect visitors mediates indirect interactions—both facilitation (magnet plants) and competition (heterospecific pollen deposition, stigma clogging, pollen dilution). The paradox: Short-term network studies show massive year-to-year turnover and rewiring. Yet, diverse plant communities persist for decades. Is this sharing web in constant chaotic drift, or does an underlying stable architecture anchor the community?"
+  },
+  {
+    "objectID": "index.html#from-bipartite-visits-to-pollinator-sharing",
+    "href": "index.html#from-bipartite-visits-to-pollinator-sharing",
+    "title": "SCAPE 2026",
+    "section": "From Bipartite Visits to Pollinator Sharing",
+    "text": "From Bipartite Visits to Pollinator Sharing\n\n\nBipartite Interaction Network\n\n\nDirect plant-pollinator links (bipartite visits)\n\n\nPollinator-Sharing Web (PAC)\n\n\nMüller’s index of Pollinator Abundance & Constancy: directed interspecific plant–plant dependence\n\n\n\nTo examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller’s PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A."
+  },
+  {
+    "objectID": "index.html#the-15-year-study-system-handrkov",
+    "href": "index.html#the-15-year-study-system-handrkov",
+    "title": "SCAPE 2026",
+    "section": "The 15-Year Study System: Handrkov",
+    "text": "The 15-Year Study System: Handrkov\n\n\n\n\nThe Field Laboratory\n\nSemi-humid grassland, Central Bohemia, Czechia\n93 permanent plots (\\(4 \\times 4\\text{ m}\\)), surveyed annually\n15 consecutive years (2011–2025) at mid-August peak\nStandardized floral abundance: stalk counts & subplot frequency\nStandardized pollinator surveys: 20–63 censuses/plot/season\n68,000+ recorded visits across 55 plant species and 176 pollinator taxa"
+  },
+  {
+    "objectID": "index.html#years-of-climate-extreme-drought-shocks",
+    "href": "index.html#years-of-climate-extreme-drought-shocks",
+    "title": "SCAPE 2026",
+    "section": "50 Years of Climate: Extreme Drought Shocks",
+    "text": "50 Years of Climate: Extreme Drought Shocks\n\n\nTerraClimate (1975–2025), summer drought severity (-SPEI-6, inverted so positive = hotter & drier)\n\n\n\nOur 15-year window captures baseline rainfall alongside two extreme “century” droughts (2015 and 2018). How does the plant-pollinator sharing architecture respond?"
+  },
+  {
+    "objectID": "index.html#macro-dynamics-two-decoupled-timescales",
+    "href": "index.html#macro-dynamics-two-decoupled-timescales",
+    "title": "SCAPE 2026",
+    "section": "Macro-Dynamics: Two Decoupled Timescales",
+    "text": "Macro-Dynamics: Two Decoupled Timescales\n\n\n\n\n\n\nNon-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106). Vector fitting identifies two decoupled, orthogonal axes: 1. Axis 1 (Horizontal - Acute Climate Pulse): Summer drought severity (r² = 0.55, p = 0.008) and summer temperature (r² = 0.67, p = 0.001) displace the network during severe droughts (2015 and 2018) far to the right into centralized topological states. 2. Axis 2 (Vertical - Decadal Press): Steady successional progression across 15 years (r² = 0.71, p = 0.0008). Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2."
+  },
+  {
+    "objectID": "index.html#discovering-the-true-core",
+    "href": "index.html#discovering-the-true-core",
+    "title": "SCAPE 2026",
+    "section": "Discovering the True Core",
+    "text": "Discovering the True Core\n\n\n\n\n\n\nAre network hubs just random flowers that happen to bloom heavily? We tested each species’ 15-year standardized coreness against a conservative, presence-conditional (flowering-only) null model (1,000 perms/yr). Exactly 6 species maintained statistically significant excess centrality: Centaurea jacea, Selinum carvifolia, Succisa pratensis, Pimpinella saxifraga, Achillea ptarmica, and Ranunculus acris (all P_adj &lt;= 0.0015)."
+  },
+  {
+    "objectID": "index.html#plant-identity-matters-not-an-abundance-lottery",
+    "href": "index.html#plant-identity-matters-not-an-abundance-lottery",
+    "title": "SCAPE 2026",
+    "section": "Plant Identity Matters: Not an Abundance Lottery!",
+    "text": "Plant Identity Matters: Not an Abundance Lottery!\n\n\nThe Neutral Hypothesis\n\nHubs are just whichever plants produce the most flowers.\nCoreness drifts randomly with plant density.\nSpecies traits play no role.\n\n\nLinear Mixed Model (Centrality)\n\nPlant Identity: explains 38% of variance\nFloral Abundance: explains 44% of variance\nLRT for Plant Identity:\n\\(\\chi^2 = 328.8, \\mathbf{p = 1.8 \\times 10^{-73}}\\)\n\n\n\n\n\nPollinators actively seek out core species beyond their sheer floral abundance.\nThe core is an enduring architectural feature grounded in intrinsic floral syndromes and attractiveness.\n\n\n\nEven after controlling for raw flower count, species identity explains nearly 40% of the variance. Topological invariance: In multi-year modularity cartography (Guimerà & Amaral), these exact same 6 species emerge as permanent module hubs (z = 0.86-2.39). Markov role transitions show core species have a 59.2% probability of remaining hubs year-to-year and a 70.4% rebound probability, compared to only 3.5% for peripherals."
+  },
+  {
+    "objectID": "index.html#secondary-extinctions-the-fragility-flip",
+    "href": "index.html#secondary-extinctions-the-fragility-flip",
+    "title": "SCAPE 2026",
+    "section": "Secondary Extinctions: The Fragility Flip",
+    "text": "Secondary Extinctions: The Fragility Flip\n\n\n\nDuring normal years: The meadow exhibits high structural redundancy (\\(R \\approx 0.63\\text{--}0.84\\)).\nDuring severe droughts (2015, 2018): Core loss triggers catastrophic collapse (\\(R \\approx 0.45\\)), while peripheral loss is easily buffered (\\(R \\approx 0.83\\)). The Robustness Gap (\\(\\Delta R\\)) surges!\n\n\n\nWe simulated secondary extinction cascades (Memmott et al. 2004). Robustness R is the area under the co-extinction curve. In non-drought years, pollinators easily switch partners. But in 2015 and 2018, the network’s survival becomes almost exclusively dependent on the 6 core species."
+  },
+  {
+    "objectID": "index.html#what-causes-the-flip-a-3-step-mechanistic-cascade",
+    "href": "index.html#what-causes-the-flip-a-3-step-mechanistic-cascade",
+    "title": "SCAPE 2026",
+    "section": "What Causes the Flip? A 3-Step Mechanistic Cascade",
+    "text": "What Causes the Flip? A 3-Step Mechanistic Cascade\n\n\n1. Vulnerability (\\(\\Delta R\\))\n\n\nCore dependence surges during summer droughts (\\(p = 0.018\\)) and rises over time (\\(+0.022/\\text{yr}\\)).\n\n\n2. Floral Asymmetry\n\n\nPeriphery crashes 10-fold (\\(\\beta = -28.0, p = 0.032\\)).\nCore is completely drought-buffered (\\(\\beta = +0.9, p = 0.792\\)).\n\n\n3. Motif Scaffolding\n\n\nCore motifs surge to 95–99% in drought years, predicting \\(84\\%\\) of network fragility (\\(R^2 = 0.84\\)).\n\n\n\n\n\nThe Life-Raft Mechanism: Peripheral flowers dry up \\(\\rightarrow\\) pollinators concentrate exclusively on drought-buffered core heads (+66% excess visits) \\(\\rightarrow\\) the core becomes the community’s sole life-support system."
+  },
+  {
+    "objectID": "index.html#take-home-messages-for-pollination-ecology",
+    "href": "index.html#take-home-messages-for-pollination-ecology",
+    "title": "SCAPE 2026",
+    "section": "Take-Home Messages for Pollination Ecology",
+    "text": "Take-Home Messages for Pollination Ecology\n\nNetworks are dynamic but anchored: High annual rewiring occurs around a persistent core of 6 plant species that stabilizes the community.\nPlant Identity drives centrality: The core is not a neutral abundance lottery; species identity independently explains 38% of network centrality (\\(p = 1.8 \\times 10^{-73}\\)).\nDecoupled timescales: Acute drought shocks (Axis 1) trigger immediate centralization, while decadal succession (Axis 2) leaves lasting hysteresis.\nThe Life-Raft Mechanism: Severe drought collapses peripheral floral displays 10-fold, forcing pollinators to crowd onto drought-buffered core hubs (95–99% core-anchored motifs).\nTargeted Conservation: Preserving pollination networks against climate extremes requires safeguarding keystone plants that unite high floral attractiveness with deep physiological drought tolerance."
+  },
+  {
+    "objectID": "index.html#next-step-real-pollen-deposition-dynamics",
+    "href": "index.html#next-step-real-pollen-deposition-dynamics",
+    "title": "SCAPE 2026",
+    "section": "Next Step: Real Pollen Deposition Dynamics",
+    "text": "Next Step: Real Pollen Deposition Dynamics\n\n\n\n\n\n\n\n\nEristalis interruptus carrying heterospecific pollen loads\n\n\n\n\n\n\n\n\nStigmatic pollen deposition on Succisa pratensis\n\n\n\nLinking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!"
+  },
+  {
+    "objectID": "index.html#section-1",
+    "href": "index.html#section-1",
+    "title": "SCAPE 2026",
+    "section": "",
+    "text": "Thank you for your attention!\n\n\n\n\n\nJakub Štenc jakubstenc@gmail.com | +420 774 553 734 Charles University, Prague & CREAF, Barcelona\n\nSave the date: Ecoflor 2027 in Prague!"
+  },
+  {
+    "objectID": "index.html#appendix-15-year-network-snapshots",
+    "href": "index.html#appendix-15-year-network-snapshots",
+    "title": "SCAPE 2026",
+    "section": "Appendix: 15-Year Network Snapshots",
+    "text": "Appendix: 15-Year Network Snapshots\n\n\n\n\n\n\nCircular representation of annual networks across all 15 years. Fixed species angles around the perimeter. Black = core, Red = peripheral. Notice dramatic concentration in 2015 and 2018."
+  },
+  {
+    "objectID": "index.html#appendix-modularity-cartography-markov-roles",
+    "href": "index.html#appendix-modularity-cartography-markov-roles",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Modularity Cartography & Markov Roles",
+    "text": "Appendix: Modularity Cartography & Markov Roles\n\n\n\n\n\n\nMulti-year Guimerà & Amaral modularity cartography: core species consistently occupy high within-module degree (z = 0.86-2.39). Longitudinal Markov role transitions demonstrate hub fidelity: core species retain hub status 59.2% of years and have 70.4% rebound probability with &lt;=4% dropout risk, vs 3.5% hub attainment for peripherals."
+  },
+  {
+    "objectID": "index.html#appendix-abundance-vs-degree-correlation",
+    "href": "index.html#appendix-abundance-vs-degree-correlation",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Abundance vs Degree Correlation",
+    "text": "Appendix: Abundance vs Degree Correlation\n\n\n\n\n\n\nCorrelation between floral abundance and species degree fluctuates across years, dropping significantly during droughts (e.g. 2011 and 2018), proving that abundance does not dictate network roles."
+  },
+  {
+    "objectID": "index.html#appendix-pollinator-concentration-dietary-restriction",
+    "href": "index.html#appendix-pollinator-concentration-dietary-restriction",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Pollinator Concentration & Dietary Restriction",
+    "text": "Appendix: Pollinator Concentration & Dietary Restriction\n\n\n\n\n\n\nSI Appendix Fig S7: Direct empirical proof of pollinator dietary restriction during droughts. When peripheral plants wither, pollinators dynamically re-allocate foraging to the core, receiving +62% to +66% excess visits beyond abundance expectations."
+  },
+  {
+    "objectID": "index.html#appendix-turnover-deviation-vs-null-models",
+    "href": "index.html#appendix-turnover-deviation-vs-null-models",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Turnover Deviation vs Null Models",
+    "text": "Appendix: Turnover Deviation vs Null Models\n\n\n\n\n\n\nFigure 2 from the manuscript: Panel A core definition, Panel B observed turnover vs abundance-weighted and random rewiring null models with drought bars, and Panel C robustness curves."
+  },
+  {
+    "objectID": "index.html#appendix-full-mechanistic-cascade-figure-3",
+    "href": "index.html#appendix-full-mechanistic-cascade-figure-3",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Full Mechanistic Cascade (Figure 3)",
+    "text": "Appendix: Full Mechanistic Cascade (Figure 3)\n\n\n\n\n\n\nFigure 3 from manuscript: Panel A network vulnerability over time and drought; Panel B floral asymmetry; Panel C motif scaffolding driving network fragility."
+  }
+]
