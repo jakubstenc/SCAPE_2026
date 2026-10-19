@@ -52,6 +52,13 @@ Architecture of stability: 15 years of pollinator sharing reveal a role of stabl
 
 </html>
 
+##  {background-video="images/video_intro_reduced_shorter.mp4" background-video-loop="true" background-video-muted="true"}
+
+::: notes
+Atmospheric introduction to the Handrkov meadow:
+Species-rich submontane grassland ecosystem where dozens of entomophilous plants bloom simultaneously, all sharing a finite pool of flower visitors.
+:::
+
 ## The Paradox of Pollinator Sharing
 
 ::: r-stack
@@ -273,34 +280,32 @@ Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the netwo
 
 ::::: columns
 ::: {.column width="48%"}
-::: {style="background-color: #F8F9FA; border: 2px solid #E0E0E0; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"}
-<h3 style="color: #D6604D; margin-top: 0; font-size: 26px;">✈️ Regional Airstrips</h3>
-<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Periphery</h4>
+::: {style="background-color: #F8F9FA; border: 2px solid #E0E0E0; border-radius: 8px; padding: 12px 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); font-size: 20px;"}
+<h3 style="color: #D6604D; margin: 0 0 4px 0; font-size: 24px;">✈️ Regional Airstrips</h3>
+<h4 style="color: #666; font-size: 16px; margin: 0 0 10px 0; font-weight: normal;">The Periphery</h4>
 
 - **Sporadic, fluctuating connections**
 - High annual turnover—links appear & disappear
-- If an airstrip closes for a week, the continental flight network doesn't blink
+- If an airstrip closes for a week, continental flights don't blink
 - **Easily bypassed** by alternative routes
 :::
 :::
 
 ::: {.column width="48%"}
-::: {style="background-color: #F0F4FA; border: 2px solid #1D2D6B; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(29,45,107,0.15);"}
-<h3 style="color: #1D2D6B; margin-top: 0; font-size: 26px;">🌐 International Hubs</h3>
-<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Core ("Heathrow & Frankfurt")</h4>
+::: {style="background-color: #F0F4FA; border: 2px solid #1D2D6B; border-radius: 8px; padding: 12px 16px; box-shadow: 0 3px 8px rgba(29,45,107,0.12); font-size: 20px;"}
+<h3 style="color: #1D2D6B; margin: 0 0 4px 0; font-size: 24px;">🌐 International Hubs</h3>
+<h4 style="color: #666; font-size: 16px; margin: 0 0 10px 0; font-weight: normal;">The Core ("Heathrow & Frankfurt")</h4>
 
 - **Densely wired, perennial anchors**
 - Routes shared pollinators across the whole meadow
-- If a major hub shuts down, the **entire continental system collapses**
+- If a major hub shuts down, the **entire system collapses**
 - The life-support backbone of the community
 :::
 :::
 :::::
 
-<br>
-
 :::: {.fragment .fade-up}
-::: {style="background-color: #1D2D6B; color: white; padding: 14px; border-radius: 8px; text-align: center; font-size: 22px;"}
+::: {style="background-color: #1D2D6B; color: white; padding: 12px 18px; border-radius: 8px; text-align: center; font-size: 21px; margin-top: 15px;"}
 **The Core Question:** Is the meadow's core just an accident of whoever has a busy flowering day?  
 Or is there a **permanent set of ecological "Heathrows"** that hold the system together?
 :::
