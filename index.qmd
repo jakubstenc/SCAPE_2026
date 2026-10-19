@@ -118,10 +118,6 @@ To examine apparent competition and structural reliance, we construct unipartite
 ![](images/airport_step3_routes.png){.fragment .fade-in-then-out fragment-index=3 height="485px" fig-align="center"}
 
 ![](images/airport_step4_coreness.png){.fragment .fade-in fragment-index=4 height="485px" fig-align="center"}
-
-![](images/airport_step5_spoke.png){.fragment .fade-in fragment-index=8 height="485px" fig-align="center"}
-
-![](images/airport_step6_hub.png){.fragment .fade-in fragment-index=9 height="485px" fig-align="center"}
 :::
 :::
 
@@ -136,26 +132,12 @@ To examine apparent competition and structural reliance, we construct unipartite
 ![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=6 height="485px" fig-align="center"}
 
 ![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=7 height="485px" fig-align="center"}
-
-![](images/plant_step5_spoke.png){.fragment .fade-in fragment-index=8 height="485px" fig-align="center"}
-
-![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=9 height="485px" fig-align="center"}
 :::
 :::
 :::::
 
-::: r-stack
-::: {.fragment .fade-in-then-out fragment-index=7 style="width: 100%; background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
+::: {.fragment fragment-index=7 style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
 **Shared Topology:** Replace airports with plant species, and flight routes with shared pollinators. Just **6 perennial plant species** act as the meadow's "Heathrows" ($k \approx 34, G_c > 1.1$), anchoring >60% of floral visitor traffic.
-:::
-
-::: {.fragment .fade-in-then-out fragment-index=8 style="width: 100%; background-color: #F0FDF4; border-left: 5px solid #15803D; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
-**Robustness to Spoke Loss:** When peripheral nodes fail (*Røros fog / Lathyrus drought*), the network easily absorbs the shock (>95% of routes stay intact).
-:::
-
-::: {.fragment .fade-in fragment-index=9 style="width: 100%; background-color: #FEF2F2; border-left: 5px solid #DC2626; padding: 5px 14px; border-radius: 6px; font-size: 15px; margin-top: 4px; line-height: 1.32; text-align: left;"}
-**Catastrophic Hub Collapse:** When core hubs fail (*Heathrow shut / Centaurea withered*), the entire network collapses. **The 15-Year Dilemma:** Did unprecedented droughts break our core hubs?
-:::
 :::
 
 ::: notes
@@ -167,9 +149,55 @@ Step 4 (Airport Coreness): Calculate coreness: a tiny core of mega-hubs (London,
 Step 5 (Plant Nodes): Now look at our meadow: 57 co-flowering plant species in Handrkov.
 Step 6 (Plant Routes): Add empirical pollinator sharing: visitors link plants together through shared service.
 Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species form the central routing core, while peripheral flora connect through them.
-Step 8 (Spoke Loss): What happens when nodes fail? If a spoke fails (fog in Røros, or a rare flower dries up), the network easily absorbs the shock.
-Step 9 (Hub Collapse): BUT if the core hubs fail (Heathrow closes, or Centaurea and Succisa wither), the entire network collapses. This is the Achilles' heel.
-Now let's see what happened during 15 years of extreme climate droughts!
+:::
+
+## What is Robustness? The Extinction Cascade {style="margin-top: -12px; margin-bottom: 4px;"}
+
+::::: columns
+::: {.column width="45%"}
+::: r-stack
+![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=1 height="450px" fig-align="center"}
+
+![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=2 height="450px" fig-align="center"}
+:::
+
+::: {style="font-size: 15px; text-align: center; color: #64748B; margin-top: 4px;"}
+*Co-extinction simulation (Memmott et al. 2004) on Handrkov pollination web*
+:::
+:::
+
+::: {.column width="53%"}
+::: {.fragment fragment-index=1 style="background-color: #F0FDF4; border: 2px solid #22C55E; border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; box-shadow: 0 2px 6px rgba(34,197,94,0.1);"}
+<h4 style="color: #15803D; margin: 0 0 4px 0; font-size: 20px;">🟢 Peripheral Spoke Loss</h4>
+<div style="font-size: 17px; line-height: 1.35; color: #1F2937;">
+• <strong>✈️ Aviation:</strong> Regional airfields fail (<em>Røros, Kristianstad</em>) ➔ 99% of European routes remain active.<br>
+• <strong>🌸 Meadow:</strong> Peripheral plants fail (<em>Lathyrus</em>) ➔ Pollinators are buffered by the core.<br>
+• <strong>Robustness:</strong> <strong style="color: #15803D;">$R \approx 0.85$ (High Buffering Capacity)</strong>
+</div>
+:::
+
+::: {.fragment fragment-index=2 style="background-color: #FEF2F2; border: 2px solid #EF4444; border-radius: 8px; padding: 12px 16px; box-shadow: 0 2px 6px rgba(239,68,68,0.1);"}
+<h4 style="color: #B91C1C; margin: 0 0 4px 0; font-size: 20px;">🔴 Core Hub Loss</h4>
+<div style="font-size: 17px; line-height: 1.35; color: #1F2937;">
+• <strong>✈️ Aviation:</strong> Mega-hubs shut down (<em>Heathrow, Frankfurt</em>) ➔ Continental transit paralyzes.<br>
+• <strong>🌸 Meadow:</strong> The 6 Core Hubs fail (<em>Centaurea, Succisa</em>) ➔ Pollinators collapse; community unravels.<br>
+• <strong>Robustness:</strong> <strong style="color: #B91C1C;">$R \approx 0.45$ (Catastrophic Collapse / The Achilles' Heel)</strong>
+</div>
+:::
+:::
+:::::
+
+::: {.fragment fragment-index=3 style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 6px;"}
+**The 15-Year Question:** In Handrkov, did extreme climate warming break our core hubs—or did the core hold?
+:::
+
+::: notes
+Slide 6: Here is how network theory formalizes robustness (Memmott et al. 2004).
+Robustness R is the area under the co-extinction curve: as we remove plant species, how many pollinators survive?
+Click 1: When we remove peripheral species first (red dashed curve), the curve stays flat near 100%! Almost all pollinators survive because they have the core. Just like closing a regional airfield in Norway leaves European flights running. Robustness R is high (0.85).
+Click 2: BUT when we remove the core hubs first (solid navy curve), the curve drops off a cliff! Losing Centaurea and Succisa deprives pollinators of their main food, causing secondary extinction cascades. Robustness plunges to 0.45!
+Click 3: This sets up our central ecological dilemma: Across 15 years, during unprecedented summer droughts, did climate stress break our core hubs, or did the core species buffer the community?
+Let's look at the climate history of our meadow!
 :::
 
 ## Questions
