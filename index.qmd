@@ -95,37 +95,167 @@ Müller's index of Pollinator Abundance & Constancy: directed interspecific plan
 To examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller's PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A.
 :::
 
-## The 15-Year Study System: Handrkov
+## Questions
 
-::::: columns
-::: {.column width="45%"}
-![](images/han_map_1.png){.nostretch width="100%" height="450px" style="object-fit: contain;"}
+![](images/drought_severity_50yrs.png){.nostretch width="100%" height="450px" style="object-fit: contain; margin-top: 10px;"}
+
+::: {style="font-size: 18px; text-align: center; color: #888888; margin-top: 5px;"}
+*Data: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)*
 :::
 
-::: {.column width="55%"}
-### The Field Laboratory
-- **Semi-humid grassland**, Central Bohemia, Czechia
-- **93 permanent plots** ($4 \times 4\text{ m}$), surveyed annually
-- **15 consecutive years** (2011–2025) at mid-August peak
-- **Standardized floral abundance**: stalk counts & subplot frequency
-- **Standardized pollinator surveys**: 20–63 censuses/plot/season
-- **68,000+ recorded visits** across 55 plant species and 176 pollinator taxa
+## Questions
+
+![](images/drought_severity_50yrs_rect.png){.nostretch width="100%" height="450px" style="object-fit: contain; margin-top: 10px;"}
+
+::: {style="font-size: 18px; text-align: center; color: #888888; margin-top: 5px;"}
+*Data: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)*
+:::
+
+## Questions
+
+![](images/drought_severity_zoomed.png){.nostretch width="100%" height="450px" style="object-fit: contain; margin-top: 10px;"}
+
+::: {style="font-size: 18px; text-align: center; color: #888888; margin-top: 5px;"}
+*Data: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (2011–2024)*
+:::
+
+:::: {.fragment .absolute top="40%" left="10%" width="80%"}
+<h2 style="text-align:center;color:white;">
+
+::: {style="background-color: rgba(0, 0, 0, .8); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5); border-radius: 5px; text-align:center;"}
+How does Plant-Pollinator network sustain climatic perturbances?
+:::
+
+</h2>
+::::
+
+## Methods - the locality
+
+::::: {layout-ncol="2"}
+::: fragment
+![[Czech Republic]{style="font-size: 32px;"}](images/Picture9.png){width="400"}
+:::
+
+::: fragment
+![[Rich in flowers]{style="font-size: 32px;"}](images/banner.jpg){width="800"}
 :::
 :::::
 
-## 50 Years of Climate: Extreme Drought Shocks
-
-![](images/drought_severity_50yrs_rect.png){.nostretch width="100%" height="380px" style="object-fit: contain; margin-top: 10px;"}
-
-::: {style="font-size: 16px; text-align: center; color: #888888;"}
-*TerraClimate (1975–2025), summer drought severity (-SPEI-6, inverted so positive = hotter & drier)*
+::: {.absolute .fragment bottom="80" right="380"}
+-   15 years of data collection (2011-2025)
 :::
 
-:::: {.fragment .fade-up}
-::: {style="background-color: rgba(212, 95, 0, 0.15); border-left: 6px solid #D45F00; padding: 12px; margin-top: 15px; font-size: 22px;"}
-Our 15-year window captures baseline rainfall alongside **two extreme "century" droughts (2015 and 2018)**. How does the plant-pollinator sharing architecture respond?
+## Methods - permanent plots
+
+---
+fig-cap-location: top
+---
+
+```{=html}
+<style>
+ #slide1 .quarto-title-caption {
+  font-size: 22px;
+  }
+</style>
+```
+
+<div>
+
+:::::: {layout="[0.3,  0.3, 0.3]"}
+::: {.fragment top="100" height="200"}
+![[plots are marked]{style="font-size: 32px;"}](images/Picture3.jpg){width="300"}
 :::
+
+::: {.fragment top="100" height="200"}
+![[recovered every year]{style="font-size: 32px;"}](images/Picture2.jpg){width="300"}
+:::
+
+::: {#sec-column .fragment top="100" height="700"}
+![[93 plots in total]{style="font-size: 32px;"}](images/han_map_1.png)
+:::
+::::::
+
+</div>
+
+## Methods - plant-pollinator survey
+
+<div>
+
+::::: {layout="[0.5, 0.5]"}
+::: {.fragment top="70" height="400"}
+![[Plant survey]{style="font-size: 32px;"}](images/Picture1.jpg)
+:::
+
+::: {.fragment top="70" height="400"}
+![[Pollinator survey]{style="font-size: 32px;"}](images/Picture5.jpg)
+:::
+:::::
+
+</div>
+
+## Methods - plant survey
+
+<div>
+
+:::: {layout="[0.5, 0.5]"}
+::: {.fragment top="70" height="400"}
+![](images/Picture1.jpg)
+:::
+
+<!-- empty column to create gap -->
 ::::
+
+</div>
+
+::: {.absolute .fragment top="10%" left="55%"}
+-   4 x 4 meter squares
+-   Stalks of flowering plants are counted or scored presence/absence in subplots
+-   2 times per sampling period
+:::
+
+## Methods - pollinator survey
+
+<div>
+
+::::: {layout="[0.5, 0.5]"}
+::: {.fragment top="70" height="400"}
+![](images/Picture5.jpg)
+:::
+
+<div>
+
+<!-- empty column to create gap -->
+
+</div>
+:::::
+
+</div>
+
+::: {.absolute .fragment top="10%" left="55%"}
+-   "Snapshot" of plant-pollinator interaction
+-   20+ sampling per plot per year
+-   97 629+ interactions recorded
+:::
+
+## Methods - plant-pollinator survey
+
+![](images/DJI_0010.JPG)
+
+## Methods - plant-pollinator survey
+
+![](images/DJI_0058.JPG)
+
+## Methods - plant-pollinator survey
+
+![](images/DJI_0070.JPG)
+
+## Methods - plant-pollinator survey
+
+![](images/DJI_0092.JPG)
+
+## Networks
+
+![](images/all_networks_grid.png){fig-align="center" height="600"}
 
 ## Macro-Dynamics: Two Decoupled Timescales
 
@@ -273,6 +403,14 @@ Stigmatic pollen deposition on *Succisa pratensis*
 ::: {style="text-align: center; font-size: 24px; margin-top: 20px; font-weight: bold; color: #1D2D6B;"}
 Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!
 :::
+
+## Ecoflor 2027!
+
+![](images/logo2027.png){fig-align="center" width="700"}
+
+## Ecoflor 2027!
+
+![](images/IMG_1108_Praha.jpg){fig-align="center" width="800"}
 
 ##  {background-image="images/Fin.jpg"}
 

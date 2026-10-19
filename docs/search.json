@@ -14,18 +14,95 @@
     "text": "From Bipartite Visits to Pollinator Sharing\n\n\nBipartite Interaction Network\n\n\nDirect plant-pollinator links (bipartite visits)\n\n\nPollinator-Sharing Web (PAC)\n\n\nMüller’s index of Pollinator Abundance & Constancy: directed interspecific plant–plant dependence\n\n\n\nTo examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller’s PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A."
   },
   {
-    "objectID": "index.html#the-15-year-study-system-handrkov",
-    "href": "index.html#the-15-year-study-system-handrkov",
+    "objectID": "index.html#questions",
+    "href": "index.html#questions",
     "title": "SCAPE 2026",
-    "section": "The 15-Year Study System: Handrkov",
-    "text": "The 15-Year Study System: Handrkov\n\n\n\n\nThe Field Laboratory\n\nSemi-humid grassland, Central Bohemia, Czechia\n93 permanent plots (\\(4 \\times 4\\text{ m}\\)), surveyed annually\n15 consecutive years (2011–2025) at mid-August peak\nStandardized floral abundance: stalk counts & subplot frequency\nStandardized pollinator surveys: 20–63 censuses/plot/season\n68,000+ recorded visits across 55 plant species and 176 pollinator taxa"
+    "section": "Questions",
+    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)"
   },
   {
-    "objectID": "index.html#years-of-climate-extreme-drought-shocks",
-    "href": "index.html#years-of-climate-extreme-drought-shocks",
+    "objectID": "index.html#questions-1",
+    "href": "index.html#questions-1",
     "title": "SCAPE 2026",
-    "section": "50 Years of Climate: Extreme Drought Shocks",
-    "text": "50 Years of Climate: Extreme Drought Shocks\n\n\nTerraClimate (1975–2025), summer drought severity (-SPEI-6, inverted so positive = hotter & drier)\n\n\n\nOur 15-year window captures baseline rainfall alongside two extreme “century” droughts (2015 and 2018). How does the plant-pollinator sharing architecture respond?"
+    "section": "Questions",
+    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)"
+  },
+  {
+    "objectID": "index.html#questions-2",
+    "href": "index.html#questions-2",
+    "title": "SCAPE 2026",
+    "section": "Questions",
+    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (2011–2024)\n\n\n\n\nHow does Plant-Pollinator network sustain climatic perturbances?"
+  },
+  {
+    "objectID": "index.html#methods---the-locality",
+    "href": "index.html#methods---the-locality",
+    "title": "SCAPE 2026",
+    "section": "Methods - the locality",
+    "text": "Methods - the locality\n\n\n\n\n\nCzech Republic\n\n\n\n\n\n\n\nRich in flowers\n\n\n\n\n\n\n\n\n15 years of data collection (2011-2025)"
+  },
+  {
+    "objectID": "index.html#methods---permanent-plots",
+    "href": "index.html#methods---permanent-plots",
+    "title": "SCAPE 2026",
+    "section": "Methods - permanent plots",
+    "text": "Methods - permanent plots\n\n\n\n\n\n\n\nplots are marked\n\n\n\n\n\n\n\nrecovered every year\n\n\n\n\n\n\n\n93 plots in total"
+  },
+  {
+    "objectID": "index.html#methods---plant-pollinator-survey",
+    "href": "index.html#methods---plant-pollinator-survey",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant-pollinator survey",
+    "text": "Methods - plant-pollinator survey\n\n\n\n\n\n\nPlant survey\n\n\n\n\n\n\n\nPollinator survey"
+  },
+  {
+    "objectID": "index.html#methods---plant-survey",
+    "href": "index.html#methods---plant-survey",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant survey",
+    "text": "Methods - plant survey\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n4 x 4 meter squares\nStalks of flowering plants are counted or scored presence/absence in subplots\n2 times per sampling period"
+  },
+  {
+    "objectID": "index.html#methods---pollinator-survey",
+    "href": "index.html#methods---pollinator-survey",
+    "title": "SCAPE 2026",
+    "section": "Methods - pollinator survey",
+    "text": "Methods - pollinator survey\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Snapshot” of plant-pollinator interaction\n20+ sampling per plot per year\n97 629+ interactions recorded"
+  },
+  {
+    "objectID": "index.html#methods---plant-pollinator-survey-1",
+    "href": "index.html#methods---plant-pollinator-survey-1",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant-pollinator survey",
+    "text": "Methods - plant-pollinator survey"
+  },
+  {
+    "objectID": "index.html#methods---plant-pollinator-survey-2",
+    "href": "index.html#methods---plant-pollinator-survey-2",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant-pollinator survey",
+    "text": "Methods - plant-pollinator survey"
+  },
+  {
+    "objectID": "index.html#methods---plant-pollinator-survey-3",
+    "href": "index.html#methods---plant-pollinator-survey-3",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant-pollinator survey",
+    "text": "Methods - plant-pollinator survey"
+  },
+  {
+    "objectID": "index.html#methods---plant-pollinator-survey-4",
+    "href": "index.html#methods---plant-pollinator-survey-4",
+    "title": "SCAPE 2026",
+    "section": "Methods - plant-pollinator survey",
+    "text": "Methods - plant-pollinator survey"
+  },
+  {
+    "objectID": "index.html#networks",
+    "href": "index.html#networks",
+    "title": "SCAPE 2026",
+    "section": "Networks",
+    "text": "Networks"
   },
   {
     "objectID": "index.html#macro-dynamics-two-decoupled-timescales",
@@ -75,6 +152,20 @@
     "title": "SCAPE 2026",
     "section": "Next Step: Real Pollen Deposition Dynamics",
     "text": "Next Step: Real Pollen Deposition Dynamics\n\n\n\n\n\n\n\n\nEristalis interruptus carrying heterospecific pollen loads\n\n\n\n\n\n\n\n\nStigmatic pollen deposition on Succisa pratensis\n\n\n\nLinking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!"
+  },
+  {
+    "objectID": "index.html#ecoflor-2027",
+    "href": "index.html#ecoflor-2027",
+    "title": "SCAPE 2026",
+    "section": "Ecoflor 2027!",
+    "text": "Ecoflor 2027!"
+  },
+  {
+    "objectID": "index.html#ecoflor-2027-1",
+    "href": "index.html#ecoflor-2027-1",
+    "title": "SCAPE 2026",
+    "section": "Ecoflor 2027!",
+    "text": "Ecoflor 2027!"
   },
   {
     "objectID": "index.html#section-1",
