@@ -52,14 +52,21 @@ Architecture of stability: 15 years of pollinator sharing reveal a role of stabl
 
 </html>
 
+##  {background-video="images/video_intro_reduced_shorter.mp4" background-video-loop="true" background-video-muted="true"}
+
+::: notes
+Atmospheric introduction to the Handrkov meadow:
+Species-rich submontane grassland ecosystem where dozens of entomophilous plants bloom simultaneously, all sharing a finite pool of flower visitors.
+:::
+
 ## The Paradox of Pollinator Sharing
 
 ::: r-stack
-![](images/San_off_zygena.JPG){fig-align="center" width="650"}
+![](images/San_off_zygena.JPG){fig-align="center" width="620"}
 
-![](images/Ach_pta_Eristalis.png){.fragment fig-align="center" width="650"}
+![](images/Ach_pta_Eristalis.png){.fragment fig-align="center" width="625"}
 
-![](images/Suc_pra_motyle.png){.fragment fig-align="center" width="850"}
+![](images/Suc_pra_motyle.png){.fragment fig-align="center" width="630"}
 :::
 
 ::: notes
@@ -93,6 +100,21 @@ Müller's index of Pollinator Abundance & Constancy: directed interspecific plan
 
 ::: notes
 To examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller's PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A.
+:::
+
+## Network Architecture: The Airport Analogy
+
+![](images/airport_vs_pollinator_empirical.png){fig-align="center" width="100%" height="405px" style="object-fit: contain; margin-bottom: 2px;"}
+
+::: {style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 8px 14px; border-radius: 6px; font-size: 17px; margin-top: 4px; line-height: 1.4; text-align: left;"}
+**Shared Topology:** In both European aviation and submontane meadows, a small core (~5–10% of nodes) routes >60% of total connectivity.  
+If regional spokes (Røros / *Lathyrus*) fluctuate, the system absorbs it. But what happens if the **Core Hubs** fail?
+:::
+
+::: notes
+Here is the intuition that connects network theory to pollination ecology:
+Think of the European flight network on the left (real OpenFlights data). Major hubs like London, Amsterdam, and Frankfurt maintain over 100 direct routes (Coreness = 27), while regional airstrips like Røros or Kristianstad in Scandinavia have 1 or 2 connections. If fog grounds flights in Røros, continental travel doesn't blink. But if Frankfurt or Heathrow shuts down, the entire European transit system is thrown into chaos.
+On the right is our 15-year pollinator-sharing web from Handrkov. Exactly like aviation, it exhibits a centralized hub-and-spoke architecture: a core of 6 perennial plants anchors the floral traffic, while dozens of peripheral species connect through them.
 :::
 
 ## Questions
@@ -269,49 +291,20 @@ Vector fitting identifies two decoupled, orthogonal axes:
 Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2.
 :::
 
-## Network Architecture: The Airport Analogy
+## Identifying the Meadow's Permanent Hubs
 
-::::: columns
-::: {.column width="48%"}
-::: {style="background-color: #F8F9FA; border: 2px solid #E0E0E0; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"}
-<h3 style="color: #D6604D; margin-top: 0; font-size: 26px;">✈️ Regional Airstrips</h3>
-<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Periphery</h4>
+::: {style="background-color: #F8F9FA; border-left: 6px solid #1D2D6B; padding: 24px 28px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-size: 24px; line-height: 1.6; margin-top: 60px;"}
+Are the network hubs just an **ephemeral accident** of whoever happens to produce the most flowers in a given year?
 
-- **Sporadic, fluctuating connections**
-- High annual turnover—links appear & disappear
-- If an airstrip closes for a week, the continental flight network doesn't blink
-- **Easily bypassed** by alternative routes
+<hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 20px 0;">
+
+Or does the meadow possess a **permanent set of topological anchors** that maintain core roles across 15 years—irrespective of climatic extremes?
 :::
-:::
-
-::: {.column width="48%"}
-::: {style="background-color: #F0F4FA; border: 2px solid #1D2D6B; border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(29,45,107,0.15);"}
-<h3 style="color: #1D2D6B; margin-top: 0; font-size: 26px;">🌐 International Hubs</h3>
-<h4 style="color: #666; font-size: 18px; margin-top: -5px; font-weight: normal;">The Core ("Heathrow & Frankfurt")</h4>
-
-- **Densely wired, perennial anchors**
-- Routes shared pollinators across the whole meadow
-- If a major hub shuts down, the **entire continental system collapses**
-- The life-support backbone of the community
-:::
-:::
-:::::
-
-<br>
-
-:::: {.fragment .fade-up}
-::: {style="background-color: #1D2D6B; color: white; padding: 14px; border-radius: 8px; text-align: center; font-size: 22px;"}
-**The Core Question:** Is the meadow's core just an accident of whoever has a busy flowering day?  
-Or is there a **permanent set of ecological "Heathrows"** that hold the system together?
-:::
-::::
 
 ::: notes
-Use the airport analogy to set up the intuition:
-Think of European aviation. If a tiny regional airstrip in the Lofoten islands closes for a few days due to fog, nobody outside that valley notices. But if Heathrow or Frankfurt shuts down, thousands of connecting flights are cancelled across the entire globe.
-In pollination networks, the core species are the Heathrows. They route the shared mutualistic visits across the whole meadow.
-The question is: across 15 years, does the meadow actually have permanent Heathrows, or does the core just drift randomly every year based on who blooms most?
-Let's look at the data!
+Recall our airport analogy: is Frankfurt an international hub because it randomly had an extra runway open on a sunny Tuesday? Or because of permanent structural routing?
+In pollination networks, the central question is whether network hubs are merely abundant generalists, or whether specific plant identities provide permanent community cohesion.
+To test this, we compared every species against a presence-conditional null model across all 15 years.
 :::
 
 ## Discovering the True Core

@@ -168,17 +168,17 @@
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/San_off_zygena.JPG" class="quarto-figure quarto-figure-center" width="650"></p>
+<p><img data-src="images/San_off_zygena.JPG" class="quarto-figure quarto-figure-center" width="620"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Ach_pta_Eristalis.png" class="fragment quarto-figure quarto-figure-center" width="650"></p>
+<p><img data-src="images/Ach_pta_Eristalis.png" class="fragment quarto-figure quarto-figure-center" width="625"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Suc_pra_motyle.png" class="fragment quarto-figure quarto-figure-center" width="850"></p>
+<p><img data-src="images/Suc_pra_motyle.png" class="fragment quarto-figure quarto-figure-center" width="630"></p>
 </figure>
 </div>
 </div>
@@ -214,6 +214,31 @@
 </div></div>
 <aside class="notes">
 <p>To examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller’s PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="network-architecture-the-airport-analogy" class="slide level2">
+<h2>Network Architecture: The Airport Analogy</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/airport_vs_pollinator_empirical.png" class="quarto-figure quarto-figure-center" style="object-fit: contain; margin-bottom: 2px;;width:100.0%" height="405"></p>
+</figure>
+</div>
+<div style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 8px 14px; border-radius: 6px; font-size: 17px; margin-top: 4px; line-height: 1.4; text-align: left;">
+<p><strong>Shared Topology:</strong> In both European aviation and submontane meadows, a small core (~5–10% of nodes) routes &gt;60% of total connectivity.<br>
+If regional spokes (Røros / <em>Lathyrus</em>) fluctuate, the system absorbs it. But what happens if the <strong>Core Hubs</strong> fail?</p>
+</div>
+<aside class="notes">
+<p>Here is the intuition that connects network theory to pollination ecology: Think of the European flight network on the left (real OpenFlights data). Major hubs like London, Amsterdam, and Frankfurt maintain over 100 direct routes (Coreness = 27), while regional airstrips like Røros or Kristianstad in Scandinavia have 1 or 2 connections. If fog grounds flights in Røros, continental travel doesn’t blink. But if Frankfurt or Heathrow shuts down, the entire European transit system is thrown into chaos. On the right is our 15-year pollinator-sharing web from Handrkov. Exactly like aviation, it exhibits a centralized hub-and-spoke architecture: a core of 6 perennial plants anchors the floral traffic, while dozens of peripheral species connect through them.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -434,48 +459,15 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="network-architecture-the-airport-analogy" class="slide level2">
-<h2>Network Architecture: The Airport Analogy</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<div style="background-color: #F8F9FA; border: 2px solid #E0E0E0; border-radius: 8px; padding: 12px 16px; box-shadow: 0 3px 6px rgba(0,0,0,0.05); font-size: 20px;">
-<h3 style="color: #D6604D; margin: 0 0 4px 0; font-size: 24px;">
-✈️ Regional Airstrips
-</h3>
-<h4 style="color: #666; font-size: 16px; margin: 0 0 10px 0; font-weight: normal;">
-The Periphery
-</h4>
-<ul>
-<li><strong>Sporadic, fluctuating connections</strong></li>
-<li>High annual turnover—links appear &amp; disappear</li>
-<li>If an airstrip closes for a week, continental flights don’t blink</li>
-<li><strong>Easily bypassed</strong> by alternative routes</li>
-</ul>
-</div>
-</div><div class="column" style="width:48%;">
-<div style="background-color: #F0F4FA; border: 2px solid #1D2D6B; border-radius: 8px; padding: 12px 16px; box-shadow: 0 3px 8px rgba(29,45,107,0.12); font-size: 20px;">
-<h3 style="color: #1D2D6B; margin: 0 0 4px 0; font-size: 24px;">
-🌐 International Hubs
-</h3>
-<h4 style="color: #666; font-size: 16px; margin: 0 0 10px 0; font-weight: normal;">
-The Core (“Heathrow &amp; Frankfurt”)
-</h4>
-<ul>
-<li><strong>Densely wired, perennial anchors</strong></li>
-<li>Routes shared pollinators across the whole meadow</li>
-<li>If a major hub shuts down, the <strong>entire system collapses</strong></li>
-<li>The life-support backbone of the community</li>
-</ul>
-</div>
-</div></div>
-<div class="fragment fade-up">
-<div style="background-color: #1D2D6B; color: white; padding: 12px 18px; border-radius: 8px; text-align: center; font-size: 21px; margin-top: 15px;">
-<p><strong>The Core Question:</strong> Is the meadow’s core just an accident of whoever has a busy flowering day?<br>
-Or is there a <strong>permanent set of ecological “Heathrows”</strong> that hold the system together?</p>
-</div>
-</div>
+<section id="identifying-the-meadows-permanent-hubs" class="slide level2">
+<h2>Identifying the Meadow’s Permanent Hubs</h2>
+<div style="background-color: #F8F9FA; border-left: 6px solid #1D2D6B; padding: 24px 28px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); font-size: 24px; line-height: 1.6; margin-top: 60px;">
+<p>Are the network hubs just an <strong>ephemeral accident</strong> of whoever happens to produce the most flowers in a given year?</p>
+<hr style="border: 0; border-top: 1px solid #E2E8F0; margin: 20px 0;">
+<p>Or does the meadow possess a <strong>permanent set of topological anchors</strong> that maintain core roles across 15 years—irrespective of climatic extremes?</p>
+<p>:::</p>
 <aside class="notes">
-<p>Use the airport analogy to set up the intuition: Think of European aviation. If a tiny regional airstrip in the Lofoten islands closes for a few days due to fog, nobody outside that valley notices. But if Heathrow or Frankfurt shuts down, thousands of connecting flights are cancelled across the entire globe. In pollination networks, the core species are the Heathrows. They route the shared mutualistic visits across the whole meadow. The question is: across 15 years, does the meadow actually have permanent Heathrows, or does the core just drift randomly every year based on who blooms most? Let’s look at the data!</p>
+<p>Recall our airport analogy: is Frankfurt an international hub because it randomly had an extra runway open on a sunny Tuesday? Or because of permanent structural routing? In pollination networks, the central question is whether network hubs are merely abundant generalists, or whether specific plant identities provide permanent community cohesion. To test this, we compared every species against a presence-conditional null model across all 15 years.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -487,7 +479,6 @@ Or is there a <strong>permanent set of ecological “Heathrows”</strong> that 
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section>
 <section id="discovering-the-true-core" class="slide level2">
 <h2>Discovering the True Core</h2>
 <div class="quarto-figure quarto-figure-center">
@@ -660,8 +651,7 @@ The core is an enduring architectural feature grounded in intrinsic floral syndr
 </h3>
 </div>
 <p><img data-src="images/Logo EN BWlogo.png" class="absolute" style="bottom: 0%; right: 25%; width: 190px; "> <img data-src="images/CREAF-SO-logo-pluma_blanca-ESP.png" class="absolute" style="left: 0px; bottom: 0%; width: 230px; "> <img data-src="images/logoPrF1.png" class="absolute" style="left: 0%; bottom: 8%; width: 170px; "> <img data-src="images/pyl.png" class="absolute" style="bottom: 8%; right: 5%; width: 170px; "></p>
-</section></section>
-<section>
+</section>
 <section id="appendix-backup-slides" class="title-slide slide level1" data-background-color="#333">
 <h1>Appendix &amp; Backup Slides</h1>
 
@@ -793,6 +783,9 @@ The core is an enduring architectural feature grounded in intrinsic floral syndr
       }</style></aside>
 
 
+</section>
+
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
