@@ -145,15 +145,15 @@ Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perenn
 ::::: columns
 ::: {.column width="50%"}
 ::: r-stack
-![](images/blank.png){height="460px" fig-align="center"}
+![](images/blank.png){height="490px" fig-align="center"}
 
-![](images/plant_step4_coreness.png){.fragment .fade-in-then-out fragment-index=1 height="460px" fig-align="center"}
+![](images/plant_step4_coreness.png){.fragment .fade-in-then-out fragment-index=1 height="490px" fig-align="center"}
 
-![](images/plant_step_rand.png){.fragment .fade-in-then-out fragment-index=2 height="460px" fig-align="center"}
+![](images/plant_step_rand.png){.fragment .fade-in-then-out fragment-index=2 height="490px" fig-align="center"}
 
-![](images/plant_step5_spoke.png){.fragment .fade-in-then-out fragment-index=3 height="460px" fig-align="center"}
+![](images/plant_step5_spoke.png){.fragment .fade-in-then-out fragment-index=3 height="490px" fig-align="center"}
 
-![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=4 height="460px" fig-align="center"}
+![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=4 height="490px" fig-align="center"}
 :::
 
 ::: {.fragment fragment-index=1 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
@@ -163,15 +163,15 @@ Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perenn
 
 ::: {.column width="48%"}
 ::: r-stack
-![](images/blank.png){height="460px" fig-align="center"}
+![](images/blank.png){height="490px" fig-align="center"}
 
-![](images/cascade_curve_axes.png){.fragment .fade-in-then-out fragment-index=1 height="460px" fig-align="center"}
+![](images/cascade_curve_axes.png){.fragment .fade-in-then-out fragment-index=1 height="490px" fig-align="center"}
 
-![](images/cascade_curve_rand.png){.fragment .fade-in-then-out fragment-index=2 height="460px" fig-align="center"}
+![](images/cascade_curve_rand.png){.fragment .fade-in-then-out fragment-index=2 height="490px" fig-align="center"}
 
-![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=3 height="460px" fig-align="center"}
+![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=3 height="490px" fig-align="center"}
 
-![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=4 height="460px" fig-align="center"}
+![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=4 height="490px" fig-align="center"}
 :::
 
 ::: {.fragment fragment-index=1 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
@@ -179,10 +179,6 @@ Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perenn
 :::
 :::
 :::::
-
-::: {.fragment fragment-index=5 style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 6px;"}
-**The 15-Year Question:** In Handrkov, did extreme climate warming break our core hubs—or did the core hold?
-:::
 
 ::: notes
 Slide 6: Here is how network theory formalizes robustness (Memmott et al. 2004).

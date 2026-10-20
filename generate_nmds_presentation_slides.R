@@ -176,15 +176,26 @@ create_base_plot <- function(has_visible_legend = TRUE) {
     return(p)
 }
 
+# Helper for year labels
+add_year_labels <- function(p, text_color = "black") {
+    p + geom_text_repel(
+        data = joined_data,
+        aes(x = NMDS1, y = NMDS2, label = Year),
+        fontface = "bold", size = 6.5, color = text_color,
+        box.padding = 0.5, point.padding = 0.4,
+        force = 3, max.overlaps = Inf, seed = 42,
+        inherit.aes = FALSE
+    )
+}
+
 # --- Step 1: Empty axes (with layout space locked) ---
 p1 <- create_base_plot(has_visible_legend = FALSE)
 ggsave("images/nmds_step1_axes.png", p1, width = 11, height = 7, bg = "transparent", dpi = 300)
 
 # --- Step 2: Points only (with year labels) ---
 p2 <- create_base_plot(has_visible_legend = TRUE) +
-    geom_point(aes(color = Year), shape = 16, size = 8) +
-    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
-              fontface = "bold", size = 6.5, color = "black", inherit.aes = FALSE)
+    geom_point(aes(color = Year), shape = 16, size = 8)
+p2 <- add_year_labels(p2, "black")
 ggsave("images/nmds_step2_points.png", p2, width = 11, height = 7, bg = "transparent", dpi = 300)
 
 # --- Step 3: Trajectory (Points + Connecting path segments) ---
@@ -194,9 +205,8 @@ p3 <- create_base_plot(has_visible_legend = TRUE) +
         aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
         linewidth = 2.2, lineend = "round", alpha = 0.85, inherit.aes = FALSE
     ) +
-    geom_point(aes(color = Year), shape = 16, size = 8) +
-    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
-              fontface = "bold", size = 6.5, color = "black", inherit.aes = FALSE)
+    geom_point(aes(color = Year), shape = 16, size = 8)
+p3 <- add_year_labels(p3, "black")
 ggsave("images/nmds_step3_trajectory.png", p3, width = 11, height = 7, bg = "transparent", dpi = 300)
 
 # --- Step 4: Dim points/trajectory + Project environmental arrows with NAMES ONLY ---
@@ -206,9 +216,8 @@ p4 <- create_base_plot(has_visible_legend = TRUE) +
         aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
         linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
     ) +
-    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30) +
-    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
-              fontface = "bold", size = 6.5, color = "grey55", inherit.aes = FALSE) +
+    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30)
+p4 <- add_year_labels(p4, "grey55") +
     geom_segment(
         data = envfit_vectors,
         aes(x = 0, y = 0, xend = xend, yend = yend),
@@ -234,9 +243,8 @@ p5 <- create_base_plot(has_visible_legend = TRUE) +
         aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
         linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
     ) +
-    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30) +
-    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
-              fontface = "bold", size = 6.5, color = "grey55", inherit.aes = FALSE) +
+    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30)
+p5 <- add_year_labels(p5, "grey55") +
     geom_segment(
         data = envfit_vectors,
         aes(x = 0, y = 0, xend = xend, yend = yend),
