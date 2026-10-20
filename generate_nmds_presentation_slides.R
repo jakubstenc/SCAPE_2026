@@ -101,7 +101,8 @@ envfit_vectors <- as.data.frame(scores(ef, display = "vectors")) %>%
             Variable == "Temperature" ~ "Temperature",
             Variable == "Year" ~ "Time (Year)"
         ),
-        label = sprintf("%s\n(r² = %.2f, p = %.3f)", var_name, r2, pval),
+        label_name_only = var_name,
+        label_full = sprintf("%s\n(r² = %.2f, p = %.3f)", var_name, r2, pval),
         nudge_x = case_when(
             Variable == "Drought_Severity" ~ 0.00,
             Variable == "Temperature" ~ -0.03,
@@ -127,58 +128,133 @@ base_nmds_theme <- theme_classic(base_size = 22) +
         legend.background = element_rect(fill = "transparent", color = NA)
     )
 
-# Slide 1: Empty axes
-p_empty <- ggplot(joined_data, aes(x = NMDS1, y = NMDS2)) +
-    geom_hline(yintercept = 0, linetype = "dashed", color = "grey80", linewidth = 0.8) +
-    geom_vline(xintercept = 0, linetype = "dashed", color = "grey80", linewidth = 0.8) +
-    annotate("text", x = Inf, y = -Inf, label = sprintf("Stress = %.3f", nmds_res$stress),
-             hjust = 1.15, vjust = -1.2, size = 7, fontface = "italic", color = "grey40") +
-    coord_cartesian(xlim = c(-0.70, 1.15), ylim = c(-0.45, 0.65)) +
-    labs(
-        title = "Temporal Trajectory of Pollinator Sharing (PAC NMDS)",
-        x = "NMDS Axis 1 (Acute Climate Pulse)",
-        y = "NMDS Axis 2 (Decadal Press)"
-    ) +
-    base_nmds_theme
-
-ggsave("images/nmds_climate_envfit_empty.png", p_empty, width = 11, height = 7, bg = "transparent", dpi = 300)
-
-# Slide 2: Trajectory + points
-p_points <- p_empty +
-    geom_segment(
-        data = path_segs,
-        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
-        linewidth = 2.2, lineend = "round", alpha = 0.85, inherit.aes = FALSE
-    ) +
+# Compute stable label coordinates using geom_text_repel once
+p_ref <- ggplot(joined_data, aes(x = NMDS1, y = NMDS2)) +
     geom_point(aes(color = Year), shape = 16, size = 8) +
     scale_color_viridis_c(option = "magma", name = "Year", direction = 1) +
     geom_text_repel(
         aes(label = Year),
         fontface = "bold", size = 6.5, color = "black",
         box.padding = 0.8, point.padding = 0.6, force = 4, max.overlaps = Inf, seed = 42
-    )
+    ) +
+    coord_cartesian(xlim = c(-0.70, 1.15), ylim = c(-0.45, 0.65)) +
+    base_nmds_theme
 
-ggsave("images/nmds_climate_envfit_points.png", p_points, width = 11, height = 7, bg = "transparent", dpi = 300)
+gb <- ggplot_build(p_ref)
+year_labels_df <- gb$data[[2]][, c("label", "x", "y")]
 
-# Slide 3: Full with Environmental vectors
-p_full <- p_points +
+# Base plot template (axes only)
+create_base_plot <- function(has_visible_legend = TRUE) {
+    p <- ggplot(joined_data, aes(x = NMDS1, y = NMDS2)) +
+        geom_hline(yintercept = 0, linetype = "dashed", color = "grey80", linewidth = 0.8) +
+        geom_vline(xintercept = 0, linetype = "dashed", color = "grey80", linewidth = 0.8) +
+        annotate("text", x = Inf, y = -Inf, label = sprintf("Stress = %.3f", nmds_res$stress),
+                 hjust = 1.15, vjust = -1.2, size = 7, fontface = "italic", color = "grey40") +
+        coord_cartesian(xlim = c(-0.70, 1.15), ylim = c(-0.45, 0.65)) +
+        labs(
+            title = "Temporal Trajectory of Pollinator Sharing (PAC NMDS)",
+            x = "NMDS Axis 1 (Acute Climate Pulse)",
+            y = "NMDS Axis 2 (Decadal Press)"
+        ) +
+        base_nmds_theme
+        
+    if (!has_visible_legend) {
+        p <- p +
+            geom_point(aes(color = Year), alpha = 0) +
+            scale_color_gradient(
+                low = "transparent", high = "transparent", name = "Year",
+                guide = guide_colorbar(
+                    title.theme = element_text(color = "transparent"),
+                    label.theme = element_text(color = "transparent"),
+                    frame.colour = "transparent",
+                    ticks.colour = "transparent"
+                )
+            )
+    } else {
+        p <- p + scale_color_viridis_c(option = "magma", name = "Year", direction = 1)
+    }
+    return(p)
+}
+
+# --- Step 1: Empty axes (with layout space locked) ---
+p1 <- create_base_plot(has_visible_legend = FALSE)
+ggsave("images/nmds_step1_axes.png", p1, width = 11, height = 7, bg = "transparent", dpi = 300)
+
+# --- Step 2: Points only (with year labels) ---
+p2 <- create_base_plot(has_visible_legend = TRUE) +
+    geom_point(aes(color = Year), shape = 16, size = 8) +
+    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
+              fontface = "bold", size = 6.5, color = "black", inherit.aes = FALSE)
+ggsave("images/nmds_step2_points.png", p2, width = 11, height = 7, bg = "transparent", dpi = 300)
+
+# --- Step 3: Trajectory (Points + Connecting path segments) ---
+p3 <- create_base_plot(has_visible_legend = TRUE) +
+    geom_segment(
+        data = path_segs,
+        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
+        linewidth = 2.2, lineend = "round", alpha = 0.85, inherit.aes = FALSE
+    ) +
+    geom_point(aes(color = Year), shape = 16, size = 8) +
+    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
+              fontface = "bold", size = 6.5, color = "black", inherit.aes = FALSE)
+ggsave("images/nmds_step3_trajectory.png", p3, width = 11, height = 7, bg = "transparent", dpi = 300)
+
+# --- Step 4: Dim points/trajectory + Project environmental arrows with NAMES ONLY ---
+p4 <- create_base_plot(has_visible_legend = TRUE) +
+    geom_segment(
+        data = path_segs,
+        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
+        linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
+    ) +
+    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30) +
+    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
+              fontface = "bold", size = 6.5, color = "grey55", inherit.aes = FALSE) +
     geom_segment(
         data = envfit_vectors,
         aes(x = 0, y = 0, xend = xend, yend = yend),
         arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
-        color = "black", linewidth = 1.6, inherit.aes = FALSE
+        color = "black", linewidth = 1.8, inherit.aes = FALSE
     ) +
     geom_label_repel(
         data = envfit_vectors,
-        aes(x = xend, y = yend, label = label),
-        fontface = "bold", size = 6.0, color = "black",
-        fill = alpha("white", 0.92), label.size = 0.4,
+        aes(x = xend, y = yend, label = label_name_only),
+        fontface = "bold", size = 6.2, color = "black",
+        fill = alpha("white", 0.95), label.size = 0.4,
         box.padding = 0.5, point.padding = 0.4,
         nudge_x = envfit_vectors$nudge_x,
         nudge_y = envfit_vectors$nudge_y,
         inherit.aes = FALSE, seed = 42
     )
+ggsave("images/nmds_step4_vectors_names.png", p4, width = 11, height = 7, bg = "transparent", dpi = 300)
 
-ggsave("images/nmds_climate_envfit.png", p_full, width = 11, height = 7, bg = "transparent", dpi = 300)
+# --- Step 5: Dim points/trajectory + Arrows with NAMES + NUMBERS (r², p) ---
+p5 <- create_base_plot(has_visible_legend = TRUE) +
+    geom_segment(
+        data = path_segs,
+        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
+        linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
+    ) +
+    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30) +
+    geom_text(data = year_labels_df, aes(x = x, y = y, label = label),
+              fontface = "bold", size = 6.5, color = "grey55", inherit.aes = FALSE) +
+    geom_segment(
+        data = envfit_vectors,
+        aes(x = 0, y = 0, xend = xend, yend = yend),
+        arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
+        color = "black", linewidth = 1.8, inherit.aes = FALSE
+    ) +
+    geom_label_repel(
+        data = envfit_vectors,
+        aes(x = xend, y = yend, label = label_full),
+        fontface = "bold", size = 6.0, color = "black",
+        fill = alpha("white", 0.95), label.size = 0.4,
+        box.padding = 0.5, point.padding = 0.4,
+        nudge_x = envfit_vectors$nudge_x,
+        nudge_y = envfit_vectors$nudge_y,
+        inherit.aes = FALSE, seed = 42
+    )
+ggsave("images/nmds_step5_vectors_stats.png", p5, width = 11, height = 7, bg = "transparent", dpi = 300)
+# Also overwrite original for backward compatibility
+ggsave("images/nmds_climate_envfit.png", p5, width = 11, height = 7, bg = "transparent", dpi = 300)
 
-cat("Successfully generated NMDS slide progression.\n")
+cat("Successfully generated all 5 NMDS steps.\n")

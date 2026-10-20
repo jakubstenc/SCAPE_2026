@@ -59,7 +59,7 @@ Atmospheric introduction to the Handrkov meadow:
 Species-rich submontane grassland ecosystem where dozens of entomophilous plants bloom simultaneously, all sharing a finite pool of flower visitors.
 :::
 
-## The Paradox of Pollinator Sharing
+## Interactions
 
 ::: r-stack
 ![](images/San_off_zygena.JPG){fig-align="center" width="620"}
@@ -76,45 +76,122 @@ The paradox: Short-term network studies show massive year-to-year turnover and r
 Is this sharing web in constant chaotic drift, or does an underlying stable architecture anchor the community?
 :::
 
-## From Bipartite Visits to Pollinator Sharing
+##  {style="margin-top: -15px;"}
+
+::: r-stack
+![](images/story_step1a_few_visits.png){.fragment .fade-out fragment-index=1 height="540px" fig-align="center"}
+
+![](images/story_step1b_full_bipartite.png){.fragment .fade-in-then-out fragment-index=1 height="540px" fig-align="center"}
+
+![](images/story_step2a_sharing_bridge.png){.fragment .fade-in-then-out fragment-index=2 height="540px" fig-align="center"}
+
+![](images/story_step2b_sharing_web.png){.fragment .fade-in fragment-index=3 height="540px" fig-align="center"}
+:::
+
+::: notes
+Step 1 (First visit links): We start from empirical flower visits in the field—an insect landing on a flower.
+Step 2 (Bipartite Web): As dozens of co-flowering plant species and hundreds of insect visitors interact across the meadow, these individual visits weave together into a bipartite plant-pollinator interaction network.
+Step 3 (Pollinator Sharing Bridge): But plants do not interact directly; they interact through the shared pool of flower visitors. When two plant species are visited by the same pollinators, those insects carry pollen between them and bridge the plants together.
+Step 4 (Pollinator-Sharing Network): By projecting these shared visits across the whole community, we reveal the unipartite pollinator-sharing web—a topological network of plants anchored by dense shared connections!
+:::
+
+## Network Architecture: Airports vs. The Meadow {style="margin-top: -12px; margin-bottom: 4px;"}
 
 ::::: columns
-::: {.column width="48%"}
-### Bipartite Interaction Network
-![](images/concept_network.png){.nostretch width="100%" height="380px" style="object-fit: contain;"}
+::: {.column width="49.5%"}
+::: {.fragment fragment-index=1 style="text-align: center; font-weight: bold; color: #1E3A8A; font-size: 21px; margin-bottom: 4px;"}
+✈️ European Aviation Network
+:::
 
-::: {style="font-size: 18px; color: #555; text-align: center;"}
-Direct plant-pollinator links (bipartite visits)
+::: r-stack
+![](images/airport_step1_map.png){.fragment .fade-in-then-out fragment-index=1 height="520px" fig-align="center"}
+
+![](images/airport_step2_airports.png){.fragment .fade-in-then-out fragment-index=2 height="520px" fig-align="center"}
+
+![](images/airport_step3_routes.png){.fragment .fade-in-then-out fragment-index=3 height="520px" fig-align="center"}
+
+![](images/airport_step4_coreness.png){.fragment .fade-in fragment-index=4 height="520px" fig-align="center"}
 :::
 :::
 
-::: {.column width="48%"}
-### Pollinator-Sharing Web (PAC)
-![](images/visweb_network.png){.nostretch width="100%" height="380px" style="object-fit: contain;"}
+::: {.column width="49.5%"}
+::: {.fragment fragment-index=5 style="text-align: center; font-weight: bold; color: #1E3A8A; font-size: 21px; margin-bottom: 4px;"}
+🌸 Meadow Pollinator Sharing
+:::
 
-::: {style="font-size: 18px; color: #555; text-align: center;"}
-Müller's index of Pollinator Abundance & Constancy: directed interspecific plant–plant dependence
+::: r-stack
+![](images/plant_step2_plants.png){.fragment .fade-in-then-out fragment-index=5 height="520px" fig-align="center"}
+
+![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=6 height="520px" fig-align="center"}
+
+![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=7 height="520px" fig-align="center"}
 :::
 :::
 :::::
 
 ::: notes
-To examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller's PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A.
+Step 0 (Title only): To understand the stability of our pollination web, let's step outside ecology and look at an analogy from human infrastructure: the European aviation network.
+Step 1 (Map): Here is European airspace.
+Step 2 (Airports): Across Europe are 895 airports—geographically scattered, seemingly uniform.
+Step 3 (Routes): Add 15,000 empirical commercial flight routes—a complex topological web appears.
+Step 4 (Airport Coreness): Calculate coreness: a tiny core of mega-hubs (London, Amsterdam, Frankfurt, Paris) anchors continental travel, while regional airfields (Røros, Kristianstad) are peripheral spokes.
+Step 5 (Plant Nodes): Now look at our meadow: 57 co-flowering plant species in Handrkov.
+Step 6 (Plant Routes): Add empirical pollinator sharing: visitors link plants together through shared service.
+Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species form the central routing core, while peripheral flora connect through them.
 :::
 
-## Network Architecture: The Airport Analogy
+## What is Robustness? The Extinction Cascade {style="margin-top: -12px; margin-bottom: 4px;"}
 
-![](images/airport_vs_pollinator_empirical.png){fig-align="center" width="100%" height="405px" style="object-fit: contain; margin-bottom: 2px;"}
+::::: columns
+::: {.column width="50%"}
+::: r-stack
+![](images/blank.png){height="460px" fig-align="center"}
 
-::: {style="background-color: #F0F4FA; border-left: 5px solid #1D2D6B; padding: 8px 14px; border-radius: 6px; font-size: 17px; margin-top: 4px; line-height: 1.4; text-align: left;"}
-**Shared Topology:** In both European aviation and submontane meadows, a small core (~5–10% of nodes) routes >60% of total connectivity.  
-If regional spokes (Røros / *Lathyrus*) fluctuate, the system absorbs it. But what happens if the **Core Hubs** fail?
+![](images/plant_step4_coreness.png){.fragment .fade-in-then-out fragment-index=1 height="460px" fig-align="center"}
+
+![](images/plant_step_rand.png){.fragment .fade-in-then-out fragment-index=2 height="460px" fig-align="center"}
+
+![](images/plant_step5_spoke.png){.fragment .fade-in-then-out fragment-index=3 height="460px" fig-align="center"}
+
+![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=4 height="460px" fig-align="center"}
+:::
+
+::: {.fragment fragment-index=1 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
+*Meadow pollinator sharing network under simulated extinction scenarios*
+:::
+:::
+
+::: {.column width="48%"}
+::: r-stack
+![](images/blank.png){height="460px" fig-align="center"}
+
+![](images/cascade_curve_axes.png){.fragment .fade-in-then-out fragment-index=1 height="460px" fig-align="center"}
+
+![](images/cascade_curve_rand.png){.fragment .fade-in-then-out fragment-index=2 height="460px" fig-align="center"}
+
+![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=3 height="460px" fig-align="center"}
+
+![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=4 height="460px" fig-align="center"}
+:::
+
+::: {.fragment fragment-index=1 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
+*Co-extinction simulation (Memmott et al. 2004) on Handrkov pollination web*
+:::
+:::
+:::::
+
+::: {.fragment fragment-index=5 style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 6px;"}
+**The 15-Year Question:** In Handrkov, did extreme climate warming break our core hubs—or did the core hold?
 :::
 
 ::: notes
-Here is the intuition that connects network theory to pollination ecology:
-Think of the European flight network on the left (real OpenFlights data). Major hubs like London, Amsterdam, and Frankfurt maintain over 100 direct routes (Coreness = 27), while regional airstrips like Røros or Kristianstad in Scandinavia have 1 or 2 connections. If fog grounds flights in Røros, continental travel doesn't blink. But if Frankfurt or Heathrow shuts down, the entire European transit system is thrown into chaos.
-On the right is our 15-year pollinator-sharing web from Handrkov. Exactly like aviation, it exhibits a centralized hub-and-spoke architecture: a core of 6 perennial plants anchors the floral traffic, while dozens of peripheral species connect through them.
+Slide 6: Here is how network theory formalizes robustness (Memmott et al. 2004).
+Step 0: Title only.
+Step 1 (Axes & Intact Web): Here are the co-extinction axes: proportion of plants extinct vs pollinators surviving, alongside our intact Handrkov sharing network.
+Step 2 (Random Loss): When species disappear at random, robustness shows a steady, intermediate decline.
+Step 3 (Peripheral Spoke Loss): When peripheral species are removed first (red dashed line), the curve stays flat near 100%! Almost all pollinators survive because the central core anchors them. High robustness (R ≈ 0.85).
+Step 4 (Core Hub Collapse): BUT when core hubs collapse (solid navy line), the curve plummets immediately! Losing Centaurea and Succisa causes massive secondary cascades. Low robustness (R ≈ 0.45).
+Step 5 (15-Year Question): Across 15 years, during unprecedented summer droughts, did climate stress break our core hubs, or did the core hold?
 :::
 
 ## Questions
@@ -281,7 +358,17 @@ fig-cap-location: top
 
 ## Macro-Dynamics: Two Decoupled Timescales
 
-![](images/nmds_climate_envfit.png){fig-align="center" height="540"}
+::: r-stack
+![](images/nmds_step1_axes.png){.fragment .fade-out fragment-index=1 fig-align="center" height="540px"}
+
+![](images/nmds_step2_points.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center" height="540px"}
+
+![](images/nmds_step3_trajectory.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center" height="540px"}
+
+![](images/nmds_step4_vectors_names.png){.fragment .fade-in-then-out fragment-index=3 fig-align="center" height="540px"}
+
+![](images/nmds_step5_vectors_stats.png){.fragment .fade-in fragment-index=4 fig-align="center" height="540px"}
+:::
 
 ::: notes
 Non-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106).
@@ -354,18 +441,20 @@ Markov role transitions show core species have a 59.2% probability of remaining 
 
 ## Secondary Extinctions: The Fragility Flip
 
-![](images/robustness_4_all.png){fig-align="center" width="880"}
+::: r-stack
+![](images/robustness_1_axis.png){.fragment .fade-out fragment-index=1 fig-align="center" height="540px"}
 
-:::: {.fragment .fade-up}
-::: {style="background-color: rgba(29, 45, 107, 0.12); border-left: 6px solid #1D2D6B; padding: 12px; margin-top: 10px; font-size: 21px;"}
-**During normal years:** The meadow exhibits high structural redundancy ($R \approx 0.63\text{--}0.84$).  
-**During severe droughts (2015, 2018):** Core loss triggers catastrophic collapse ($R \approx 0.45$), while peripheral loss is easily buffered ($R \approx 0.83$). The **Robustness Gap ($\Delta R$)** surges!
+![](images/robustness_2_random.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center" height="540px"}
+
+![](images/robustness_3_periph.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center" height="540px"}
+
+![](images/robustness_4_all.png){.fragment .fade-in fragment-index=3 fig-align="center" height="540px"}
 :::
-::::
 
 ::: notes
 We simulated secondary extinction cascades (Memmott et al. 2004). Robustness R is the area under the co-extinction curve.
-In non-drought years, pollinators easily switch partners. But in 2015 and 2018, the network's survival becomes almost exclusively dependent on the 6 core species.
+During normal years: The meadow exhibits high structural redundancy (R ≈ 0.63–0.84).
+During severe droughts (2015, 2018): Core loss triggers catastrophic collapse (R ≈ 0.45), while peripheral loss is easily buffered (R ≈ 0.83). The Robustness Gap (ΔR) surges! In drought years, network survival becomes almost exclusively dependent on the 6 core species.
 :::
 
 ## What Causes the Flip? A 3-Step Mechanistic Cascade
@@ -442,38 +531,66 @@ Stigmatic pollen deposition on *Succisa pratensis*
 Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!
 :::
 
+## Handrkov
+
+![](images/Handrkov_group_foto.jpg){fig-align="center" height="520"}
+
+## Handrkov - Collaboration
+
+![](images/opylovači.jpeg){fig-align="center" width="950"}
+
+## Handrkov - Collaboration
+
+![](images/opylovači_empty_niche.jpeg){fig-align="center" width="950"}
+
+<div style="position: absolute; bottom: 42px; left: 0; right: 0; text-align: center; font-size: 21px;">
+  <a href="https://pollination-ecology-group.github.io/Handrkov/" target="_blank" style="color: #1D2D6B; font-weight: 600; text-decoration: underline;">https://pollination-ecology-group.github.io/Handrkov/</a>
+  <span style="color: #888; margin: 0 10px;">|</span>
+  <a href="mailto:jakubstenc@gmail.com" style="color: #374151; text-decoration: none;">jakubstenc@gmail.com</a>
+</div>
+
 ## Ecoflor 2027!
 
 ![](images/logo2027.png){fig-align="center" width="700"}
 
+## Ecoflor 2027!
+
+<div style="text-align: center; margin-top: 10px;">
+
+<div style="font-size: 42px; font-weight: 800; color: #1D2D6B; margin-bottom: 16px; letter-spacing: -0.5px;">
+  Register now!
+</div>
+
+![](images/ecoflor_qr.png){fig-align="center" width="340" style="border: 4px solid #1D2D6B; border-radius: 12px; padding: 10px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.12);"}
+
+<div style="font-size: 19px; color: #374151; margin-top: 16px; font-weight: 500;">
+  <a href="https://pollination-ecology-group.github.io/ECOFLOR2027/" target="_blank" style="color: #1D2D6B; text-decoration: underline;">pollination-ecology-group.github.io/ECOFLOR2027/</a>
+</div>
+
+</div>
+
 
 ##  {background-image="images/Fin.jpg"}
 
-<br><br>
-
-<h2 style="text-align:center;color:white;">
-
-::: {style="background-color: rgba(0, 0, 0, .55); backdrop-filter: blur(5px); box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5); border-radius: 8px; padding: 20px;"}
-Thank you for your attention!
-:::
-
-</h2>
-
 <br>
 
-::: frosted
-<h3 style="color:white;font-family: 'Jost', sans-serif;text-align:center;margin:0; font-size: 26px;">
-
-**Jakub Štenc**<br>
-jakubstenc@gmail.com | +420 774 553 734<br>
-Charles University, Prague & CREAF, Barcelona
-
-<div style="margin-top: 15px; font-size: 20px; color: #FFD700; font-weight: bold;">
-Save the date: Ecoflor 2027 in Prague!
+<div style="text-align: center; margin-bottom: 22px;">
+<div style="display: inline-block; background-color: rgba(0, 0, 0, .65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, .5); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18); padding: 18px 38px; color: white; font-size: 38px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+Thank you for your attention!
+</div>
 </div>
 
-</h3>
-:::
+<div style="background-color: rgba(0, 0, 0, .65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, .5); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18); padding: 18px 30px; max-width: 630px; margin: 0 auto; text-align: center; color: white; font-family: 'Jost', sans-serif;">
+
+<div style="font-size: 27px; font-weight: bold; color: #FFFFFF; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">Jakub Štenc</div>
+<div style="font-size: 20px; color: #E2E8F0; margin-top: 5px; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">jakubstenc@gmail.com &nbsp;|&nbsp; +420 774 553 734</div>
+<div style="font-size: 19px; color: #CBD5E1; margin-top: 3px; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">Charles University, Prague &amp; CREAF, Barcelona</div>
+
+<div style="margin-top: 14px; font-size: 20px; color: #FBBF24; font-weight: bold; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">
+🌸 Save the date: Ecoflor 2027 in Prague!
+</div>
+
+</div>
 
 ![](images/Logo%20EN%20BWlogo.png){.absolute bottom="0%" right="25%" width="190"} ![](images/CREAF-SO-logo-pluma_blanca-ESP.png){.absolute bottom="0%" left="0" width="230"} ![](images/logoPrF1.png){.absolute bottom="8%" left="0%" width="170"} ![](images/pyl.png){.absolute bottom="8%" right="5%" width="170"}
 

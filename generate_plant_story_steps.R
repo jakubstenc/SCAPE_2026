@@ -1,9 +1,8 @@
 library(igraph)
 library(ggplot2)
 library(dplyr)
-library(ggrepel)
 
-cat("Step 1: Processing Handrkov pollinator sharing network...\n")
+cat("Step 1: Processing Handrkov pollinator sharing network with Natural Organic Layout...\n")
 load('/home/meow/ownCloud - Mgr Jakub Štenc Phd@owncloud.cesnet.cz/Psani_clanku/2025/Annual_dynamics_pollinator_sharing/local_packages/HanPolNet/data/interaction_data.rda')
 core_def <- read.csv('/home/meow/ownCloud - Mgr Jakub Štenc Phd@owncloud.cesnet.cz/Psani_clanku/2025/Annual_dynamics_pollinator_sharing/outputs/Data_Prep/core_definition.csv')
 
@@ -28,36 +27,87 @@ plant_nodes$Role <- ifelse(plant_nodes$Core_Status == "Core", "Core Plant", "Per
 plant_nodes$Mean_k_round <- round(plant_nodes$Mean_k, 1)
 plant_nodes$Gc_round <- round(plant_nodes$Obs_Mean_Gc, 2)
 
-# Concentric layout
-core_sp <- subset(plant_nodes, Role == "Core Plant")$Species
+g_plant <- graph_from_adjacency_matrix(plant_adj, mode = "undirected", weighted = TRUE)
+
+# --- Organic, Natural Layout ---
+# The 6 core perennial species form a natural, organic hub cluster in the center (mirroring European mega-hubs like Frankfurt, Paris, London)
+# Centaurea jacea is nestled centrally, while others cluster organically without forming a rigid pentagram or circle.
+core_pos <- data.frame(
+  Species = c("Centaurea jacea", "Succisa pratensis", "Achillea ptarmica", "Selinum carvifolia", "Pimpinella saxifraga", "Ranunculus acris"),
+  x = c( 0.05,  1.40, -1.30,  0.15,  1.10, -0.95),
+  y = c( 0.15, -0.35,  0.40, -1.35,  1.20, -0.85),
+  lbl_x = c(-0.10,  2.55, -2.45,  0.15,  2.25, -2.15),
+  lbl_y = c( 0.65, -0.35,  0.80, -2.05,  1.70, -1.35)
+)
+
+set.seed(2026)
 periph_sp <- subset(plant_nodes, Role == "Peripheral Plant")$Species
-
-n_core <- length(core_sp)
-n_periph <- length(periph_sp)
-
-set.seed(42)
-# Arrange core species in inner circle
-theta_core <- seq(0, 2 * pi, length.out = n_core + 1)[1:n_core]
-r_core <- 1.45
-
-# Arrange peripheral species in outer ring with slight organic dispersion
-theta_periph <- seq(0, 2 * pi, length.out = n_periph + 1)[1:n_periph]
-r_periph <- 3.85 + rnorm(n_periph, 0, 0.2)
 
 coords <- matrix(0, nrow = nrow(plant_nodes), ncol = 2)
 rownames(coords) <- plant_nodes$Species
 
-coords[core_sp, 1] <- r_core * cos(theta_core)
-coords[core_sp, 2] <- r_core * sin(theta_core)
+for (i in 1:nrow(core_pos)) {
+  coords[core_pos$Species[i], ] <- c(core_pos$x[i], core_pos$y[i])
+}
 
-coords[periph_sp, 1] <- r_periph * cos(theta_periph)
-coords[periph_sp, 2] <- r_periph * sin(theta_periph)
+# Dedicated positions for the 3 labeled peripheral species representing peripheral spokes cleanly:
+# Cirsium palustre: North periphery
+coords["Cirsium palustre", ] <- c(0.20, 3.10)
+# Lathyrus pratensis: South-West periphery
+coords["Lathyrus pratensis", ] <- c(-2.70, -2.10)
+# Ranunculus flammula: South-East periphery
+coords["Ranunculus flammula", ] <- c(2.60, -2.20)
+
+# Distribute remaining peripheral plants organically around the core based on shared visitors
+remaining_periph <- setdiff(periph_sp, c("Cirsium palustre", "Lathyrus pratensis", "Ranunculus flammula"))
+
+for (sp in remaining_periph) {
+  weights <- plant_adj[sp, core_pos$Species]
+  if (sum(weights) > 0) {
+    w_norm <- weights / sum(weights)
+    center_x <- sum(w_norm * core_pos$x)
+    center_y <- sum(w_norm * core_pos$y)
+  } else {
+    center_x <- 0
+    center_y <- 0
+  }
+  angle <- atan2(center_y + rnorm(1, 0, 0.4), center_x + rnorm(1, 0, 0.4))
+  deg <- sum(plant_adj[sp, ])
+  # Natural organic reach out to 3.8, matching the Europe map footprint
+  dist_factor <- 2.4 + 1.4 * (1 - min(deg, 25) / 25) + rnorm(1, 0, 0.25)
+  coords[sp, 1] <- center_x + dist_factor * cos(angle)
+  coords[sp, 2] <- center_y + dist_factor * sin(angle)
+}
+
+# 80 relaxation steps for smooth organic spacing and no node overlaps
+for (iter in 1:80) {
+  for (i in 1:length(remaining_periph)) {
+    sp1 <- remaining_periph[i]
+    p1 <- coords[sp1, ]
+    force_x <- 0
+    force_y <- 0
+    for (j in 1:nrow(coords)) {
+      if (rownames(coords)[j] != sp1) {
+        p2 <- coords[j, ]
+        dx <- p1[1] - p2[1]
+        dy <- p1[2] - p2[2]
+        d <- sqrt(dx^2 + dy^2)
+        if (d < 0.70 && d > 0.001) {
+          repel <- (0.70 - d) / d
+          force_x <- force_x + dx * repel * 0.18
+          force_y <- force_y + dy * repel * 0.18
+        }
+      }
+    }
+    coords[sp1, 1] <- coords[sp1, 1] + force_x
+    coords[sp1, 2] <- coords[sp1, 2] + force_y
+  }
+}
 
 plant_nodes$x <- coords[plant_nodes$Species, 1]
 plant_nodes$y <- coords[plant_nodes$Species, 2]
 
 # Edge filtering: keep significant sharing connections
-g_plant <- graph_from_adjacency_matrix(plant_adj, mode = "undirected", weighted = TRUE)
 edges_plant <- igraph::as_data_frame(g_plant, what = "edges")
 edges_plant <- merge(edges_plant, plant_nodes[, c("Species", "x", "y", "Role")], by.x = "from", by.y = "Species")
 colnames(edges_plant)[4:6] <- c("x1", "y1", "role1")
@@ -67,20 +117,17 @@ colnames(edges_plant)[7:9] <- c("x2", "y2", "role2")
 edges_plant$EdgeType <- ifelse(edges_plant$role1 == "Core Plant" & edges_plant$role2 == "Core Plant", "Core-Core",
                         ifelse(edges_plant$role1 == "Core Plant" | edges_plant$role2 == "Core Plant", "Core-Spoke", "Spoke-Spoke"))
 
-# Filter weak spoke-spoke edges to highlight hub routing
 edges_plot <- subset(edges_plant, EdgeType == "Core-Core" | (EdgeType == "Core-Spoke" & weight >= 3) | (EdgeType == "Spoke-Spoke" & weight >= 8))
 
-plant_nodes$Label <- ifelse(plant_nodes$Role == "Core Plant",
-                           paste0(plant_nodes$Species, "\nk=", plant_nodes$Mean_k_round, ", Gc=", plant_nodes$Gc_round),
-                           "")
+# Labeled data frames
+labels_core <- subset(plant_nodes, Role == "Core Plant")
+labels_core <- merge(labels_core, core_pos[, c("Species", "lbl_x", "lbl_y")], by = "Species")
+labels_core$LabelText <- labels_core$Species
 
-ex_periph <- c("Lathyrus pratensis", "Ranunculus flammula", "Cirsium palustre")
-plant_nodes$Label[plant_nodes$Species %in% ex_periph] <- paste0(plant_nodes$Species[plant_nodes$Species %in% ex_periph], "\nk=", plant_nodes$Mean_k_round[plant_nodes$Species %in% ex_periph], ", Gc=", plant_nodes$Gc_round[plant_nodes$Species %in% ex_periph])
-
-# Circular boundary circle for stage 1
-t_seq <- seq(0, 2 * pi, length.out = 100)
-outer_circle <- data.frame(x = 4.3 * cos(t_seq), y = 4.3 * sin(t_seq))
-inner_circle <- data.frame(x = 1.45 * cos(t_seq), y = 1.45 * sin(t_seq))
+ex_periph_df <- subset(plant_nodes, Species %in% c("Cirsium palustre", "Lathyrus pratensis", "Ranunculus flammula"))
+ex_periph_df$LabelText <- ex_periph_df$Species
+ex_periph_df$lbl_x <- c(0.20, -2.70, 2.60)
+ex_periph_df$lbl_y <- c(3.70, -2.70, -2.80)
 
 base_theme <- theme_void() +
   theme(
@@ -88,76 +135,128 @@ base_theme <- theme_void() +
     panel.background = element_rect(fill = "#FAFAFA", color = "#CBD5E1", linewidth = 1)
   )
 
-# --- Stage 1: Empty Meadow boundary / canvas ---
+# --- Stage 1: Empty Meadow canvas ---
 p1 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#CBD5E1", linetype = "dashed", linewidth = 0.7) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step1_meadow.png", p1, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step1_meadow.png\n")
 
-# --- Stage 2: Plant species as uniform dots ---
+# --- Stage 2: Plant species as uniform dots scattered naturally ---
 p2 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#CBD5E1", linetype = "dashed", linewidth = 0.7) +
-  geom_point(data = plant_nodes, aes(x = x, y = y), color = "#475569", alpha = 0.8, size = 2.8) +
+  geom_point(data = plant_nodes, aes(x = x, y = y), color = "#475569", alpha = 0.82, size = 2.8) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step2_plants.png", p2, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step2_plants.png\n")
 
-# --- Stage 3: Shared pollinator routes connecting plants ---
+# --- Stage 3: Shared pollinator routes connecting plants into an organic web ---
 p3 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#CBD5E1", linetype = "dashed", linewidth = 0.7) +
   geom_segment(data = edges_plot, aes(x = x1, y = y1, xend = x2, yend = y2),
                color = "#60A5FA", alpha = 0.28, linewidth = 0.45) +
-  geom_point(data = plant_nodes, aes(x = x, y = y), color = "#334155", alpha = 0.8, size = 2.8) +
+  geom_point(data = plant_nodes, aes(x = x, y = y), color = "#334155", alpha = 0.85, size = 2.8) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step3_routes.png", p3, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step3_routes.png\n")
 
-# --- Stage 4: Coreness highlighted (Core Plant hubs pop out) ---
+# --- Stage 4: Coreness highlighted (Core Plant hubs naturally anchor the meadow) ---
 p4 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#E2E8F0", linetype = "dashed", linewidth = 0.5) +
-  geom_path(data = inner_circle, aes(x = x, y = y), color = "#DBEAFE", linetype = "dotted", linewidth = 0.5) +
-  # Spoke edges
+  # Spoke routes
   geom_segment(data = subset(edges_plot, EdgeType != "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#93C5FD", alpha = 0.25, linewidth = 0.4) +
-  # Core-Core backbone edges
+               color = "#93C5FD", alpha = 0.28, linewidth = 0.4) +
+  # Core-Core backbone routes (natural organic cluster, no pentagram)
   geom_segment(data = subset(edges_plot, EdgeType == "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#1D4ED8", alpha = 0.88, linewidth = 1.3) +
+               color = "#1D4ED8", alpha = 0.88, linewidth = 1.2) +
   # Peripheral plants
   geom_point(data = subset(plant_nodes, Role == "Peripheral Plant"),
-             aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
+             aes(x = x, y = y), color = "#F87171", alpha = 0.75, size = 2.8) +
   # Core plants
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
              aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
              aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
-  # Labels
-  geom_label_repel(data = subset(plant_nodes, Role == "Core Plant"),
-                   aes(x = x, y = y, label = Label),
-                   fontface = "bold.italic", size = 3.6, color = "#0F172A", fill = alpha("white", 0.92),
-                   box.padding = 0.5, point.padding = 0.4, segment.color = "#1E3A8A", segment.size = 0.5) +
-  geom_label_repel(data = subset(plant_nodes, Species %in% ex_periph),
-                   aes(x = x, y = y, label = Label),
-                   fontface = "italic", size = 3.2, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  # Callout lines for core labels
+  geom_segment(data = labels_core, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
+               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+  # Callout lines for peripheral labels
+  geom_segment(data = ex_periph_df, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
+               color = "#DC2626", alpha = 0.6, linewidth = 0.5) +
+  # Core labels
+  geom_label(data = labels_core, aes(x = lbl_x, y = lbl_y, label = LabelText),
+             fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
+  # Peripheral labels
+  geom_label(data = ex_periph_df, aes(x = lbl_x, y = lbl_y, label = LabelText),
+             fontface = "italic", size = 3.0, color = "#B91C1C", fill = alpha("#FEF2F2", 0.96),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step4_coreness.png", p4, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step4_coreness.png\n")
 
+# --- Stage 4b: Random Loss (Random mixture of species knocked out) ---
+rand_lost_periph <- c("Cirsium palustre", "Lathyrus pratensis")
+rand_lost_core <- c("Ranunculus acris")
+all_rand_lost <- c(rand_lost_periph, rand_lost_core)
+
+# Filter edges: remove connections attached to lost nodes
+edges_rand <- edges_plot %>%
+  filter(!((from %in% all_rand_lost) | (to %in% all_rand_lost)))
+
+p_rand <- ggplot() +
+  # Surviving spoke edges
+  geom_segment(data = subset(edges_rand, EdgeType != "Core-Core"),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               color = "#93C5FD", alpha = 0.25, linewidth = 0.4) +
+  # Surviving core edges
+  geom_segment(data = subset(edges_rand, EdgeType == "Core-Core"),
+               aes(x = x1, y = y1, xend = x2, yend = y2),
+               color = "#1D4ED8", alpha = 0.85, linewidth = 1.1) +
+  # Peripheral plants surviving
+  geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% rand_lost_periph)),
+             aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
+  # Core plants surviving
+  geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
+             aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
+  geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
+             aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
+  # Knocked out peripheral nodes (Red X)
+  geom_point(data = subset(plant_nodes, Species %in% rand_lost_periph),
+             aes(x = x, y = y), color = "#DC2626", size = 6.0, shape = 4, stroke = 2.5) +
+  # Knocked out core node (Red X)
+  geom_point(data = subset(plant_nodes, Species %in% rand_lost_core),
+             aes(x = x, y = y), color = "#DC2626", size = 7.5, shape = 4, stroke = 3.0) +
+  # Callout lines for surviving core labels
+  geom_segment(data = subset(labels_core, !(Species %in% rand_lost_core)),
+               aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
+               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+  geom_label(data = subset(labels_core, !(Species %in% rand_lost_core)),
+             aes(x = lbl_x, y = lbl_y, label = LabelText),
+             fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
+  # Knockout label for core plant
+  geom_label(data = subset(labels_core, Species %in% rand_lost_core),
+             aes(x = lbl_x, y = lbl_y, label = paste0("❌ ", Species, "\nLOST AT RANDOM")),
+             fontface = "bold.italic", size = 3.1, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
+  # Top banner
+  annotate("label", x = 0, y = 4.3, label = "🎲 RANDOM LOSS: Moderate Buffering (Intermediate decline)",
+           fill = "#F8FAFC", color = "#475569", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
+  base_theme
+
+ggsave("images/plant_step_rand.png", p_rand, width = 7.5, height = 6.4, dpi = 300)
+cat("Saved plant_step_rand.png\n")
+
 # --- Stage 5: Spoke Loss (Peripheral species like Lathyrus knocked out) ---
 p5 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#E2E8F0", linetype = "dashed", linewidth = 0.5) +
-  geom_path(data = inner_circle, aes(x = x, y = y), color = "#DBEAFE", linetype = "dotted", linewidth = 0.5) +
   # Spoke edges
   geom_segment(data = subset(edges_plot, EdgeType != "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
@@ -165,9 +264,9 @@ p5 <- ggplot() +
   # Core-Core backbone edges
   geom_segment(data = subset(edges_plot, EdgeType == "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#1D4ED8", alpha = 0.88, linewidth = 1.3) +
+               color = "#1D4ED8", alpha = 0.88, linewidth = 1.2) +
   # Peripheral plants surviving
-  geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% ex_periph[1:2])),
+  geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% c("Lathyrus pratensis", "Ranunculus flammula"))),
              aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
   # Core plants intact
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
@@ -175,31 +274,32 @@ p5 <- ggplot() +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
              aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
   # Knocked out peripheral plants (Red X)
-  geom_point(data = subset(plant_nodes, Species %in% ex_periph[1:2]),
+  geom_point(data = subset(plant_nodes, Species %in% c("Lathyrus pratensis", "Ranunculus flammula")),
              aes(x = x, y = y), color = "#DC2626", size = 6.5, shape = 4, stroke = 2.8) +
-  # Labels
-  geom_label_repel(data = subset(plant_nodes, Role == "Core Plant"),
-                   aes(x = x, y = y, label = Label),
-                   fontface = "bold.italic", size = 3.4, color = "#0F172A", fill = alpha("white", 0.92),
-                   box.padding = 0.5, point.padding = 0.4, segment.color = "#1E3A8A", segment.size = 0.5) +
-  geom_label_repel(data = subset(plant_nodes, Species %in% ex_periph[1:2]),
-                   aes(x = x, y = y, label = paste0("❌ ", Species, "\nSPOKE FAILED")),
-                   fontface = "italic", size = 3.2, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  # Callout lines for core labels
+  geom_segment(data = labels_core, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
+               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+  geom_label(data = labels_core, aes(x = lbl_x, y = lbl_y, label = LabelText),
+             fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
+  # Knockout label
+  geom_label(data = subset(ex_periph_df, Species == "Lathyrus pratensis"),
+             aes(x = lbl_x, y = lbl_y, label = "❌ Lathyrus pratensis\nSPOKE FAILED"),
+             fontface = "italic", size = 3.1, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Top banner
-  annotate("label", x = 0, y = 4.8, label = "🟢 SPOKE LOSS: Meadow Web Absorbs Shock (Core intact)",
-           fill = "#F0FDF4", color = "#15803D", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
-  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 5.1)) +
+  annotate("label", x = 0, y = 4.3, label = "🟢 SPOKE LOSS: Meadow Web Absorbs Shock (Core intact)",
+           fill = "#F0FDF4", color = "#15803D", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step5_spoke.png", p5, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step5_spoke.png\n")
 
-# --- Stage 6: Hub Loss (Centaurea & Core Perennials knocked out) ---
+# --- Stage 6: Hub Loss (Core Perennials knocked out) ---
 edges_spoke_only <- subset(edges_plot, EdgeType == "Spoke-Spoke")
 
 p6 <- ggplot() +
-  geom_path(data = outer_circle, aes(x = x, y = y), color = "#E2E8F0", linetype = "dashed", linewidth = 0.5) +
   # Surviving spoke-spoke edges only (rare, weak)
   geom_segment(data = edges_spoke_only,
                aes(x = x1, y = y1, xend = x2, yend = y2),
@@ -210,17 +310,17 @@ p6 <- ggplot() +
   # Huge Red X over the 6 core plants
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
              aes(x = x, y = y), color = "#DC2626", size = 11, shape = 4, stroke = 3.5) +
-  geom_label_repel(data = subset(plant_nodes, Role == "Core Plant"),
-                   aes(x = x, y = y, label = paste0("❌ ", Species, "\nHUB WITHERED!")),
-                   fontface = "bold.italic", size = 3.3, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#DC2626", segment.size = 0.5) +
+  geom_label(data = labels_core[c(1, 3, 5), ],
+             aes(x = lbl_x, y = lbl_y, label = paste0("❌ ", Species, "\nHUB WITHERED!")),
+             fontface = "bold.italic", size = 3.1, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+             label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Top banner
-  annotate("label", x = 0, y = 4.8, label = "🔴 HUB COLLAPSE: Shared Pollinator Web Unravels!",
-           fill = "#FEF2F2", color = "#B91C1C", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
-  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 5.1)) +
+  annotate("label", x = 0, y = 4.3, label = "🔴 HUB COLLAPSE: Shared Pollinator Web Unravels!",
+           fill = "#FEF2F2", color = "#B91C1C", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
+  coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
 ggsave("images/plant_step6_hub.png", p6, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step6_hub.png\n")
 
-cat("All plant steps generated successfully!\n")
+cat("All plant steps regenerated successfully with organic natural layout!\n")

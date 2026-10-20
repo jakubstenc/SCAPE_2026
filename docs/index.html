@@ -163,8 +163,8 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-paradox-of-pollinator-sharing" class="slide level2">
-<h2>The Paradox of Pollinator Sharing</h2>
+<section id="interactions" class="slide level2">
+<h2>Interactions</h2>
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -196,24 +196,32 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="from-bipartite-visits-to-pollinator-sharing" class="slide level2">
-<h2>From Bipartite Visits to Pollinator Sharing</h2>
-<div class="columns">
-<div class="column" style="width:48%;">
-<h3 id="bipartite-interaction-network">Bipartite Interaction Network</h3>
-<p><img data-src="images/concept_network.png" class="nostretch" style="object-fit: contain;;width:100.0%" height="380"></p>
-<div style="font-size: 18px; color: #555; text-align: center;">
-<p>Direct plant-pollinator links (bipartite visits)</p>
+<section id="section-2" class="slide level2" style="margin-top: -15px;">
+<h2></h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/story_step1a_few_visits.png" class="fragment fade-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
+</figure>
 </div>
-</div><div class="column" style="width:48%;">
-<h3 id="pollinator-sharing-web-pac">Pollinator-Sharing Web (PAC)</h3>
-<p><img data-src="images/visweb_network.png" class="nostretch" style="object-fit: contain;;width:100.0%" height="380"></p>
-<div style="font-size: 18px; color: #555; text-align: center;">
-<p>Müller’s index of Pollinator Abundance &amp; Constancy: directed interspecific plant–plant dependence</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/story_step1b_full_bipartite.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
+</figure>
 </div>
-</div></div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/story_step2a_sharing_bridge.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/story_step2b_sharing_web.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="3" height="540"></p>
+</figure>
+</div>
+</div>
 <aside class="notes">
-<p>To examine apparent competition and structural reliance, we construct unipartite plant-plant networks using Müller’s PAC index. PAC measures the directed dependency between plants: how much pollinators visiting Target Plant B depend on Floral Donor Plant A.</p>
+<p>Step 1 (First visit links): We start from empirical flower visits in the field—an insect landing on a flower. Step 2 (Bipartite Web): As dozens of co-flowering plant species and hundreds of insect visitors interact across the meadow, these individual visits weave together into a bipartite plant-pollinator interaction network. Step 3 (Pollinator Sharing Bridge): But plants do not interact directly; they interact through the shared pool of flower visitors. When two plant species are visited by the same pollinators, those insects carry pollen between them and bridge the plants together. Step 4 (Pollinator-Sharing Network): By projecting these shared visits across the whole community, we reveal the unipartite pollinator-sharing web—a topological network of plants anchored by dense shared connections!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -294,61 +302,74 @@
 <section id="what-is-robustness-the-extinction-cascade" class="slide level2" style="margin-top: -12px; margin-bottom: 4px;">
 <h2>What is Robustness? The Extinction Cascade</h2>
 <div class="columns">
-<div class="column" style="width:45%;">
+<div class="column" style="width:50%;">
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/cascade_curve_periph.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="450"></p>
+<p><img data-src="images/blank.png" class="quarto-figure quarto-figure-center" height="460"></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/cascade_curve_core.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="2" height="450"></p>
+<p><img data-src="images/plant_step4_coreness.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/plant_step_rand.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/plant_step5_spoke.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="3" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/plant_step6_hub.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="4" height="460"></p>
 </figure>
 </div>
 </div>
-<div style="font-size: 15px; text-align: center; color: #64748B; margin-top: 4px;">
+<div class="fragment" data-fragment-index="1" style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;">
+<p><em>Meadow pollinator sharing network under simulated extinction scenarios</em></p>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/blank.png" class="quarto-figure quarto-figure-center" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/cascade_curve_axes.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/cascade_curve_rand.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/cascade_curve_periph.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="3" height="460"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/cascade_curve_core.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="4" height="460"></p>
+</figure>
+</div>
+</div>
+<div class="fragment" data-fragment-index="1" style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;">
 <p><em>Co-extinction simulation (Memmott et al.&nbsp;2004) on Handrkov pollination web</em></p>
 </div>
-</div><div class="column" style="width:53%;">
-<div class="fragment" data-fragment-index="1" style="background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%); border: 2px solid #16A34A; border-radius: 10px; padding: 12px 16px; margin-bottom: 12px; box-shadow: 0 3px 10px rgba(22,163,74,0.12);">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-<p><span style="font-weight: 800; font-size: 20px; color: #166534; letter-spacing: -0.3px;"> 🟢 Peripheral Spoke Loss </span> <span style="background-color: #16A34A; color: white; font-weight: bold; font-size: 19px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(22,163,74,0.3);"> <span class="math inline">\(R \approx 0.85\)</span> </span></p>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #14532D;">
-<div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #16A34A;">
-<pre><code>✈️ &lt;strong&gt;Aviation:&lt;/strong&gt; Regional airfields fail (&lt;em&gt;Røros&lt;/em&gt;) ➔ &lt;strong&gt;Continental grid intact&lt;/strong&gt;</code></pre>
-</div>
-<div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #16A34A;">
-<pre><code>🌸 &lt;strong&gt;Meadow:&lt;/strong&gt; Peripheral flora lost (&lt;em&gt;Lathyrus&lt;/em&gt;) ➔ &lt;strong&gt;Pollinators buffered by core&lt;/strong&gt;</code></pre>
-</div>
-</div>
-<div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: #15803D; text-align: right;">
-<p>✓ High Structural Redundancy • Shock Absorbed</p>
-</div>
-</div>
-<div class="fragment" data-fragment-index="2" style="background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%); border: 2px solid #DC2626; border-radius: 10px; padding: 12px 16px; box-shadow: 0 3px 10px rgba(220,38,38,0.12);">
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-<p><span style="font-weight: 800; font-size: 20px; color: #991B1B; letter-spacing: -0.3px;"> 🔴 Core Hub Loss </span> <span style="background-color: #DC2626; color: white; font-weight: bold; font-size: 19px; padding: 3px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(220,38,38,0.3);"> <span class="math inline">\(R \approx 0.45\)</span> </span></p>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #7F1D1D;">
-<div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #DC2626;">
-<pre><code>✈️ &lt;strong&gt;Aviation:&lt;/strong&gt; Mega-hubs shut (&lt;em&gt;Heathrow&lt;/em&gt;) ➔ &lt;strong&gt;Transit paralyzed&lt;/strong&gt;</code></pre>
-</div>
-<div style="background: rgba(255,255,255,0.75); padding: 6px 12px; border-radius: 6px; border-left: 4px solid #DC2626;">
-<pre><code>🌸 &lt;strong&gt;Meadow:&lt;/strong&gt; 6 Core Hubs wither (&lt;em&gt;Centaurea&lt;/em&gt;) ➔ &lt;strong&gt;Secondary cascades&lt;/strong&gt;</code></pre>
-</div>
-</div>
-<div style="margin-top: 6px; font-size: 13px; font-weight: 600; color: #B91C1C; text-align: right;">
-<p>⚠ Systemic Vulnerability • The Achilles’ Heel</p>
-</div>
-</div>
 </div></div>
-<div class="fragment" data-fragment-index="3" style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 6px;">
+<div class="fragment" data-fragment-index="5" style="background-color: #1D2D6B; color: white; padding: 7px 18px; border-radius: 8px; text-align: center; font-size: 18px; margin-top: 6px;">
 <p><strong>The 15-Year Question:</strong> In Handrkov, did extreme climate warming break our core hubs—or did the core hold?</p>
 </div>
 <aside class="notes">
-<p>Slide 6: Here is how network theory formalizes robustness (Memmott et al.&nbsp;2004). Robustness R is the area under the co-extinction curve: as we remove plant species, how many pollinators survive? Click 1: When we remove peripheral species first (red dashed curve), the curve stays flat near 100%! Almost all pollinators survive because they have the core. Just like closing a regional airfield in Norway leaves European flights running. Robustness R is high (0.85). Click 2: BUT when we remove the core hubs first (solid navy curve), the curve drops off a cliff! Losing Centaurea and Succisa deprives pollinators of their main food, causing secondary extinction cascades. Robustness plunges to 0.45! Click 3: This sets up our central ecological dilemma: Across 15 years, during unprecedented summer droughts, did climate stress break our core hubs, or did the core species buffer the community? Let’s look at the climate history of our meadow!</p>
+<p>Slide 6: Here is how network theory formalizes robustness (Memmott et al.&nbsp;2004). Step 0: Title only. Step 1 (Axes &amp; Intact Web): Here are the co-extinction axes: proportion of plants extinct vs pollinators surviving, alongside our intact Handrkov sharing network. Step 2 (Random Loss): When species disappear at random, robustness shows a steady, intermediate decline. Step 3 (Peripheral Spoke Loss): When peripheral species are removed first (red dashed line), the curve stays flat near 100%! Almost all pollinators survive because the central core anchors them. High robustness (R ≈ 0.85). Step 4 (Core Hub Collapse): BUT when core hubs collapse (solid navy line), the curve plummets immediately! Losing Centaurea and Succisa causes massive secondary cascades. Low robustness (R ≈ 0.45). Step 5 (15-Year Question): Across 15 years, during unprecedented summer droughts, did climate stress break our core hubs, or did the core hold?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -550,10 +571,32 @@
 </section>
 <section id="macro-dynamics-two-decoupled-timescales" class="slide level2">
 <h2>Macro-Dynamics: Two Decoupled Timescales</h2>
+<div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/nmds_climate_envfit.png" class="quarto-figure quarto-figure-center" height="540"></p>
+<p><img data-src="images/nmds_step1_axes.png" class="fragment fade-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
 </figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/nmds_step2_points.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/nmds_step3_trajectory.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/nmds_step4_vectors_names.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="3" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/nmds_step5_vectors_stats.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="4" height="540"></p>
+</figure>
+</div>
 </div>
 <aside class="notes">
 <p>Non-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106). Vector fitting identifies two decoupled, orthogonal axes: 1. Axis 1 (Horizontal - Acute Climate Pulse): Summer drought severity (r² = 0.55, p = 0.008) and summer temperature (r² = 0.67, p = 0.001) displace the network during severe droughts (2015 and 2018) far to the right into centralized topological states. 2. Axis 2 (Vertical - Decadal Press): Steady successional progression across 15 years (r² = 0.71, p = 0.0008). Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2.</p>
@@ -654,15 +697,30 @@ The core is an enduring architectural feature grounded in intrinsic floral syndr
 </section>
 <section id="secondary-extinctions-the-fragility-flip" class="slide level2">
 <h2>Secondary Extinctions: The Fragility Flip</h2>
-
-<img data-src="images/robustness_4_all.png" class="quarto-figure quarto-figure-center r-stretch" width="880"><div class="fragment fade-up">
-<div style="background-color: rgba(29, 45, 107, 0.12); border-left: 6px solid #1D2D6B; padding: 12px; margin-top: 10px; font-size: 21px;">
-<p><strong>During normal years:</strong> The meadow exhibits high structural redundancy (<span class="math inline">\(R \approx 0.63\text{--}0.84\)</span>).<br>
-<strong>During severe droughts (2015, 2018):</strong> Core loss triggers catastrophic collapse (<span class="math inline">\(R \approx 0.45\)</span>), while peripheral loss is easily buffered (<span class="math inline">\(R \approx 0.83\)</span>). The <strong>Robustness Gap (<span class="math inline">\(\Delta R\)</span>)</strong> surges!</p>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robustness_1_axis.png" class="fragment fade-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robustness_2_random.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robustness_3_periph.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2" height="540"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/robustness_4_all.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="3" height="540"></p>
+</figure>
 </div>
 </div>
 <aside class="notes">
-<p>We simulated secondary extinction cascades (Memmott et al.&nbsp;2004). Robustness R is the area under the co-extinction curve. In non-drought years, pollinators easily switch partners. But in 2015 and 2018, the network’s survival becomes almost exclusively dependent on the 6 core species.</p>
+<p>We simulated secondary extinction cascades (Memmott et al.&nbsp;2004). Robustness R is the area under the co-extinction curve. During normal years: The meadow exhibits high structural redundancy (R ≈ 0.63–0.84). During severe droughts (2015, 2018): Core loss triggers catastrophic collapse (R ≈ 0.45), while peripheral loss is easily buffered (R ≈ 0.83). The Robustness Gap (ΔR) surges! In drought years, network survival becomes almost exclusively dependent on the 6 core species.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -741,11 +799,46 @@ The core is an enduring architectural feature grounded in intrinsic floral syndr
 <p>Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!</p>
 </div>
 </section>
+<section id="handrkov" class="slide level2">
+<h2>Handrkov</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/Handrkov_group_foto.jpg" class="quarto-figure quarto-figure-center" height="520"></p>
+</figure>
+</div>
+</section>
+<section id="handrkov---collaboration" class="slide level2">
+<h2>Handrkov - Collaboration</h2>
+
+<img data-src="images/opylovači.jpeg" class="quarto-figure quarto-figure-center r-stretch" width="950"></section>
+<section id="handrkov---collaboration-1" class="slide level2">
+<h2>Handrkov - Collaboration</h2>
+
+<img data-src="images/opylovači_empty_niche.jpeg" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="position: absolute; bottom: 42px; left: 0; right: 0; text-align: center; font-size: 21px;">
+<p><a href="https://pollination-ecology-group.github.io/Handrkov/" target="_blank" style="color: #1D2D6B; font-weight: 600; text-decoration: underline;">https://pollination-ecology-group.github.io/Handrkov/</a> <span style="color: #888; margin: 0 10px;">|</span> <a href="mailto:jakubstenc@gmail.com" style="color: #374151; text-decoration: none;">jakubstenc@gmail.com</a></p>
+</div>
+</section>
 <section id="ecoflor-2027" class="slide level2">
 <h2>Ecoflor 2027!</h2>
 
 <img data-src="images/logo2027.png" class="quarto-figure quarto-figure-center r-stretch" width="700"></section>
-<section id="section-2" class="slide level2" data-background-image="images/Fin.jpg">
+<section id="ecoflor-2027-1" class="slide level2">
+<h2>Ecoflor 2027!</h2>
+<div style="text-align: center; margin-top: 10px;">
+<div style="font-size: 42px; font-weight: 800; color: #1D2D6B; margin-bottom: 16px; letter-spacing: -0.5px;">
+<p>Register now!</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ecoflor_qr.png" class="quarto-figure quarto-figure-center" style="border: 4px solid #1D2D6B; border-radius: 12px; padding: 10px; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" width="340"></p>
+</figure>
+</div>
+<div style="font-size: 19px; color: #374151; margin-top: 16px; font-weight: 500;">
+<p><a href="https://pollination-ecology-group.github.io/ECOFLOR2027/" target="_blank" style="color: #1D2D6B; text-decoration: underline;">pollination-ecology-group.github.io/ECOFLOR2027/</a></p>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2" data-background-image="images/Fin.jpg">
 <h2></h2>
 <p><br></p>
 <div style="text-align: center; margin-bottom: 22px;">
