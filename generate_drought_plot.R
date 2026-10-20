@@ -1,36 +1,23 @@
 library(dplyr)
 library(ggplot2)
-library(HanPolNet)
+library(SPEI)
 
-cache_file <- "data/climate_annual_1975_2025.rds"
-dir.create("data", showWarnings = FALSE)
+message("Loading climate data and calculating SPEI-6...")
+df <- read.csv("data/climate_1958_2025.csv")
+bal <- ts(df$ppt - df$pet, start = c(1958, 1), frequency = 12)
+df$spei_6 <- as.numeric(spei(bal, scale = 6, na.rm = TRUE, verbose = FALSE)$fitted)
 
-if (file.exists(cache_file)) {
-  message("Loading cached TerraClimate data...")
-  climate_annual <- readRDS(cache_file)
-} else {
-  message("Fetching TerraClimate data (1975-2025)...")
-  plots_centroid <- data.frame(
-    plot_id = "Handrkov_Center",
-    lon = mean(HanPolNet::hanpolnet_plots$X_WSG, na.rm = TRUE),
-    lat = mean(HanPolNet::hanpolnet_plots$Y_WSG, na.rm = TRUE)
-  )
+climate_annual <- df %>%
+  filter(year %in% 1975:2025, month %in% 7:8) %>%
+  group_by(year) %>%
+  summarise(
+    summer_spei_6 = mean(spei_6, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  mutate(Drought_Severity = -1 * summer_spei_6) %>%
+  rename(Year = year)
 
-  climate_raw <- HanPolNet::get_terraclimate_data(plots_centroid, years = 1975:2025)
-
-  climate_annual <- climate_raw %>%
-    filter(month %in% 7:8) %>%
-    group_by(year) %>%
-    summarise(
-      summer_spei_6 = mean(spei_6, na.rm = TRUE),
-      .groups = "drop"
-    ) %>%
-    mutate(Drought_Severity = -1 * summer_spei_6) %>%
-    rename(Year = year)
-
-  saveRDS(climate_annual, cache_file)
-  message("Cached climate data to ", cache_file)
-}
+dir.create("images", showWarnings = FALSE)
 
 message("Generating 50-year plot (without 2x SD line/text)...")
 p <- ggplot(climate_annual, aes(x = Year, y = Drought_Severity)) +
@@ -94,4 +81,4 @@ p_future <- ggplot(climate_annual %>% filter(Year >= 2011 & Year <= 2025), aes(x
 ggsave("images/drought_severity_future.png", plot = p_future, width = 10, height = 4, dpi = 300, bg = "transparent")
 message("Saved to images/drought_severity_future.png")
 
-message("All drought plots successfully updated without 2x SD line/text!")
+message("All drought plots successfully regenerated without 2x SD line and text.")

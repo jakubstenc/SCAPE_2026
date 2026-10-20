@@ -161,25 +161,32 @@
     "text": "Secondary Extinctions: The Fragility Flip\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe simulated secondary extinction cascades (Memmott et al. 2004). Robustness R is the area under the co-extinction curve. During normal years: The meadow exhibits high structural redundancy (R ≈ 0.63–0.84). During severe droughts (2015, 2018): Core loss triggers catastrophic collapse (R ≈ 0.45), while peripheral loss is easily buffered (R ≈ 0.83). The Robustness Gap (ΔR) surges! In drought years, network survival becomes almost exclusively dependent on the 6 core species."
   },
   {
-    "objectID": "index.html#what-causes-the-flip-a-3-step-mechanistic-cascade",
-    "href": "index.html#what-causes-the-flip-a-3-step-mechanistic-cascade",
+    "objectID": "index.html#rising-vulnerability-core-dependence-delta-r",
+    "href": "index.html#rising-vulnerability-core-dependence-delta-r",
     "title": "SCAPE 2026",
-    "section": "What Causes the Flip? A 3-Step Mechanistic Cascade",
-    "text": "What Causes the Flip? A 3-Step Mechanistic Cascade\n\n\n1. Vulnerability (\\(\\Delta R\\))\n\n\nCore dependence surges during summer droughts (\\(p = 0.018\\)) and rises over time (\\(+0.022/\\text{yr}\\)).\n\n\n2. Floral Asymmetry\n\n\nPeriphery crashes 10-fold (\\(\\beta = -28.0, p = 0.032\\)).\nCore is completely drought-buffered (\\(\\beta = +0.9, p = 0.792\\)).\n\n\n3. Motif Scaffolding\n\n\nCore motifs surge to 95–99% in drought years, predicting \\(84\\%\\) of network fragility (\\(R^2 = 0.84\\)).\n\n\n\n\n\nThe Life-Raft Mechanism: Peripheral flowers dry up \\(\\rightarrow\\) pollinators concentrate exclusively on drought-buffered core heads (+66% excess visits) \\(\\rightarrow\\) the core becomes the community’s sole life-support system."
+    "section": "Rising Vulnerability: Core Dependence (\\(\\Delta R\\))",
+    "text": "Rising Vulnerability: Core Dependence (\\(\\Delta R\\))\n\n\n\n\n\n\nCore dependence (\\(\\Delta R = R_{\\text{periph}} - R_{\\text{core}}\\)) surges during acute summer droughts (\\(p = 0.018\\)) and steadily intensifies over time (\\(+0.022/\\text{yr}, p = 0.014\\)).\n\n\nSlide: Core dependence surges during droughts and steadily rises across 15 years. When severe droughts strike, losing the core causes far more catastrophic secondary cascades than losing peripheral species."
+  },
+  {
+    "objectID": "index.html#the-ecological-driver-floral-asymmetry",
+    "href": "index.html#the-ecological-driver-floral-asymmetry",
+    "title": "SCAPE 2026",
+    "section": "The Ecological Driver: Floral Asymmetry",
+    "text": "The Ecological Driver: Floral Asymmetry\n\n\n\n\n\n\nThe Life-Raft Mechanism: Peripheral displays crash 10-fold (\\(\\beta = -28.0, p = 0.032\\)), while the core remains completely drought-buffered (\\(\\beta = +0.9, p = 0.792\\)) \\(\\rightarrow\\) pollinators concentrate on core heads, making them the community’s sole life-support system.\n\n\nSlide: Why does the network become so dependent on the core? Profound floral asymmetry: peripheral flowers collapse 10-fold during extreme droughts, whereas the 6 core perennial species maintain steady floral displays. Pollinators are forced onto the core life-raft!"
   },
   {
     "objectID": "index.html#take-home-messages-for-pollination-ecology",
     "href": "index.html#take-home-messages-for-pollination-ecology",
     "title": "SCAPE 2026",
     "section": "Take-Home Messages for Pollination Ecology",
-    "text": "Take-Home Messages for Pollination Ecology\n\nNetworks are dynamic but anchored: High annual rewiring occurs around a persistent core of 6 plant species that stabilizes the community.\nPlant Identity drives centrality: The core is not a neutral abundance lottery; species identity independently explains 38% of network centrality (\\(p = 1.8 \\times 10^{-73}\\)).\nDecoupled timescales: Acute drought shocks (Axis 1) trigger immediate centralization, while decadal succession (Axis 2) leaves lasting hysteresis.\nThe Life-Raft Mechanism: Severe drought collapses peripheral floral displays 10-fold, forcing pollinators to crowd onto drought-buffered core hubs (95–99% core-anchored motifs).\nTargeted Conservation: Preserving pollination networks against climate extremes requires safeguarding keystone plants that unite high floral attractiveness with deep physiological drought tolerance."
+    "text": "Take-Home Messages for Pollination Ecology\n\n\n\n\n01 • Architecture\n\n\nDynamic Web,Persistent Anchor\n\n\nHigh annual rewiring is anchored by a permanent core of 6 plant species.  Centrality is driven by plant identity (explaining 38% of variance), not an abundance lottery.\n\n\n\n\n\n\n02 • Mechanism\n\n\nThe Life-RaftBuffer\n\n\nSevere drought triggers a 10-fold crash in peripheral flowers, while core plants remain buffered.  Pollinators crowd onto the core, turning it into the community’s sole life-support system.\n\n\n\n\n\n\n\n03 • Implication\n\n\nTargetedConservation\n\n\nPreserving network resilience against climate extremes requires safeguarding keystone plants that unite:\n\n\nHigh floral attractiveness\n\n\nDeep drought tolerance\n\n\n\n\n\n\n\n\nArchitecture: The 15-year dataset reveals that network coreness is topologically invariant and identity-based (LMM p = 1.8e-73, explaining 38% of centrality variance after controlling for flower abundance).\nMechanism: Extinction cascade simulations demonstrate a catastrophic robustness drop (R = 0.45) if core is lost during drought. Peripheral flowers collapse 10-fold (p = 0.032), but core plants flower unaffected (p = 0.792).\nConservation: Grassland management must focus beyond simple species counts to protect these dual-trait keystone species (e.g. Centaurea, Succisa, Selinum) that guarantee network survival during extreme climatic shocks."
   },
   {
     "objectID": "index.html#next-step-real-pollen-deposition-dynamics",
     "href": "index.html#next-step-real-pollen-deposition-dynamics",
     "title": "SCAPE 2026",
     "section": "Next Step: Real Pollen Deposition Dynamics",
-    "text": "Next Step: Real Pollen Deposition Dynamics\n\n\n\n\n\n\n\n\nEristalis interruptus carrying heterospecific pollen loads\n\n\n\n\n\n\n\n\nStigmatic pollen deposition on Succisa pratensis\n\n\n\nLinking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set!"
+    "text": "Next Step: Real Pollen Deposition Dynamics\n\n\n\n\nEristalis interruptus carrying heterospecific pollen loads\n\n\n\n\n\nStigmatic pollen deposition on Succisa pratensis\n\n\n\n\nSlide: Next Step — Real Pollen Deposition Dynamics. Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set! We tracked individual pollinators carrying heterospecific pollen loads (e.g. Eristalis interruptus) and quantified how this translates to actual stigmatic pollen deposition and ovule fertilization on Succisa pratensis."
   },
   {
     "objectID": "index.html#handrkov",
@@ -201,6 +208,13 @@
     "title": "SCAPE 2026",
     "section": "Handrkov - Collaboration",
     "text": "Handrkov - Collaboration\n\n\nhttps://pollination-ecology-group.github.io/Handrkov/ | jakubstenc@gmail.com"
+  },
+  {
+    "objectID": "index.html#handrkov---collaboration-2",
+    "href": "index.html#handrkov---collaboration-2",
+    "title": "SCAPE 2026",
+    "section": "Handrkov - Collaboration",
+    "text": "Handrkov - Collaboration\n\n\n\n\nJoin us!\n\n\n\n\nhttps://pollination-ecology-group.github.io/Handrkov/ | jakubstenc@gmail.com\n\n\nCall for collaboration: We welcome students, postdocs, and research collaborators to join our long-term grassland pollination studies at Handrkov!"
   },
   {
     "objectID": "index.html#ecoflor-2027",
