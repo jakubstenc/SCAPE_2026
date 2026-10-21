@@ -349,19 +349,17 @@ Zooming into our 15-year period: only 2013 and 2021 were wet summers. 2018 was t
 
 ## Methods - plant-pollinator survey
 
-<div>
-
-::::: {layout="[0.5, 0.5]"}
-::: {.fragment top="70" height="400"}
-![[Plant survey]{style="font-size: 32px;"}](images/Picture1.jpg)
+::::: {style="display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin-top: 30px;"}
+::: {.fragment style="text-align: center; flex: 1;"}
+<img src="images/Picture1.jpg" style="height: 440px; width: 100%; object-fit: cover; border-radius: 6px; display: block;">
+<div style="font-size: 30px; margin-top: 12px;">Plant survey</div>
 :::
 
-::: {.fragment top="70" height="400"}
-![[Pollinator survey]{style="font-size: 32px;"}](images/Picture5.jpg)
+::: {.fragment style="text-align: center; flex: 1;"}
+<img src="images/Picture5.jpg" style="height: 440px; width: 100%; object-fit: cover; border-radius: 6px; display: block;">
+<div style="font-size: 30px; margin-top: 12px;">Pollinator survey</div>
 :::
 :::::
-
-</div>
 
 ## Methods - plant survey
 
