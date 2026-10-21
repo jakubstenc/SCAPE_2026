@@ -18,63 +18,70 @@
     "href": "index.html#section-2",
     "title": "SCAPE 2026",
     "section": "",
-    "text": "Step 1 (First visit links): We start from empirical flower visits in the field—an insect landing on a flower. Step 2 (Bipartite Web): As dozens of co-flowering plant species and hundreds of insect visitors interact across the meadow, these individual visits weave together into a bipartite plant-pollinator interaction network. Step 3 (Pollinator Sharing Bridge): But plants do not interact directly; they interact through the shared pool of flower visitors. When two plant species are visited by the same pollinators, those insects carry pollen between them and bridge the plants together. Step 4 (Pollinator-Sharing Network): By projecting these shared visits across the whole community, we reveal the unipartite pollinator-sharing web—a topological network of plants anchored by dense shared connections!"
+    "text": "Step 1 (First visit links): We start from empirical flower visits in the field—an insect landing on a flower. Step 2 (Bipartite Web): As dozens of co-flowering plant species and hundreds of insect visitors interact across the meadow, these individual visits weave together into a bipartite plant-pollinator interaction network. Step 3 (Shared Pollinator): Plants do not interact directly; they interact through shared flower visitors. Here, Eristalis visits both Achillea and Succisa (yellow lines). Step 4 (Living Bridge / Indirect Pollen Link): Because the shared pollinator moves between both flowers, an indirect functional link connects the two plant species (blue line). Step 5 (Pollinator-Sharing Network): By projecting these shared visits across the whole community, we reveal the unipartite pollinator-sharing web—a topological network of plants anchored by dense shared connections!"
   },
   {
-    "objectID": "index.html#network-architecture-airports-vs.-the-meadow",
-    "href": "index.html#network-architecture-airports-vs.-the-meadow",
+    "objectID": "index.html#airports-and-meadows",
+    "href": "index.html#airports-and-meadows",
     "title": "SCAPE 2026",
-    "section": "Network Architecture: Airports vs. The Meadow",
-    "text": "Network Architecture: Airports vs. The Meadow\n\n\n\n✈️ European Aviation Network\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌸 Meadow Pollinator Sharing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStep 0 (Title only): To understand the stability of our pollination web, let’s step outside ecology and look at an analogy from human infrastructure: the European aviation network. Step 1 (Map): Here is European airspace. Step 2 (Airports): Across Europe are 895 airports—geographically scattered, seemingly uniform. Step 3 (Routes): Add 15,000 empirical commercial flight routes—a complex topological web appears. Step 4 (Airport Coreness): Calculate coreness: a tiny core of mega-hubs (London, Amsterdam, Frankfurt, Paris) anchors continental travel, while regional airfields (Røros, Kristianstad) are peripheral spokes. Step 5 (Plant Nodes): Now look at our meadow: 57 co-flowering plant species in Handrkov. Step 6 (Plant Routes): Add empirical pollinator sharing: visitors link plants together through shared service. Step 7 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species form the central routing core, while peripheral flora connect through them."
+    "section": "Airports and Meadows",
+    "text": "Airports and Meadows\n\n\n\n✈️ European Aviation Network\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🌸 Meadow Pollinator Sharing\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStep 0 (Title only): To understand the stability of our pollination web, let’s step outside ecology and look at an analogy from human infrastructure: the European aviation network. Step 1 (Map): Here is European airspace. Step 2 (Airports): Across Europe are 895 airports—geographically scattered, seemingly uniform. Step 3 (Routes): Add 15,000 empirical commercial flight routes—a complex topological web appears. Step 4 (Yellow Hub Points): Calculate coreness: a tiny core of central hubs pops out with intense connectivity (yellow points). Step 5 (Airport Names): These are the familiar continental mega-hubs (London, Amsterdam, Frankfurt, Paris, Munich), contrasted with peripheral spokes (Røros, Kristianstad). Step 6 (Plant Nodes): Now look at our meadow: 55 co-flowering plant species in Handrkov. Step 7 (Plant Routes): Add empirical pollinator sharing: visitors link plants together through shared service. Step 8 (Plant Coreness): The exact same architecture emerges! Just 6 core perennial species form the central routing core, while peripheral flora connect through them."
   },
   {
-    "objectID": "index.html#what-is-robustness-the-extinction-cascade",
-    "href": "index.html#what-is-robustness-the-extinction-cascade",
+    "objectID": "index.html#defining-the-core",
+    "href": "index.html#defining-the-core",
     "title": "SCAPE 2026",
-    "section": "What is Robustness? The Extinction Cascade",
-    "text": "What is Robustness? The Extinction Cascade\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeadow pollinator sharing network under simulated extinction scenarios\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo-extinction simulation (Memmott et al. 2004) on Handrkov pollination web\n\n\n\nSlide 6: Here is how network theory formalizes robustness (Memmott et al. 2004). Step 0: Title only. Step 1 (Axes & Intact Web): Here are the co-extinction axes: proportion of plants extinct vs pollinators surviving, alongside our intact Handrkov sharing network. Step 2 (Random Loss): When species disappear at random, robustness shows a steady, intermediate decline. Step 3 (Peripheral Spoke Loss): When peripheral species are removed first (red dashed line), the curve stays flat near 100%! Almost all pollinators survive because the central core anchors them. High robustness (R ≈ 0.85). Step 4 (Core Hub Collapse): BUT when core hubs collapse (solid navy line), the curve plummets immediately! Losing Centaurea and Succisa causes massive secondary cascades. Low robustness (R ≈ 0.45). Step 5 (15-Year Question): Across 15 years, during unprecedented summer droughts, did climate stress break our core hubs, or did the core hold?"
+    "section": "Defining the Core",
+    "text": "Defining the Core\n\n\n\nPhoto: Colin, Wikimedia Commons, CC BY-SA 3.0\n\n\n\n\n\n\n\n● Step 1: Intact Web\n\n\nAll species (\\(k \\ge 1\\))\n\n\n\n\n\n\n\n\n\n\n● Step 2: Iterative Peeling\n\n\nPruning periphery (\\(k \\ge 2\\))\n\n\n\n\n\n\n\n\n\n\n● Step 3: Invariant Core\n\n\nMutually linked backbone (\\(k = k_{\\max}\\))\n\n\n\n\n\n\n\n\n\n\n\n\nCentaurea (core)\n\n\n\n\n\n\n\nDaucus (periphery)\n\n\n201120122013201420152016201720182019202020212022202320242025\n\n\n\n\n● central that year15 / 15 vs 5 / 15 years\n\n\n\n\nSlide: What actually makes a species part of the core? Network topology defines this using k-core decomposition (Seidman 1983). [Click 1 – onion]: How do we decide which species form the core? Think of the network as an onion: we peel it layer by layer, and what is left at the centre is the core. Think of it like peeling an onion: - Step 1 (The Entire Web): We start with all species connected (k &gt;= 1). Outer peripheral species (coral/red) connect by only a single link. - Step 2 (Iterative Peeling): We peel away outer shells: any species whose degree drops below k is successively pruned. Single-link leaves fall away first. - Step 3 (The Invariant Core): At k_max, only the mutually reinforcing central backbone remains (navy hubs with gold centers). These core hubs don’t just have visits—they link to each other, creating the structural foundation that holds the entire community together. - Step 5 (Every year): We repeat this for each of the 15 annual networks. Filled dot = species is central that year (standardized coreness Gc &gt; 1). Centaurea jacea (core) is central in all 15 years; Daucus carota (the next-ranked, peripheral species, present all 15 years) only in 5 (2012–14, 2022–23). Centrality ranks are strongly preserved between years (Kendall’s W = 0.64 vs 0.23 expected by chance, p = 0.001; consecutive years Spearman median 0.77). Centaurea jacea sits above the null in all 15 years."
   },
   {
-    "objectID": "index.html#questions",
-    "href": "index.html#questions",
+    "objectID": "index.html#robustness",
+    "href": "index.html#robustness",
     "title": "SCAPE 2026",
-    "section": "Questions",
-    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)"
+    "section": "Robustness",
+    "text": "Robustness\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMeadow pollinator sharing network under simulated extinction scenarios\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCo-extinction simulation (Memmott et al. 2004) on Handrkov pollination web\n\n\n\nSlide 6: Here is how network theory formalizes robustness (Memmott et al. 2004). Step 0: Title only. Step 0b (broken network icon): What happens to the network when species disappear? Step 1 (Axes & Intact Web): Here are the co-extinction axes: proportion of plants extinct vs pollinators surviving, alongside our intact Handrkov sharing network. Step 2 (Random Loss): When species disappear at random, robustness shows a steady, intermediate decline. Step 3 (Peripheral Spoke Loss): When peripheral species are removed first (red dashed line), the curve stays flat near 100%! Almost all pollinators survive because the central core anchors them. High robustness (R ≈ 0.85). Step 4 (Core Hub Collapse): BUT when core hubs collapse (solid navy line), the curve plummets immediately! Losing Centaurea and Succisa causes massive secondary cascades. Low robustness (R ≈ 0.45). Bridge (spoken, no extra click): But this is one snapshot. How does this picture change across 15 years of increasingly dry summers?"
   },
   {
-    "objectID": "index.html#questions-1",
-    "href": "index.html#questions-1",
+    "objectID": "index.html#drought",
+    "href": "index.html#drought",
     "title": "SCAPE 2026",
-    "section": "Questions",
-    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)"
+    "section": "Drought",
+    "text": "Drought\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)\n\n\nIn theory, networks collapse when the core is removed. But in reality, networks change in time as they are under pressure from the environment—specifically drought. Looking across the last 50 years at our meadow, drought has become an increasingly severe and persistent pressure."
   },
   {
-    "objectID": "index.html#questions-2",
-    "href": "index.html#questions-2",
+    "objectID": "index.html#drought-1",
+    "href": "index.html#drought-1",
     "title": "SCAPE 2026",
-    "section": "Questions",
-    "text": "Questions\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (2011–2024)\n\n\n\n\nHow does Plant-Pollinator network sustain climatic perturbances?"
+    "section": "Drought",
+    "text": "Drought\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)\n\n\nAnd especially in the last 15 years—the exact window of our field survey—drought seems to be a reoccurring pressure on the system."
+  },
+  {
+    "objectID": "index.html#drought-2",
+    "href": "index.html#drought-2",
+    "title": "SCAPE 2026",
+    "section": "Drought",
+    "text": "Drought\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (2011–2025)\n\n\n\n\nHow does reoccurring drought affect network robustness?\n\n\n\n\nZooming into our 15-year period: only 2013 and 2021 were wet summers. 2018 was the driest, followed by 2015, 2019 and 2025, and 2023 was also dry. Drought is not a single event here but a recurring condition. So our key question is: How does this reoccurring drought affect network robustness?"
   },
   {
     "objectID": "index.html#methods---the-locality",
     "href": "index.html#methods---the-locality",
     "title": "SCAPE 2026",
     "section": "Methods - the locality",
-    "text": "Methods - the locality\n\n\n\n\n\nCzech Republic\n\n\n\n\n\n\n\nRich in flowers\n\n\n\n\n\n\n\n\n15 years of data collection (2011-2025)"
+    "text": "Methods - the locality\n\n\n\n\nCzech Republic\n\n\n\n\n\nRich in flowers\n\n\n\n\n15 years of data collection (2011–2025)"
   },
   {
     "objectID": "index.html#methods---permanent-plots",
     "href": "index.html#methods---permanent-plots",
     "title": "SCAPE 2026",
     "section": "Methods - permanent plots",
-    "text": "Methods - permanent plots\n\n\n\n\n\n\n\nplots are marked\n\n\n\n\n\n\n\nrecovered every year\n\n\n\n\n\n\n\n93 plots in total"
+    "text": "Methods - permanent plots\n\n\n\n\nplots are marked\n\n\n\n\n\nrecovered every year\n\n\n\n\n\n93 plots in total"
   },
   {
     "objectID": "index.html#methods---plant-pollinator-survey",
     "href": "index.html#methods---plant-pollinator-survey",
     "title": "SCAPE 2026",
     "section": "Methods - plant-pollinator survey",
-    "text": "Methods - plant-pollinator survey\n\n\n\n\n\n\nPlant survey\n\n\n\n\n\n\n\nPollinator survey"
+    "text": "Methods - plant-pollinator survey\n\n\n\n\n\n\n\nPlant survey\n\n\n\n\n\n\n\nPollinator survey"
   },
   {
     "objectID": "index.html#methods---plant-survey",
@@ -88,7 +95,7 @@
     "href": "index.html#methods---pollinator-survey",
     "title": "SCAPE 2026",
     "section": "Methods - pollinator survey",
-    "text": "Methods - pollinator survey\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Snapshot” of plant-pollinator interaction\n20+ sampling per plot per year\n97 629+ interactions recorded"
+    "text": "Methods - pollinator survey\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n“Snapshot” of plant-pollinator interaction\n20–63 surveys per plot per year (median 28)\n42 378 surveys in total\n68 460 interactions recorded\n176 pollinator taxa × 55 plant species"
   },
   {
     "objectID": "index.html#methods---plant-pollinator-survey-1",
@@ -126,67 +133,53 @@
     "text": "Networks"
   },
   {
-    "objectID": "index.html#macro-dynamics-two-decoupled-timescales",
-    "href": "index.html#macro-dynamics-two-decoupled-timescales",
+    "objectID": "index.html#year-to-year-change",
+    "href": "index.html#year-to-year-change",
     "title": "SCAPE 2026",
-    "section": "Macro-Dynamics: Two Decoupled Timescales",
-    "text": "Macro-Dynamics: Two Decoupled Timescales\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNon-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106). Vector fitting identifies two decoupled, orthogonal axes: 1. Axis 1 (Horizontal - Acute Climate Pulse): Summer drought severity (r² = 0.55, p = 0.008) and summer temperature (r² = 0.67, p = 0.001) displace the network during severe droughts (2015 and 2018) far to the right into centralized topological states. 2. Axis 2 (Vertical - Decadal Press): Steady successional progression across 15 years (r² = 0.71, p = 0.0008). Crucially: Notice the hysteresis! When rainfall returned in 2020-2021, the network shifted back horizontally along Axis 1, but NEVER returned to its pre-2015 baseline along Axis 2."
+    "section": "Year-to-Year Change",
+    "text": "Year-to-Year Change\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe network shifts with drought and drifts over time.Do the central species shift too?\n\n\nNon-metric multidimensional scaling (NMDS) of annual directed PAC matrices (Bray-Curtis, stress = 0.106). Each point is one year’s pollinator-sharing network. Fitted vectors (climate arrows appear first, then time): 1. Drier and hotter summers push the network to the right: drought severity (r² = 0.55, p = 0.008), summer temperature (r² = 0.67, p = 0.001). 2018, 2015 and 2019 are furthest right. 2. Time pulls the network steadily upwards (r² = 0.71, p = 0.001), a directional change across 15 years. After the wetter years (2020–2022) the network moved back left, but did not return to its starting position near 2011–2014. [Advance]: So the sharing web is far from static. The next question is whether its central species are just as changeable."
   },
   {
-    "objectID": "index.html#identifying-the-meadows-permanent-hubs",
-    "href": "index.html#identifying-the-meadows-permanent-hubs",
+    "objectID": "index.html#the-core",
+    "href": "index.html#the-core",
     "title": "SCAPE 2026",
-    "section": "Identifying the Meadow’s Permanent Hubs",
-    "text": "Identifying the Meadow’s Permanent Hubs\n\n\nAre the network hubs just an ephemeral accident of whoever happens to produce the most flowers in a given year?\n\nOr does the meadow possess a permanent set of topological anchors that maintain core roles across 15 years—irrespective of climatic extremes?\n\n\nRecall our airport analogy: is Frankfurt an international hub because it randomly had an extra runway open on a sunny Tuesday? Or because of permanent structural routing? In pollination networks, the central question is whether network hubs are merely abundant generalists, or whether specific plant identities provide permanent community cohesion. To test this, we compared every species against a presence-conditional null model across all 15 years."
+    "section": "The Core",
+    "text": "The Core\n\n\n\n\n\n\nCentaurea jacea Selinum carvifolia Succisa pratensis\n\n\nPimpinella saxifraga Achillea ptarmica Ranunculus acris\n\n\n\n\nCentrality Variance Explained (Linear Mixed Model)\n\n\n\n\n44%\n\n\nFloral Abundance\n\n\n\n\n\n\n\n38%\n\n\nPlant Identity (\\(p = 1.8 \\times 10^{-73}\\))\n\n\n\n\n\n\nBridge (from the NMDS question): Is Frankfurt a hub because it had an extra runway open on a sunny Tuesday, or because of permanent structural routing? Are network hubs just random flowers that happen to bloom heavily? We tested each species’ 15-year standardized coreness against a conservative, presence-conditional null model (1,000 perms/yr). Exactly 6 species maintained statistically significant excess centrality (p_adj &lt;= 0.0015). [Advance to overlay]: A linear mixed model confirms that while floral abundance explains 44% of centrality variance, plant identity independently explains 38% (p = 1.8e-73). Side photos: the 6 core species, in the same order as the chart (left: top three, right: next three)."
   },
   {
-    "objectID": "index.html#discovering-the-true-core",
-    "href": "index.html#discovering-the-true-core",
+    "objectID": "index.html#robustness-over-time",
+    "href": "index.html#robustness-over-time",
     "title": "SCAPE 2026",
-    "section": "Discovering the True Core",
-    "text": "Discovering the True Core\n\n\n\n\n\n\nAre network hubs just random flowers that happen to bloom heavily? We tested each species’ 15-year standardized coreness against a conservative, presence-conditional (flowering-only) null model (1,000 perms/yr). Exactly 6 species maintained statistically significant excess centrality: Centaurea jacea, Selinum carvifolia, Succisa pratensis, Pimpinella saxifraga, Achillea ptarmica, and Ranunculus acris (all P_adj &lt;= 0.0015)."
+    "section": "Robustness over Time",
+    "text": "Robustness over Time\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSame 6 core species, but losing them costs more in dry years and more every year\n\n\nWe simulated secondary extinction cascades (Memmott et al. 2004). Robustness R is the area under the co-extinction curve. Orange bars at the bottom = summer drought severity. Periphery removed first: robustness stays high every year (R = 0.81–0.91). Random order: intermediate (R = 0.65–0.75). Core removed first: always the most fragile, and getting worse. R = 0.69 in 2011, dips in the dry years 2015 and 2018 (≈ 0.45), recovers in 2020–2022 (≈ 0.55), and reaches its lowest values in 2023–2025 (0.41–0.43). So the dependence on the core is driven by drought AND by a long-term trend: core-removal R declines with drier summers (p = 0.005) and with year (p = 0.001). The gap ΔR = R_periph − R_core grows from 0.15 (2011) to 0.50 (2025). [Advance – circularity overlay; ΔR +0.022/yr, p = 0.014]: Someone may say: of course removing hubs hurts more. But the core identity is fixed for all 15 years. A fixed definition cannot by itself produce a gap that changes with weather and grows over time."
   },
   {
-    "objectID": "index.html#plant-identity-matters-not-an-abundance-lottery",
-    "href": "index.html#plant-identity-matters-not-an-abundance-lottery",
+    "objectID": "index.html#why",
+    "href": "index.html#why",
     "title": "SCAPE 2026",
-    "section": "Plant Identity Matters: Not an Abundance Lottery!",
-    "text": "Plant Identity Matters: Not an Abundance Lottery!\n\n\nThe Neutral Hypothesis\n\nHubs are just whichever plants produce the most flowers.\nCoreness drifts randomly with plant density.\nSpecies traits play no role.\n\n\nLinear Mixed Model (Centrality)\n\nPlant Identity: explains 38% of variance\nFloral Abundance: explains 44% of variance\nLRT for Plant Identity:\n\\(\\chi^2 = 328.8, \\mathbf{p = 1.8 \\times 10^{-73}}\\)\n\n\n\n\n\nPollinators actively seek out core species beyond their sheer floral abundance.\nThe core is an enduring architectural feature grounded in intrinsic floral syndromes and attractiveness.\n\n\n\nEven after controlling for raw flower count, species identity explains nearly 40% of the variance. Topological invariance: In multi-year modularity cartography (Guimerà & Amaral), these exact same 6 species emerge as permanent module hubs (z = 0.86-2.39). Markov role transitions show core species have a 59.2% probability of remaining hubs year-to-year and a 70.4% rebound probability, compared to only 3.5% for peripherals."
+    "section": "Why?",
+    "text": "Why?\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe core holds 14% of flowers but gets 67% of visits\n\n\nSlide: Why does losing the core cost more and more? Step 1 (navy): share of all pollinator visits that go to the 6 core species. It rises from 34–55% (2011–14) to 84–88% (2023–25), +2.3 percentage points per year (GLS-AR1, p = 0.001), and is higher in drier summers (p = 0.004). Peaks in 2015 and 2018. Step 2 (grey): share of flowers produced by the core species. Always far below the visit line: on average 14% of flowers vs 67% of visits over 15 years. [Advance – overlay]: Pollinators use the core far beyond its flower supply. The more visits concentrate on the core, the more damage its loss does: that is why the robustness gap grows. Caveat if asked: core flowering also increased in recent years (up to 31% in 2025), so part of the rise in visits follows more core flowers. In dry years peripheral flowering drops (~3× along the drought gradient, p = 0.032; backup slide) while core flowering does not."
   },
   {
-    "objectID": "index.html#secondary-extinctions-the-fragility-flip",
-    "href": "index.html#secondary-extinctions-the-fragility-flip",
+    "objectID": "index.html#take-home-messages",
+    "href": "index.html#take-home-messages",
     "title": "SCAPE 2026",
-    "section": "Secondary Extinctions: The Fragility Flip",
-    "text": "Secondary Extinctions: The Fragility Flip\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe simulated secondary extinction cascades (Memmott et al. 2004). Robustness R is the area under the co-extinction curve. During normal years: The meadow exhibits high structural redundancy (R ≈ 0.63–0.84). During severe droughts (2015, 2018): Core loss triggers catastrophic collapse (R ≈ 0.45), while peripheral loss is easily buffered (R ≈ 0.83). The Robustness Gap (ΔR) surges! In drought years, network survival becomes almost exclusively dependent on the 6 core species."
+    "section": "Take-Home Messages",
+    "text": "Take-Home Messages\n\n\n\n\n01 Persistent Core\n\n\n\n6 species stay central for 15 years\n\n\n\n\n\n\n02 Rising Dependence\n\n\n\nDrought shifts pollinators onto the core\n\n\n\n\n\n\n\n03 Protect the Core\n\n\n\nShould we protect species that stay central and keep flowering through perturbations?\n\n\n\n\n\n\nArchitecture: The 15-year dataset reveals that network coreness is topologically invariant and identity-based (LMM p = 1.8e-73, explaining 38% of centrality variance after controlling for flower abundance).\nRising Core Dependence (figure: 46% → 86% = mean core share of visits 2011–14 vs 2023–25): Peripheral flowering declines ~3-fold along the drought gradient (p = 0.032), core flowering does not (p = 0.79). The share of visits going to the core rose from 34–55% to 84–88%, and the robustness gap between losing the core and losing the periphery grew from 0.15 to 0.50 over 15 years.\nConservation: Grassland management should look beyond simple species counts and protect the species that combine a persistent hub role with drought-stable flowering (e.g. Centaurea, Succisa, Selinum)."
   },
   {
-    "objectID": "index.html#rising-vulnerability-core-dependence-delta-r",
-    "href": "index.html#rising-vulnerability-core-dependence-delta-r",
+    "objectID": "index.html#future-steps",
+    "href": "index.html#future-steps",
     "title": "SCAPE 2026",
-    "section": "Rising Vulnerability: Core Dependence (\\(\\Delta R\\))",
-    "text": "Rising Vulnerability: Core Dependence (\\(\\Delta R\\))\n\n\n\n\n\n\nCore dependence (\\(\\Delta R = R_{\\text{periph}} - R_{\\text{core}}\\)) surges during acute summer droughts (\\(p = 0.018\\)) and steadily intensifies over time (\\(+0.022/\\text{yr}, p = 0.014\\)).\n\n\nSlide: Core dependence surges during droughts and steadily rises across 15 years. When severe droughts strike, losing the core causes far more catastrophic secondary cascades than losing peripheral species."
+    "section": "Future Steps?",
+    "text": "Future Steps?\n\n\n\nData: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (2011–2025)\n\n\n\nDrought keeps coming back, and the network leans more and more on the core. What happens in the next dry summers? Will the core keep holding, or will it fail too?"
   },
   {
-    "objectID": "index.html#the-ecological-driver-floral-asymmetry",
-    "href": "index.html#the-ecological-driver-floral-asymmetry",
+    "objectID": "index.html#next-step-pollen-transfer",
+    "href": "index.html#next-step-pollen-transfer",
     "title": "SCAPE 2026",
-    "section": "The Ecological Driver: Floral Asymmetry",
-    "text": "The Ecological Driver: Floral Asymmetry\n\n\n\n\n\n\nThe Life-Raft Mechanism: Peripheral displays crash 10-fold (\\(\\beta = -28.0, p = 0.032\\)), while the core remains completely drought-buffered (\\(\\beta = +0.9, p = 0.792\\)) \\(\\rightarrow\\) pollinators concentrate on core heads, making them the community’s sole life-support system.\n\n\nSlide: Why does the network become so dependent on the core? Profound floral asymmetry: peripheral flowers collapse 10-fold during extreme droughts, whereas the 6 core perennial species maintain steady floral displays. Pollinators are forced onto the core life-raft!"
-  },
-  {
-    "objectID": "index.html#take-home-messages-for-pollination-ecology",
-    "href": "index.html#take-home-messages-for-pollination-ecology",
-    "title": "SCAPE 2026",
-    "section": "Take-Home Messages for Pollination Ecology",
-    "text": "Take-Home Messages for Pollination Ecology\n\n\n\n\n01 • Architecture\n\n\nDynamic Web,Persistent Anchor\n\n\nHigh annual rewiring is anchored by a permanent core of 6 plant species.  Centrality is driven by plant identity (explaining 38% of variance), not an abundance lottery.\n\n\n\n\n\n\n02 • Mechanism\n\n\nThe Life-RaftBuffer\n\n\nSevere drought triggers a 10-fold crash in peripheral flowers, while core plants remain buffered.  Pollinators crowd onto the core, turning it into the community’s sole life-support system.\n\n\n\n\n\n\n\n03 • Implication\n\n\nTargetedConservation\n\n\nPreserving network resilience against climate extremes requires safeguarding keystone plants that unite:\n\n\nHigh floral attractiveness\n\n\nDeep drought tolerance\n\n\n\n\n\n\n\n\nArchitecture: The 15-year dataset reveals that network coreness is topologically invariant and identity-based (LMM p = 1.8e-73, explaining 38% of centrality variance after controlling for flower abundance).\nMechanism: Extinction cascade simulations demonstrate a catastrophic robustness drop (R = 0.45) if core is lost during drought. Peripheral flowers collapse 10-fold (p = 0.032), but core plants flower unaffected (p = 0.792).\nConservation: Grassland management must focus beyond simple species counts to protect these dual-trait keystone species (e.g. Centaurea, Succisa, Selinum) that guarantee network survival during extreme climatic shocks."
-  },
-  {
-    "objectID": "index.html#next-step-real-pollen-deposition-dynamics",
-    "href": "index.html#next-step-real-pollen-deposition-dynamics",
-    "title": "SCAPE 2026",
-    "section": "Next Step: Real Pollen Deposition Dynamics",
-    "text": "Next Step: Real Pollen Deposition Dynamics\n\n\n\n\nEristalis interruptus carrying heterospecific pollen loads\n\n\n\n\n\nStigmatic pollen deposition on Succisa pratensis\n\n\n\n\nSlide: Next Step — Real Pollen Deposition Dynamics. Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set! We tracked individual pollinators carrying heterospecific pollen loads (e.g. Eristalis interruptus) and quantified how this translates to actual stigmatic pollen deposition and ovule fertilization on Succisa pratensis."
+    "section": "Next Step: Pollen Transfer",
+    "text": "Next Step: Pollen Transfer\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSlide: Next Step — Real Pollen Deposition Dynamics. Linking visitation architecture to actual stigmatic pollen deposition, heterospecific clogging, and plant seed set! Left photo: Eristalis interruptus carrying heterospecific pollen loads. Right: stigmatic pollen deposition on Succisa pratensis. Overlay (concept, not data): 1) core species linked by shared visitors; 2) dashed arrows = pollen actually transferred, which can differ in direction and strength from visitation; 3) between core and periphery pollen flows both ways, unequally; 4) the next year, visitation looks the same but pollen transfer within the core can change. We tracked individual pollinators carrying heterospecific pollen loads (e.g. Eristalis interruptus) and quantified how this translates to actual stigmatic pollen deposition and ovule fertilization on Succisa pratensis."
   },
   {
     "objectID": "index.html#handrkov",
@@ -238,6 +231,27 @@
     "text": "Thank you for your attention!\n\n\n\n\nJakub Štenc\n\n\njakubstenc@gmail.com  |  +420 774 553 734\n\n\nCharles University, Prague & CREAF, Barcelona\n\n\n🌸 Save the date: Ecoflor 2027 in Prague!"
   },
   {
+    "objectID": "index.html#qa-is-it-circular",
+    "href": "index.html#qa-is-it-circular",
+    "title": "SCAPE 2026",
+    "section": "Q&A: Is It Circular?",
+    "text": "Q&A: Is It Circular?\n\nThe Circularity Skeptic: “Core species are high-degree hubs by definition. Doesn’t removing them automatically reduce robustness mathematically, making core importance a tautology?”\n\n\n\n\n\nPillar 1\n\n\nClimatic Decoupling\n\n\nIf circular, core removal would cost the same every year.  Instead, core-loss robustness ranges from 0.69 to 0.41 and drops in drier summers (\\(p = 0.005\\)).  Weather cannot change a mathematical tautology.\n\n\n\n\n\nPillar 2\n\n\nStatic vs. Dynamic Gap\n\n\nCore identity is static (the same 6 species across 15 yrs from null models).  Yet the fragility gap (\\(\\Delta R\\)) is dynamic: it surges with summer drought (\\(p = 0.018\\)) and intensifies over 15 years (\\(p = 0.014\\)).  A static definition cannot generate a 15-year temporal trend.\n\n\n\n\n\nPillar 3\n\n\nEmpirical Biology\n\n\nDriven by plant physiology, not network geometry:  Peripheral flowering drops ~3× along the drought gradient (\\(\\beta = -28.0, p = 0.032\\)), while core flowering does not.  Pollinators concentrate onto the core (34–55% → 84–88% of visits), so losing it removes most of the remaining forage.\n\n\n\n\nQ&A Defense against circularity: 1. Environmental state-dependence: If core importance were a mathematical circularity of high degree, core loss would cost the same every year. Instead core-removal R varies from 0.69 (2011) to 0.41 (2025) and is lower in drier summers (p = 0.005). 2. Temporal decoupling: Core identity is static across 15 years, but the robustness gap Delta R surges with drought severity (p = 0.018) and increases over time (+0.022/yr, p = 0.014). 3. Biological mechanism: Peripheral floral abundance drops ~3-fold along the drought gradient while core flowering is stable, so pollinators concentrate on the core (share of visits 34–55% in 2011–14 vs 84–88% in 2023–25). Honest caveat: core removal is ALWAYS worse than peripheral removal, partly by construction. The argument is about the size of the gap changing, not about its sign."
+  },
+  {
+    "objectID": "index.html#appendix-floral-response-to-drought",
+    "href": "index.html#appendix-floral-response-to-drought",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Floral Response to Drought",
+    "text": "Appendix: Floral Response to Drought\n\n\n\n\n\n\nThe Life-Raft Mechanism: Peripheral flowering drops ~3× across the drought gradient (\\(\\beta = -28.0, p = 0.032\\)), core flowering shows no detectable drop (\\(\\beta = +0.9, p = 0.79\\)) \\(\\rightarrow\\) pollinators concentrate on the core: from 34–55% of visits (2011–14) to 84–88% (2023–25).\n\n\nBackup: floral response of core vs peripheral species to summer drought. Floral asymmetry: across the drought gradient, the fitted peripheral floral abundance falls about 3-fold (from ~140 to ~46), while the 6 core species keep a steady display. In the two driest years (2015, 2018) peripheral flowering was ~10× below a typical year, but 2019 and 2025 were also dry and peripheral flowering held up much better, so the fitted ~3× is the fair summary. Note: the core species are not the most abundant flowers; peripheral species together have ~6× more flowers. The core is central despite that. Consequence: the share of all pollinator visits going to the core rose from 34–55% (2011–14) to 84–88% (2023–25)."
+  },
+  {
+    "objectID": "index.html#appendix-core-dependence-delta-r",
+    "href": "index.html#appendix-core-dependence-delta-r",
+    "title": "SCAPE 2026",
+    "section": "Appendix: Core Dependence (\\(\\Delta R\\))",
+    "text": "Appendix: Core Dependence (\\(\\Delta R\\))\n\n\n\n\n\n\nCore dependence (\\(\\Delta R = R_{\\text{periph}} - R_{\\text{core}}\\)) surges during acute summer droughts (\\(p = 0.018\\)) and steadily intensifies over time (\\(+0.022/\\text{yr}, p = 0.014\\)).\n\n\nBackup Slide: Core dependence surges during droughts and steadily rises across 15 years. When severe droughts strike, losing the core causes far more catastrophic secondary cascades than losing peripheral species."
+  },
+  {
     "objectID": "index.html#appendix-15-year-network-snapshots",
     "href": "index.html#appendix-15-year-network-snapshots",
     "title": "SCAPE 2026",
@@ -245,11 +259,11 @@
     "text": "Appendix: 15-Year Network Snapshots\n\n\n\n\n\n\nCircular representation of annual networks across all 15 years. Fixed species angles around the perimeter. Black = core, Red = peripheral. Notice dramatic concentration in 2015 and 2018."
   },
   {
-    "objectID": "index.html#appendix-modularity-cartography-markov-roles",
-    "href": "index.html#appendix-modularity-cartography-markov-roles",
+    "objectID": "index.html#appendix-species-roles",
+    "href": "index.html#appendix-species-roles",
     "title": "SCAPE 2026",
-    "section": "Appendix: Modularity Cartography & Markov Roles",
-    "text": "Appendix: Modularity Cartography & Markov Roles\n\n\n\n\n\n\nMulti-year Guimerà & Amaral modularity cartography: core species consistently occupy high within-module degree (z = 0.86-2.39). Longitudinal Markov role transitions demonstrate hub fidelity: core species retain hub status 59.2% of years and have 70.4% rebound probability with &lt;=4% dropout risk, vs 3.5% hub attainment for peripherals."
+    "section": "Appendix: Species Roles",
+    "text": "Appendix: Species Roles\n\n\n\n\n\n\nMulti-year Guimerà & Amaral modularity cartography: core species consistently occupy high within-module degree (z = 0.86-2.39). Longitudinal Markov role transitions demonstrate hub fidelity: core species retain hub status 59.2% of years and have 70.4% rebound probability with &lt;=4% dropout risk, vs 3.5% hub attainment for peripherals."
   },
   {
     "objectID": "index.html#appendix-abundance-vs-degree-correlation",
@@ -259,24 +273,24 @@
     "text": "Appendix: Abundance vs Degree Correlation\n\n\n\n\n\n\nCorrelation between floral abundance and species degree fluctuates across years, dropping significantly during droughts (e.g. 2011 and 2018), proving that abundance does not dictate network roles."
   },
   {
-    "objectID": "index.html#appendix-pollinator-concentration-dietary-restriction",
-    "href": "index.html#appendix-pollinator-concentration-dietary-restriction",
+    "objectID": "index.html#appendix-pollinator-concentration",
+    "href": "index.html#appendix-pollinator-concentration",
     "title": "SCAPE 2026",
-    "section": "Appendix: Pollinator Concentration & Dietary Restriction",
-    "text": "Appendix: Pollinator Concentration & Dietary Restriction\n\n\n\n\n\n\nSI Appendix Fig S7: Direct empirical proof of pollinator dietary restriction during droughts. When peripheral plants wither, pollinators dynamically re-allocate foraging to the core, receiving +62% to +66% excess visits beyond abundance expectations."
+    "section": "Appendix: Pollinator Concentration",
+    "text": "Appendix: Pollinator Concentration\n\n\n\n\n\n\nSI Appendix Fig S7: Direct empirical proof of pollinator dietary restriction during droughts. When peripheral plants wither, pollinators dynamically re-allocate foraging to the core, receiving +62% to +66% excess visits beyond abundance expectations."
   },
   {
-    "objectID": "index.html#appendix-turnover-deviation-vs-null-models",
-    "href": "index.html#appendix-turnover-deviation-vs-null-models",
+    "objectID": "index.html#appendix-turnover-vs-null-models",
+    "href": "index.html#appendix-turnover-vs-null-models",
     "title": "SCAPE 2026",
-    "section": "Appendix: Turnover Deviation vs Null Models",
-    "text": "Appendix: Turnover Deviation vs Null Models\n\n\n\n\n\n\nFigure 2 from the manuscript: Panel A core definition, Panel B observed turnover vs abundance-weighted and random rewiring null models with drought bars, and Panel C robustness curves."
+    "section": "Appendix: Turnover vs Null Models",
+    "text": "Appendix: Turnover vs Null Models\n\n\n\n\n\n\nFigure 2 from the manuscript: Panel A core definition, Panel B observed turnover vs abundance-weighted and random rewiring null models with drought bars, and Panel C robustness curves."
   },
   {
-    "objectID": "index.html#appendix-full-mechanistic-cascade-figure-3",
-    "href": "index.html#appendix-full-mechanistic-cascade-figure-3",
+    "objectID": "index.html#appendix-mechanism-figure-3",
+    "href": "index.html#appendix-mechanism-figure-3",
     "title": "SCAPE 2026",
-    "section": "Appendix: Full Mechanistic Cascade (Figure 3)",
-    "text": "Appendix: Full Mechanistic Cascade (Figure 3)\n\n\n\n\n\n\nFigure 3 from manuscript: Panel A network vulnerability over time and drought; Panel B floral asymmetry; Panel C motif scaffolding driving network fragility."
+    "section": "Appendix: Mechanism (Figure 3)",
+    "text": "Appendix: Mechanism (Figure 3)\n\n\n\n\n\n\nFigure 3 from manuscript: Panel A network vulnerability over time and drought; Panel B floral asymmetry; Panel C motif scaffolding driving network fragility."
   }
 ]

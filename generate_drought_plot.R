@@ -23,11 +23,11 @@ message("Generating 50-year plot (without 2x SD line/text)...")
 p <- ggplot(climate_annual, aes(x = Year, y = Drought_Severity)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50", linewidth = 1) +
   geom_bar(stat = "identity", aes(fill = Drought_Severity), color = "black", linewidth = 0.3) +
-  scale_fill_gradient2(low = "#1D2D6B", mid = "white", high = "#D6604D", midpoint = 0, guide = "none") +
+  scale_fill_gradient2(low = "#3B0F70", mid = "white", high = "#F8765C", midpoint = 0, guide = "none") +
   theme_classic(base_size = 20) +
   labs(
     x = "Year",
-    y = "Drought Severity\n(Summer inverted SPEI-6)"
+    y = "Drought severity\n(summer −SPEI-6)"
   ) +
   theme(
     plot.background = element_rect(fill = "transparent", color = NA),
@@ -46,16 +46,17 @@ message("Generating zoomed plot (2011-2025 without 2x SD line/text)...")
 p_zoomed <- ggplot(climate_annual %>% filter(Year >= 2011 & Year <= 2025), aes(x = Year, y = Drought_Severity)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50", linewidth = 1) +
   geom_bar(stat = "identity", aes(fill = Drought_Severity), color = "black", linewidth = 0.5) +
-  scale_fill_gradient2(low = "#1D2D6B", mid = "white", high = "#D6604D", midpoint = 0, guide = "none") +
+  scale_fill_gradient2(low = "#3B0F70", mid = "white", high = "#F8765C", midpoint = 0, guide = "none") +
   theme_classic(base_size = 20) +
   scale_x_continuous(breaks = 2011:2025) +
   labs(
     x = "Year",
-    y = "Drought Severity\n(Summer inverted SPEI-6)"
+    y = "Drought severity\n(summer −SPEI-6)"
   ) +
   theme(
     plot.background = element_rect(fill = "transparent", color = NA),
-    panel.background = element_rect(fill = "transparent", color = NA)
+    panel.background = element_rect(fill = "transparent", color = NA),
+    axis.text.x = element_text(angle = 45, hjust = 1)
   )
 
 ggsave("images/drought_severity_zoomed.png", plot = p_zoomed, width = 10, height = 4, dpi = 300, bg = "transparent")
@@ -65,12 +66,12 @@ message("Generating future plot (2011-2030 without 2x SD line/text)...")
 p_future <- ggplot(climate_annual %>% filter(Year >= 2011 & Year <= 2025), aes(x = Year, y = Drought_Severity)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50", linewidth = 1) +
   geom_bar(stat = "identity", aes(fill = Drought_Severity), color = "black", linewidth = 0.5) +
-  scale_fill_gradient2(low = "#1D2D6B", mid = "white", high = "#D6604D", midpoint = 0, guide = "none") +
+  scale_fill_gradient2(low = "#3B0F70", mid = "white", high = "#F8765C", midpoint = 0, guide = "none") +
   theme_classic(base_size = 20) +
   scale_x_continuous(breaks = seq(2011, 2030, by=2), limits = c(2010.5, 2030.5)) +
   labs(
     x = "Year",
-    y = "Drought Severity\n(Summer inverted SPEI-6)"
+    y = "Drought severity\n(summer −SPEI-6)"
   ) +
   annotate("text", x = 2028, y = 0, label = "?", size = 45, color = "gray60", fontface = "bold", alpha = 0.5) +
   theme(

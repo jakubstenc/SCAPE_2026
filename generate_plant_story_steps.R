@@ -155,7 +155,7 @@ cat("Saved plant_step2_plants.png\n")
 # --- Stage 3: Shared pollinator routes connecting plants into an organic web ---
 p3 <- ggplot() +
   geom_segment(data = edges_plot, aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#60A5FA", alpha = 0.28, linewidth = 0.45) +
+               color = "#3B0F70", alpha = 0.18, linewidth = 0.45) +
   geom_point(data = plant_nodes, aes(x = x, y = y), color = "#334155", alpha = 0.85, size = 2.8) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
@@ -168,32 +168,32 @@ p4 <- ggplot() +
   # Spoke routes
   geom_segment(data = subset(edges_plot, EdgeType != "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#93C5FD", alpha = 0.28, linewidth = 0.4) +
+               color = "#3B0F70", alpha = 0.18, linewidth = 0.4) +
   # Core-Core backbone routes (natural organic cluster, no pentagram)
   geom_segment(data = subset(edges_plot, EdgeType == "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#1D4ED8", alpha = 0.88, linewidth = 1.2) +
+               color = "#3B0F70", alpha = 0.88, linewidth = 1.2) +
   # Peripheral plants
   geom_point(data = subset(plant_nodes, Role == "Peripheral Plant"),
-             aes(x = x, y = y), color = "#F87171", alpha = 0.75, size = 2.8) +
+             aes(x = x, y = y), color = "#DE7BA9", alpha = 0.75, size = 2.8) +
   # Core plants
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
+             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
   # Callout lines for core labels
   geom_segment(data = labels_core, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
-               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+               color = "#8C2981", alpha = 0.6, linewidth = 0.5) +
   # Callout lines for peripheral labels
   geom_segment(data = ex_periph_df, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
-               color = "#DC2626", alpha = 0.6, linewidth = 0.5) +
+               color = "#B63679", alpha = 0.6, linewidth = 0.5) +
   # Core labels
   geom_label(data = labels_core, aes(x = lbl_x, y = lbl_y, label = LabelText),
              fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Peripheral labels
   geom_label(data = ex_periph_df, aes(x = lbl_x, y = lbl_y, label = LabelText),
-             fontface = "italic", size = 3.0, color = "#B91C1C", fill = alpha("#FEF2F2", 0.96),
+             fontface = "italic", size = 3.0, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.96),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
@@ -214,29 +214,29 @@ p_rand <- ggplot() +
   # Surviving spoke edges
   geom_segment(data = subset(edges_rand, EdgeType != "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#93C5FD", alpha = 0.25, linewidth = 0.4) +
+               color = "#3B0F70", alpha = 0.18, linewidth = 0.4) +
   # Surviving core edges
   geom_segment(data = subset(edges_rand, EdgeType == "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#1D4ED8", alpha = 0.85, linewidth = 1.1) +
+               color = "#3B0F70", alpha = 0.85, linewidth = 1.1) +
   # Peripheral plants surviving
   geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% rand_lost_periph)),
-             aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
+             aes(x = x, y = y), color = "#DE7BA9", alpha = 0.7, size = 2.8) +
   # Core plants surviving
   geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
-             aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
-             aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
+             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
   # Knocked out peripheral nodes (Red X)
   geom_point(data = subset(plant_nodes, Species %in% rand_lost_periph),
-             aes(x = x, y = y), color = "#DC2626", size = 6.0, shape = 4, stroke = 2.5) +
+             aes(x = x, y = y), color = "#B63679", size = 6.0, shape = 4, stroke = 2.5) +
   # Knocked out core node (Red X)
   geom_point(data = subset(plant_nodes, Species %in% rand_lost_core),
-             aes(x = x, y = y), color = "#DC2626", size = 7.5, shape = 4, stroke = 3.0) +
+             aes(x = x, y = y), color = "#B63679", size = 7.5, shape = 4, stroke = 3.0) +
   # Callout lines for surviving core labels
   geom_segment(data = subset(labels_core, !(Species %in% rand_lost_core)),
                aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
-               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+               color = "#8C2981", alpha = 0.6, linewidth = 0.5) +
   geom_label(data = subset(labels_core, !(Species %in% rand_lost_core)),
              aes(x = lbl_x, y = lbl_y, label = LabelText),
              fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
@@ -244,7 +244,7 @@ p_rand <- ggplot() +
   # Knockout label for core plant
   geom_label(data = subset(labels_core, Species %in% rand_lost_core),
              aes(x = lbl_x, y = lbl_y, label = paste0("❌ ", Species, "\nLOST AT RANDOM")),
-             fontface = "bold.italic", size = 3.1, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+             fontface = "bold.italic", size = 3.1, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.95),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Top banner
   annotate("label", x = 0, y = 4.3, label = "🎲 RANDOM LOSS: Moderate Buffering (Intermediate decline)",
@@ -260,36 +260,36 @@ p5 <- ggplot() +
   # Spoke edges
   geom_segment(data = subset(edges_plot, EdgeType != "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#93C5FD", alpha = 0.25, linewidth = 0.4) +
+               color = "#3B0F70", alpha = 0.18, linewidth = 0.4) +
   # Core-Core backbone edges
   geom_segment(data = subset(edges_plot, EdgeType == "Core-Core"),
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#1D4ED8", alpha = 0.88, linewidth = 1.2) +
+               color = "#3B0F70", alpha = 0.88, linewidth = 1.2) +
   # Peripheral plants surviving
   geom_point(data = subset(plant_nodes, Role == "Peripheral Plant" & !(Species %in% c("Lathyrus pratensis", "Ranunculus flammula"))),
-             aes(x = x, y = y), color = "#F87171", alpha = 0.7, size = 2.8) +
+             aes(x = x, y = y), color = "#DE7BA9", alpha = 0.7, size = 2.8) +
   # Core plants intact
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#1E3A8A", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#FBBF24", size = 3.6) +
+             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
   # Knocked out peripheral plants (Red X)
   geom_point(data = subset(plant_nodes, Species %in% c("Lathyrus pratensis", "Ranunculus flammula")),
-             aes(x = x, y = y), color = "#DC2626", size = 6.5, shape = 4, stroke = 2.8) +
+             aes(x = x, y = y), color = "#B63679", size = 6.5, shape = 4, stroke = 2.8) +
   # Callout lines for core labels
   geom_segment(data = labels_core, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
-               color = "#1E3A8A", alpha = 0.6, linewidth = 0.5) +
+               color = "#8C2981", alpha = 0.6, linewidth = 0.5) +
   geom_label(data = labels_core, aes(x = lbl_x, y = lbl_y, label = LabelText),
              fontface = "bold.italic", size = 3.3, color = "#0F172A", fill = alpha("white", 0.95),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Knockout label
   geom_label(data = subset(ex_periph_df, Species == "Lathyrus pratensis"),
              aes(x = lbl_x, y = lbl_y, label = "❌ Lathyrus pratensis\nSPOKE FAILED"),
-             fontface = "italic", size = 3.1, color = "#B91C1C", fill = alpha("#FEF2F2", 0.95),
+             fontface = "italic", size = 3.1, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.95),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Top banner
   annotate("label", x = 0, y = 4.3, label = "🟢 SPOKE LOSS: Meadow Web Absorbs Shock (Core intact)",
-           fill = "#F0FDF4", color = "#15803D", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
+           fill = "#EEF3F1", color = "#40695B", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 
@@ -303,20 +303,20 @@ p6 <- ggplot() +
   # Surviving spoke-spoke edges only (rare, weak)
   geom_segment(data = edges_spoke_only,
                aes(x = x1, y = y1, xend = x2, yend = y2),
-               color = "#94A3B8", alpha = 0.25, linewidth = 0.35) +
+               color = "#3B0F70", alpha = 0.18, linewidth = 0.35) +
   # Peripheral plants isolated (stranded)
   geom_point(data = subset(plant_nodes, Role == "Peripheral Plant"),
-             aes(x = x, y = y), color = "#EF4444", alpha = 0.6, size = 2.6) +
+             aes(x = x, y = y), color = "#B63679", alpha = 0.6, size = 2.6) +
   # Huge Red X over the 6 core plants
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#DC2626", size = 11, shape = 4, stroke = 3.5) +
+             aes(x = x, y = y), color = "#B63679", size = 11, shape = 4, stroke = 3.5) +
   geom_label(data = labels_core[c(1, 3, 5), ],
              aes(x = lbl_x, y = lbl_y, label = paste0("❌ ", Species, "\nHUB WITHERED!")),
-             fontface = "bold.italic", size = 3.1, color = "#991B1B", fill = alpha("#FEF2F2", 0.95),
+             fontface = "bold.italic", size = 3.1, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.95),
              label.padding = unit(0.25, "lines"), label.r = unit(0.2, "lines")) +
   # Top banner
   annotate("label", x = 0, y = 4.3, label = "🔴 HUB COLLAPSE: Shared Pollinator Web Unravels!",
-           fill = "#FEF2F2", color = "#B91C1C", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
+           fill = "#FBEFF5", color = "#7A1F5C", fontface = "bold", size = 3.6, label.r = unit(0.2, "lines")) +
   coord_fixed(xlim = c(-4.6, 4.6), ylim = c(-4.6, 4.6)) +
   base_theme
 

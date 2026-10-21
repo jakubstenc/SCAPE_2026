@@ -92,7 +92,7 @@ df_periph$Scenario <- factor(df_periph$Scenario, levels = c("Random", "Periphera
 
 p_periph <- ggplot(df_periph, aes(x = prop_plants_extinct, y = prop_polls_survive, color = Scenario, linetype = Scenario)) +
   geom_line(linewidth = 2.4) +
-  scale_color_manual(values = c("Random" = "#64748B", "Peripheral" = "#D6604D")) +
+  scale_color_manual(values = c("Random" = "#64748B", "Peripheral" = "#B63679")) +
   scale_linetype_manual(values = c("Random" = "dotted", "Peripheral" = "dashed")) +
   scale_x_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.25)) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.25)) +
@@ -108,7 +108,7 @@ df_core$Scenario <- factor(df_core$Scenario, levels = c("Random", "Peripheral", 
 
 p_core <- ggplot(df_core, aes(x = prop_plants_extinct, y = prop_polls_survive, color = Scenario, linetype = Scenario)) +
   geom_line(linewidth = 2.4) +
-  scale_color_manual(values = c("Random" = "#64748B", "Peripheral" = "#D6604D", "Core" = "#1D2D6B")) +
+  scale_color_manual(values = c("Random" = "#64748B", "Peripheral" = "#B63679", "Core" = "#3B0F70")) +
   scale_linetype_manual(values = c("Random" = "dotted", "Peripheral" = "dashed", "Core" = "solid")) +
   scale_x_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.25)) +
   scale_y_continuous(labels = scales::percent, limits = c(0, 1), breaks = seq(0, 1, 0.25)) +

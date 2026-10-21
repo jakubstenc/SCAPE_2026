@@ -103,15 +103,16 @@ envfit_vectors <- as.data.frame(scores(ef, display = "vectors")) %>%
         ),
         label_name_only = var_name,
         label_full = sprintf("%s\n(r² = %.2f, p = %.3f)", var_name, r2, pval),
-        nudge_x = case_when(
-            Variable == "Drought_Severity" ~ 0.00,
-            Variable == "Temperature" ~ -0.03,
-            Variable == "Year" ~ -0.06
+        # Label boxes sit in empty corners of the ordination, away from the year points
+        lab_x = case_when(
+            Variable == "Drought_Severity" ~ 0.93,
+            Variable == "Temperature" ~ 0.93,
+            Variable == "Year" ~ 0.42
         ),
-        nudge_y = case_when(
-            Variable == "Drought_Severity" ~ -0.08,
-            Variable == "Temperature" ~ 0.08,
-            Variable == "Year" ~ 0.06
+        lab_y = case_when(
+            Variable == "Drought_Severity" ~ 0.40,
+            Variable == "Temperature" ~ -0.10,
+            Variable == "Year" ~ 0.57
         )
     )
 
@@ -152,9 +153,9 @@ create_base_plot <- function(has_visible_legend = TRUE) {
                  hjust = 1.15, vjust = -1.2, size = 7, fontface = "italic", color = "grey40") +
         coord_cartesian(xlim = c(-0.70, 1.15), ylim = c(-0.45, 0.65)) +
         labs(
-            title = "Temporal Trajectory of Pollinator Sharing (PAC NMDS)",
-            x = "NMDS Axis 1 (Acute Climate Pulse)",
-            y = "NMDS Axis 2 (Decadal Press)"
+            title = NULL,
+            x = "NMDS 1",
+            y = "NMDS 2"
         ) +
         base_nmds_theme
         
@@ -209,60 +210,50 @@ p3 <- create_base_plot(has_visible_legend = TRUE) +
 p3 <- add_year_labels(p3, "black")
 ggsave("images/nmds_step3_trajectory.png", p3, width = 11, height = 7, bg = "transparent", dpi = 300)
 
-# --- Step 4: Dim points/trajectory + Project environmental arrows with NAMES ONLY ---
-p4 <- create_base_plot(has_visible_legend = TRUE) +
-    geom_segment(
-        data = path_segs,
-        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
-        linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
-    ) +
-    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30)
-p4 <- add_year_labels(p4, "grey55") +
-    geom_segment(
-        data = envfit_vectors,
-        aes(x = 0, y = 0, xend = xend, yend = yend),
-        arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
-        color = "black", linewidth = 1.8, inherit.aes = FALSE
-    ) +
-    geom_label_repel(
-        data = envfit_vectors,
-        aes(x = xend, y = yend, label = label_name_only),
-        fontface = "bold", size = 6.2, color = "black",
-        fill = alpha("white", 0.95), label.size = 0.4,
-        box.padding = 0.5, point.padding = 0.4,
-        nudge_x = envfit_vectors$nudge_x,
-        nudge_y = envfit_vectors$nudge_y,
-        inherit.aes = FALSE, seed = 42
-    )
+# Dimmed points/trajectory + a chosen subset of fitted arrows with leader-linked labels
+vector_plot <- function(vecs, label_col, label_size) {
+    p <- create_base_plot(has_visible_legend = TRUE) +
+        geom_segment(
+            data = path_segs,
+            aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
+            linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
+        ) +
+        geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30)
+    add_year_labels(p, "grey55") +
+        geom_segment(
+            data = vecs,
+            aes(x = 0, y = 0, xend = xend, yend = yend),
+            arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
+            color = "black", linewidth = 1.8, inherit.aes = FALSE
+        ) +
+        geom_segment(
+            data = vecs,
+            aes(x = lab_x, y = lab_y, xend = xend, yend = yend),
+            color = "grey45", linewidth = 0.6, inherit.aes = FALSE
+        ) +
+        geom_label(
+            data = vecs,
+            aes(x = lab_x, y = lab_y, label = .data[[label_col]]),
+            fontface = "bold", size = label_size, color = "black",
+            fill = alpha("white", 0.95), label.size = 0.4,
+            inherit.aes = FALSE
+        )
+}
+
+climate_vectors <- filter(envfit_vectors, Variable != "Year")
+
+# --- Step 4a: Climate arrows only (names) ---
+p4a <- vector_plot(climate_vectors, "label_name_only", 6.2)
+ggsave("images/nmds_step4a_climate_names.png", p4a, width = 11, height = 7, bg = "transparent", dpi = 300)
+
+# --- Step 4b: Climate + time arrows (names) ---
+p4 <- vector_plot(envfit_vectors, "label_name_only", 6.2)
 ggsave("images/nmds_step4_vectors_names.png", p4, width = 11, height = 7, bg = "transparent", dpi = 300)
 
-# --- Step 5: Dim points/trajectory + Arrows with NAMES + NUMBERS (r², p) ---
-p5 <- create_base_plot(has_visible_legend = TRUE) +
-    geom_segment(
-        data = path_segs,
-        aes(x = NMDS1, y = NMDS2, xend = xend, yend = yend, color = mid_year),
-        linewidth = 2.0, lineend = "round", alpha = 0.25, inherit.aes = FALSE
-    ) +
-    geom_point(aes(color = Year), shape = 16, size = 8, alpha = 0.30)
-p5 <- add_year_labels(p5, "grey55") +
-    geom_segment(
-        data = envfit_vectors,
-        aes(x = 0, y = 0, xend = xend, yend = yend),
-        arrow = arrow(length = unit(0.5, "cm"), type = "closed"),
-        color = "black", linewidth = 1.8, inherit.aes = FALSE
-    ) +
-    geom_label_repel(
-        data = envfit_vectors,
-        aes(x = xend, y = yend, label = label_full),
-        fontface = "bold", size = 6.0, color = "black",
-        fill = alpha("white", 0.95), label.size = 0.4,
-        box.padding = 0.5, point.padding = 0.4,
-        nudge_x = envfit_vectors$nudge_x,
-        nudge_y = envfit_vectors$nudge_y,
-        inherit.aes = FALSE, seed = 42
-    )
+# --- Step 5: All arrows with NAMES + NUMBERS (r², p) ---
+p5 <- vector_plot(envfit_vectors, "label_full", 6.0)
 ggsave("images/nmds_step5_vectors_stats.png", p5, width = 11, height = 7, bg = "transparent", dpi = 300)
 # Also overwrite original for backward compatibility
 ggsave("images/nmds_climate_envfit.png", p5, width = 11, height = 7, bg = "transparent", dpi = 300)
 
-cat("Successfully generated all 5 NMDS steps.\n")
+cat("Successfully generated all 6 NMDS steps.\n")

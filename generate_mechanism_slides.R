@@ -15,10 +15,10 @@ mot   <- read.csv(file.path(base_dir, "outputs/Data_Prep/annual_motif_results.cs
 
 core_spp <- core$Plant_Species[core$Core %in% TRUE]
 
-COL_CORE <- "#1D2D6B"
-COL_PER  <- "#D6604D"
-COL_DRY  <- "#D45F00"
-COL_WET  <- "#1A78C2"
+COL_CORE <- "#3B0F70"
+COL_PER  <- "#B63679"
+COL_DRY  <- "#F8765C"
+COL_WET  <- "#3B0F70"
 YRS <- 2011:2025
 
 base_th <- theme_classic(base_size = 18) +
@@ -112,7 +112,7 @@ grid_per$hi  <- grid_per$fit + 1.96 * grid_per$se
 
 gridB <- rbind(grid_cor, grid_per)
 
-labB_text <- sprintf("Peripheral: \u03b2 = %.1f (p = %.3f) [CRASH]\nCore: \u03b2 = +%.1f (p = %.3f) [STABLE]",
+labB_text <- sprintf("Peripheral: \u03b2 = %.1f (p = %.3f)\nCore: \u03b2 = +%.1f (p = %.3f)",
                      ttB_per["drought_sev", 1], ttB_per["drought_sev", 4],
                      ttB_cor["drought_sev", 1], ttB_cor["drought_sev", 4])
 
@@ -134,7 +134,7 @@ pB <- ggplot() +
     values = c("Core species (n = 6)" = "solid", "Peripheral species (n = 49)" = "dashed"),
     name = NULL
   ) +
-  annotate("label", x = 0.3, y = 160, label = labB_text, hjust = 0, vjust = 1, size = 5,
+  annotate("label", x = 1.2, y = 165, label = labB_text, hjust = 0, vjust = 1, size = 5,
            lineheight = 1.05, fill = alpha("white", 0.90), border.colour = "grey70") +
   coord_cartesian(ylim = c(0, 165)) +
   labs(
@@ -187,7 +187,7 @@ pC <- ggplot() +
   annotate("label", x = 2010.8, y = 104, label = labC, hjust = 0, vjust = 1, size = 5,
            lineheight = 0.95, fill = alpha("white", 0.90), border.colour = "grey70") +
   annotate("label", x = 2025.2, y = 50, label = labC_rel, hjust = 1, vjust = 0, size = 4.8,
-           lineheight = 1.0, fill = alpha("#FFF5EE", 0.95), color = "#8B1A1A", border.colour = "grey70") +
+           lineheight = 1.0, fill = alpha("#FBEFF5", 0.95), color = "#7A1F5C", border.colour = "grey70") +
   xsc +
   labs(
     title = "Architectural Consequence: Motif Collapse onto Core",

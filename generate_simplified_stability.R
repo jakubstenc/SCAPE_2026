@@ -17,7 +17,7 @@ df$Plant_Species <- factor(df$Plant_Species, levels = df$Plant_Species)
 p <- ggplot(df, aes(x = Difference, y = Plant_Species, fill = Role)) +
   geom_bar(stat = "identity", width = 0.75) +
   geom_text(aes(label = Sig, x = Difference + 0.03), hjust = 0, color = "#222222", size = 6, vjust = 0.75) +
-  scale_fill_manual(values = c("Core" = "#1D2D6B", "Peripheral" = "#D6604D")) +
+  scale_fill_manual(values = c("Core" = "#3B0F70", "Peripheral" = "#B63679")) +
   theme_minimal() +
   scale_x_continuous(expand = expansion(mult = c(0.05, 0.2))) +
   labs(
@@ -28,7 +28,7 @@ p <- ggplot(df, aes(x = Difference, y = Plant_Species, fill = Role)) +
   theme(
     text = element_text(color = "#333333"),
     axis.text.y = element_text(
-      color = ifelse(df$Role == "Core", "#1D2D6B", "#555555"), 
+      color = ifelse(df$Role == "Core", "#3B0F70", "#555555"), 
       size = 14, 
       face = ifelse(df$Role == "Core", "bold.italic", "italic")
     ),

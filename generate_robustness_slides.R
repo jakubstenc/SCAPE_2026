@@ -12,8 +12,20 @@ df_plot$Scenario <- factor(df_plot$Scenario, levels = c("Whole_Community_R", "Pe
 
 years <- 2011:2025
 
+# Summer drought severity (-SPEI-6) per year, shown as a bar strip under the curves
+cd_file <- "/home/meow/ownCloud - Mgr Jakub Štenc Phd@owncloud.cesnet.cz/Psani_clanku/2025/Annual_dynamics_pollinator_sharing/outputs/Data_Prep/core_dependence_yearly.csv"
+drought_df <- read.csv(cd_file) %>%
+  transmute(Year, Drought_Severity = -spei6)
+
 build_plot <- function(df_sub = NULL, step = 4) {
-  p_new <- ggplot()
+  # Drought strip along the bottom (bar height = summer drought severity; wet years have no bar)
+  p_new <- ggplot() +
+    geom_hline(yintercept = 0.315, color = "grey80", linewidth = 0.5) +
+    geom_rect(data = drought_df, aes(xmin = Year - 0.35, xmax = Year + 0.35,
+                                     ymin = 0.20, ymax = 0.20 + pmax(Drought_Severity, 0) * 0.048),
+              fill = "#F8765C", alpha = 0.75, inherit.aes = FALSE) +
+    annotate("text", x = 2010.6, y = 0.305, label = "Summer drought", hjust = 0, vjust = 1,
+             size = 5, color = "#C4472F", fontface = "bold")
   
   if (step == 1) {
     # Step 1: empty plot, axes only, no drought bars, no lines, transparent legend to preserve layout
@@ -55,15 +67,16 @@ build_plot <- function(df_sub = NULL, step = 4) {
       fill = "Scenario",
       linetype = "Scenario"
     ) +
-    scale_x_continuous(breaks = years, limits = c(min(years), max(years))) +
-    coord_cartesian(ylim = c(0.35, 0.95)) +
+    scale_x_continuous(breaks = years, limits = c(min(years) - 0.5, max(years) + 0.5), expand = c(0, 0)) +
+    scale_y_continuous(breaks = seq(0.4, 0.9, 0.1)) +
+    coord_cartesian(ylim = c(0.20, 0.95)) +
     scale_color_manual(
-      values = c("Whole_Community_R" = "gray40", "Periph_Removal_R" = "#D6604D", "Core_Removal_R" = "#1D2D6B"),
+      values = c("Whole_Community_R" = "gray40", "Periph_Removal_R" = "#B63679", "Core_Removal_R" = "#3B0F70"),
       labels = c("Whole_Community_R" = "Random Order", "Periph_Removal_R" = "Periphery Removed First", "Core_Removal_R" = "Core Removed First"),
       drop = TRUE
     ) +
     scale_fill_manual(
-      values = c("Whole_Community_R" = "gray40", "Periph_Removal_R" = "#D6604D", "Core_Removal_R" = "#1D2D6B"),
+      values = c("Whole_Community_R" = "gray40", "Periph_Removal_R" = "#B63679", "Core_Removal_R" = "#3B0F70"),
       labels = c("Whole_Community_R" = "Random Order", "Periph_Removal_R" = "Periphery Removed First", "Core_Removal_R" = "Core Removed First"),
       drop = TRUE
     ) +
@@ -73,7 +86,7 @@ build_plot <- function(df_sub = NULL, step = 4) {
       drop = TRUE
     ) +
     theme(
-      legend.position = "bottom",
+      legend.position = "top",
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       plot.background = element_rect(fill = "transparent", color = NA),
