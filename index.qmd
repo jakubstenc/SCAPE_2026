@@ -121,7 +121,7 @@ Step 5 (Pollinator-Sharing Network): By projecting these shared visits across th
 
 ![](images/plant_step3_routes.png){.fragment .fade-in-then-out fragment-index=7 height="520px" fig-align="center"}
 
-![](images/plant_step4_coreness.png){.fragment .fade-in fragment-index=8 height="520px" fig-align="center"}
+![](images/plant_step4_coreness_clean.png){.fragment .fade-in fragment-index=8 height="520px" fig-align="center"}
 :::
 :::
 :::::
@@ -183,6 +183,11 @@ Step 8 (Plant Coreness): The exact same architecture emerges! Just 6 core perenn
 :::
 ::::::
 
+::: {.absolute .fragment .fade-in fragment-index=6 top="95" left="245" width="560" style="z-index: 10;"}
+<img src="images/Mixed_onions.jpg" style="width: 560px; height: 560px; object-fit: cover; border-radius: 12px; display: block;">
+<div style="text-align: right; font-size: 11px; color: #9CA3AF; margin-top: 2px;">Photo: Colin, Wikimedia Commons, CC BY-SA 3.0</div>
+:::
+
 ::: {.fragment fragment-index=5}
 <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 2px; padding: 8px 14px; background: #F1F5F9; border-radius: 10px;">
 <div style="display:flex; flex-direction:column; gap:4px;">
@@ -206,7 +211,8 @@ Think of it like peeling an onion:
 - Step 1 (The Entire Web): We start with all species connected (k >= 1). Outer peripheral species (coral/red) connect by only a single link.
 - Step 2 (Iterative Peeling): We peel away outer shells: any species whose degree drops below k is successively pruned. Single-link leaves fall away first.
 - Step 3 (The Invariant Core): At k_max, only the mutually reinforcing central backbone remains (navy hubs with gold centers). These core hubs don't just have visits—they link to each other, creating the structural foundation that holds the entire community together.
-- Step 5 (Every year): We repeat this for each of the 15 annual networks. Filled dot = species is central that year (standardized coreness Gc > 1). Centaurea jacea (core) is central in all 15 years; Daucus carota (the next-ranked, peripheral species, present all 15 years) only in 5 (2012–14, 2022–23). Centrality ranks are strongly preserved between years (Kendall's W = 0.64 vs 0.23 expected by chance, p = 0.001; consecutive years Spearman median 0.77). Centaurea jacea sits above the null in all 15 years.
+- Step 5 (Every year): We repeat this for each of the 15 annual networks. Filled dot = species is central that year (standardized coreness Gc > 1). Centaurea jacea (core) is central in all 15 years; Daucus carota (the next-ranked, peripheral species, present all 15 years) only in 5 (2012–14, 2022–23).
+- Step 6 (onion again): So the core is the centre of the onion, and it stays the same centre year after year. Centrality ranks are strongly preserved between years (Kendall's W = 0.64 vs 0.23 expected by chance, p = 0.001; consecutive years Spearman median 0.77). Centaurea jacea sits above the null in all 15 years.
 :::
 
 ## Robustness {style="margin-top: -12px; margin-bottom: 4px;"}
@@ -218,37 +224,29 @@ Think of it like peeling an onion:
 ::::: columns
 ::: {.column width="50%"}
 ::: r-stack
-![](images/blank.png){height="490px" fig-align="center"}
+![](images/blank.png){height="540px" fig-align="center"}
 
-![](images/plant_step4_coreness.png){.fragment .fade-in-then-out fragment-index=2 height="490px" fig-align="center"}
+![](images/plant_step4_coreness_clean.png){.fragment .fade-in-then-out fragment-index=2 height="540px" fig-align="center"}
 
-![](images/plant_step_rand.png){.fragment .fade-in-then-out fragment-index=3 height="490px" fig-align="center"}
+![](images/plant_step_rand_clean.png){.fragment .fade-in-then-out fragment-index=3 height="540px" fig-align="center"}
 
-![](images/plant_step5_spoke.png){.fragment .fade-in-then-out fragment-index=4 height="490px" fig-align="center"}
+![](images/plant_step5_spoke_clean.png){.fragment .fade-in-then-out fragment-index=4 height="540px" fig-align="center"}
 
-![](images/plant_step6_hub.png){.fragment .fade-in fragment-index=5 height="490px" fig-align="center"}
-:::
-
-::: {.fragment fragment-index=2 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
-*Meadow pollinator sharing network under simulated extinction scenarios*
+![](images/plant_step6_hub_clean.png){.fragment .fade-in fragment-index=5 height="540px" fig-align="center"}
 :::
 :::
 
 ::: {.column width="48%"}
 ::: r-stack
-![](images/blank.png){height="490px" fig-align="center"}
+![](images/blank.png){height="540px" fig-align="center"}
 
-![](images/cascade_curve_axes.png){.fragment .fade-in-then-out fragment-index=2 height="490px" fig-align="center"}
+![](images/cascade_curve_axes.png){.fragment .fade-in-then-out fragment-index=2 height="540px" fig-align="center"}
 
-![](images/cascade_curve_rand.png){.fragment .fade-in-then-out fragment-index=3 height="490px" fig-align="center"}
+![](images/cascade_curve_rand.png){.fragment .fade-in-then-out fragment-index=3 height="540px" fig-align="center"}
 
-![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=4 height="490px" fig-align="center"}
+![](images/cascade_curve_periph.png){.fragment .fade-in-then-out fragment-index=4 height="540px" fig-align="center"}
 
-![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=5 height="490px" fig-align="center"}
-:::
-
-::: {.fragment fragment-index=2 style="font-size: 14px; text-align: center; color: #64748B; margin-top: 4px;"}
-*Co-extinction simulation (Memmott et al. 2004) on Handrkov pollination web*
+![](images/cascade_curve_core.png){.fragment .fade-in fragment-index=5 height="540px" fig-align="center"}
 :::
 :::
 :::::
@@ -266,10 +264,17 @@ Bridge (spoken, no extra click): But this is one snapshot. How does this picture
 
 ## Drought {style="margin-top: -12px; margin-bottom: 4px;"}
 
+::: {.absolute .fragment .fade-in-then-out fragment-index=1 top="95" left="245" width="560" style="z-index: 10;"}
+<img src="images/Drought_square.jpg" style="width: 560px; height: 560px; object-fit: cover; border-radius: 12px; display: block;">
+<div style="text-align: right; font-size: 11px; color: #9CA3AF; margin-top: 2px;">Photo: Tomas Castelazo, Wikimedia Commons, CC BY 3.0</div>
+:::
+
+::: {.fragment fragment-index=2}
 ![](images/drought_severity_50yrs.png){.nostretch width="100%" height="450px" style="object-fit: contain; margin-top: 10px;"}
 
 ::: {style="font-size: 18px; text-align: center; color: #888888; margin-top: 5px;"}
 *Data: TerraClimate (Abatzoglou et al., 2018), Handrkov locality (1975–2025)*
+:::
 :::
 
 ::: notes
@@ -347,6 +352,10 @@ Zooming into our 15-year period: only 2013 and 2021 were wet summers. 2018 was t
 :::
 :::::
 
+::: {.fragment style="display: flex; justify-content: center; margin-top: 18px; font-size: 30px;"}
+-   sampled once per year in August
+:::
+
 ## Methods - plant-pollinator survey
 
 ::::: {style="display: flex; justify-content: center; align-items: flex-start; gap: 28px; margin-top: 30px;"}
@@ -401,7 +410,7 @@ Zooming into our 15-year period: only 2013 and 2021 were wet summers. 2018 was t
 
 ::: {.absolute .fragment top="10%" left="55%"}
 -   "Snapshot" of plant-pollinator interaction
--   20–63 surveys per plot per year (median 28)
+-   ~28 surveys per plot per year
 -   42 378 surveys in total
 -   68 460 interactions recorded
 -   176 pollinator taxa × 55 plant species
@@ -428,6 +437,10 @@ Zooming into our 15-year period: only 2013 and 2021 were wet summers. 2018 was t
 ![](images/all_networks_grid.png){fig-align="center" height="600"}
 
 ## Year-to-Year Change
+
+::: {.absolute top="38" right="0" style="font-size: 20px; color: #64748B; text-align: right; line-height: 1.3;"}
+Pollinator sharing: Müller's index (PAC)<br>NMDS, Bray–Curtis
+:::
 
 ::: r-stack
 ![](images/nmds_step1_axes.png){.fragment .fade-out fragment-index=1 fig-align="center" height="550px"}
@@ -526,19 +539,23 @@ So the dependence on the core is driven by drought AND by a long-term trend: cor
 ## Why?
 
 ::: r-stack
-![](images/visit_share_1_visits.png){.fragment .fade-out fragment-index=1 fig-align="center" height="550px"}
+![](images/visit_share_0_axes.png){.fragment .fade-out fragment-index=1 fig-align="center" height="550px"}
 
-![](images/visit_share_2_flowers.png){.fragment .fade-in fragment-index=1 fig-align="center" height="550px"}
+![](images/visit_share_1_flowers.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center" height="550px"}
+
+![](images/visit_share_2_visits.png){.fragment .fade-in fragment-index=2 fig-align="center" height="550px"}
 :::
 
-::: {.fragment .absolute fragment-index=2 top="27%" left="17%" width="66%" style="background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); border-radius: 12px; padding: 20px 30px; border: 1px solid rgba(255, 255, 255, 0.22); color: white; text-align: center; font-size: 28px; font-weight: 700; line-height: 1.35;"}
+::: {.fragment .absolute fragment-index=3 top="27%" left="17%" width="66%" style="background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6); border-radius: 12px; padding: 20px 30px; border: 1px solid rgba(255, 255, 255, 0.22); color: white; text-align: center; font-size: 28px; font-weight: 700; line-height: 1.35;"}
 The core holds <span style="color: #CBD5E1;">14% of flowers</span> but gets <span style="color: #FEB47B;">67% of visits</span>
 :::
 
 ::: notes
 Slide: Why does losing the core cost more and more?
-Step 1 (navy): share of all pollinator visits that go to the 6 core species. It rises from 34–55% (2011–14) to 84–88% (2023–25), +2.3 percentage points per year (GLS-AR1, p = 0.001), and is higher in drier summers (p = 0.004). Peaks in 2015 and 2018.
-Step 2 (grey): share of flowers produced by the core species. Always far below the visit line: on average 14% of flowers vs 67% of visits over 15 years.
+Step 0: axes and drought strip only.
+Step 1 (grey dotted, plant photos): share of all flowers produced by the 6 core species — low, 6–31%.
+Step 2 (purple, pollinator photos): share of all pollinator visits that go to the 6 core species. It rises from 34–55% (2011–14) to 84–88% (2023–25), +2.3 percentage points per year (GLS-AR1, p = 0.001), and is higher in drier summers (p = 0.004). Peaks in 2015 and 2018.
+The visit line is always far above the flower line: on average 14% of flowers vs 67% of visits over 15 years.
 [Advance – overlay]: Pollinators use the core far beyond its flower supply. The more visits concentrate on the core, the more damage its loss does: that is why the robustness gap grows.
 Caveat if asked: core flowering also increased in recent years (up to 31% in 2025), so part of the rise in visits follows more core flowers. In dry years peripheral flowering drops (~3× along the drought gradient, p = 0.032; backup slide) while core flowering does not.
 :::

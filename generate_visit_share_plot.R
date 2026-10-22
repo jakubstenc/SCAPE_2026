@@ -19,44 +19,65 @@ df_long$Series <- factor(df_long$Series, levels = c("Visits to core species", "F
 series_cols  <- c("Visits to core species" = "#3B0F70", "Flowers of core species" = "gray45")
 series_lines <- c("Visits to core species" = "solid",   "Flowers of core species" = "dotted")
 
+# Round photos placed in empty parts of the panel (plants with the flower line, pollinators with the visit line)
+img <- function(f) png::readPNG(f)
+plant_imgs <- lapply(c("images/Centaurea_jaceae.png", "images/Succisa_pratensis.png", "images/Selinum_carvifolia.png"), img)
+poll_imgs  <- lapply(c("images/story_badge_eristalis.png", "images/pestrenky_round.png", "images/story_badge_zygaena.png"), img)
+# one photo spans PX years by PY percentage points; the ratio keeps it round in the 11 x 6 in output
+PX <- 1.25; PY <- 24.5
+add_photos <- function(p, imgs, xs, ys) {
+  for (i in seq_along(imgs)) {
+    p <- p + annotation_raster(imgs[[i]], xmin = xs[i] - PX / 2, xmax = xs[i] + PX / 2,
+                               ymin = ys[i] - PY / 2, ymax = ys[i] + PY / 2)
+  }
+  p
+}
+
 build_plot <- function(show_series) {
   df_sub <- filter(df_long, Series %in% show_series)
-  ggplot() +
+  p <- ggplot() +
     # Drought strip along the bottom (bar height = summer drought severity; wet years have no bar)
     geom_hline(yintercept = -3, color = "grey80", linewidth = 0.5) +
     geom_rect(data = drought_df, aes(xmin = Year - 0.35, xmax = Year + 0.35,
                                      ymin = -30, ymax = -30 + pmax(Drought_Severity, 0) * 11),
               fill = "#F8765C", alpha = 0.75) +
     annotate("text", x = 2010.6, y = -4.5, label = "Summer drought", hjust = 0, vjust = 1,
-             size = 5, color = "#C4472F", fontface = "bold") +
+             size = 5, color = "#C4472F", fontface = "bold")
+  if ("Flowers of core species" %in% show_series) {
+    p <- add_photos(p, plant_imgs, c(2011.3, 2012.65, 2014.0), c(20.5, 20.5, 20.5)) +
+      annotate("text", x = 2021.3, y = 36, label = "Flowers of core species",
+               size = 6, color = "gray35", fontface = "bold")
+  }
+  if ("Visits to core species" %in% show_series) {
+    p <- add_photos(p, poll_imgs, c(2011.2, 2012.6, 2014.0), c(88, 88, 88)) +
+      annotate("text", x = 2020.6, y = 99, label = "Visits to core species",
+               size = 6, color = series_cols[["Visits to core species"]], fontface = "bold")
+  }
+  p +
     geom_line(data = df_sub, aes(Year, Share, color = Series, linetype = Series), linewidth = 1.5) +
     geom_point(data = df_sub, aes(Year, Share, color = Series), size = 3.5) +
-    scale_color_manual(values = series_cols, drop = TRUE, name = NULL) +
-    scale_linetype_manual(values = series_lines, drop = TRUE, name = NULL) +
+    scale_color_manual(values = series_cols, drop = TRUE, name = NULL, guide = "none") +
+    scale_linetype_manual(values = series_lines, drop = TRUE, name = NULL, guide = "none") +
     scale_x_continuous(breaks = years, limits = c(min(years) - 0.5, max(years) + 0.5), expand = c(0, 0)) +
     scale_y_continuous(breaks = seq(0, 100, 25), labels = function(x) paste0(x, "%")) +
-    coord_cartesian(ylim = c(-30, 100)) +
+    coord_cartesian(ylim = c(-30, 102)) +
     labs(x = "Year", y = "Share held by the 6 core species") +
     theme_classic(base_size = 20) +
     theme(
-      legend.position = "top",
-      legend.key.width = unit(1.6, "cm"),
       panel.grid = element_blank(),
       plot.background = element_rect(fill = "transparent", color = NA),
       panel.background = element_rect(fill = "transparent", color = NA),
-      legend.background = element_rect(fill = "transparent", color = NA),
-      legend.key = element_rect(fill = "transparent", color = NA),
       axis.text.x = element_text(angle = 45, hjust = 1)
     )
 }
 
-# 1. Visits only
-# (legend sits on top, so dropping the flowers entry leaves the panel unchanged)
-p1 <- build_plot("Visits to core species")
-ggsave("images/visit_share_1_visits.png", p1, width = 11, height = 6, bg = "transparent", dpi = 300)
+# 0. Axes and drought strip only
+ggsave("images/visit_share_0_axes.png", build_plot(character(0)), width = 11, height = 6, bg = "transparent", dpi = 300)
 
-# 2. Visits + flowers
-p2 <- build_plot(levels(df_long$Series))
-ggsave("images/visit_share_2_flowers.png", p2, width = 11, height = 6, bg = "transparent", dpi = 300)
+# 1. Flowers of core species (+ plant photos)
+ggsave("images/visit_share_1_flowers.png", build_plot("Flowers of core species"), width = 11, height = 6, bg = "transparent", dpi = 300)
 
-cat("Successfully generated visit share slides 1 and 2.\n")
+# 2. Flowers + visits (+ pollinator photos)
+ggsave("images/visit_share_2_visits.png", build_plot(levels(df_long$Series)), width = 11, height = 6, bg = "transparent", dpi = 300)
+
+cat("Successfully generated visit share slides 0 to 2.\n")

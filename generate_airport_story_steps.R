@@ -41,9 +41,7 @@ europe_poly <- subset(world_map, lat >= 35 & lat <= 70 & long >= -12 & long <= 3
 key_hubs <- c("AMS", "FRA", "CDG", "STN", "MUC")
 key_regional <- c("RRS", "KID")
 labeled_airports <- subset(air_nodes, IATA %in% c(key_hubs, key_regional))
-labeled_airports$Label <- ifelse(labeled_airports$IATA %in% key_hubs,
-                                 paste0(labeled_airports$City, " (", labeled_airports$IATA, ")\nk=", labeled_airports$Degree, ", Coreness=", labeled_airports$Coreness),
-                                 paste0(labeled_airports$City, " (", labeled_airports$IATA, ")\nk=", labeled_airports$Degree, ", Coreness=", labeled_airports$Coreness))
+labeled_airports$Label <- sub("Roros", "R\u00f8ros", labeled_airports$City)
 
 base_theme <- theme_void() +
   theme(
@@ -90,9 +88,9 @@ p4a <- ggplot() +
   geom_point(data = subset(air_nodes, Role == "Peripheral Spoke"),
              aes(x = Lon, y = Lat), color = "#DE7BA9", alpha = 0.6, size = 2.2) +
   geom_point(data = subset(air_nodes, Role == "Core Hub"),
-             aes(x = Lon, y = Lat), color = "#8C2981", size = 5.2, alpha = 0.95) +
+             aes(x = Lon, y = Lat), color = "#F8765C", size = 5.2, alpha = 0.95) +
   geom_point(data = subset(air_nodes, IATA %in% key_hubs),
-             aes(x = Lon, y = Lat), color = "#FEB47B", size = 3.0) +
+             aes(x = Lon, y = Lat), color = "#FCFDBF", size = 3.0) +
   coord_fixed(xlim = c(-8.5, 23.5), ylim = c(37, 66.5), ratio = 1.3) +
   base_theme
 
@@ -104,11 +102,7 @@ p4 <- p4a +
   geom_label_repel(data = subset(labeled_airports, IATA %in% key_hubs),
                    aes(x = Lon, y = Lat, label = Label),
                    fontface = "bold", size = 3.6, color = "#0F172A", fill = alpha("white", 0.92),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#8C2981", segment.size = 0.5, seed = 42) +
-  geom_label_repel(data = subset(labeled_airports, IATA %in% key_regional),
-                   aes(x = Lon, y = Lat, label = Label),
-                   fontface = "bold", size = 3.3, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.95),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#B63679", segment.size = 0.5, nudge_y = 2.5, seed = 42)
+                   box.padding = 0.45, point.padding = 0.35, segment.color = "#8C2981", segment.size = 0.5, seed = 42)
 
 ggsave("images/airport_step4_coreness.png", p4, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved airport_step4_coreness.png\n")
@@ -122,9 +116,9 @@ p5 <- ggplot() +
   geom_point(data = subset(air_nodes, Role == "Peripheral Spoke" & !(IATA %in% key_regional)),
              aes(x = Lon, y = Lat), color = "#DE7BA9", alpha = 0.6, size = 2.2) +
   geom_point(data = subset(air_nodes, Role == "Core Hub"),
-             aes(x = Lon, y = Lat), color = "#8C2981", size = 5.2, alpha = 0.95) +
+             aes(x = Lon, y = Lat), color = "#F8765C", size = 5.2, alpha = 0.95) +
   geom_point(data = subset(air_nodes, IATA %in% key_hubs),
-             aes(x = Lon, y = Lat), color = "#FEB47B", size = 3.0) +
+             aes(x = Lon, y = Lat), color = "#FCFDBF", size = 3.0) +
   # Red X on knocked out spokes
   geom_point(data = subset(air_nodes, IATA %in% key_regional),
              aes(x = Lon, y = Lat), color = "#B63679", size = 6.5, shape = 4, stroke = 2.8) +
@@ -132,10 +126,6 @@ p5 <- ggplot() +
                    aes(x = Lon, y = Lat, label = Label),
                    fontface = "bold", size = 3.4, color = "#0F172A", fill = alpha("white", 0.92),
                    box.padding = 0.45, point.padding = 0.35, segment.color = "#8C2981", segment.size = 0.5, seed = 42) +
-  geom_label_repel(data = subset(labeled_airports, IATA %in% key_regional),
-                   aes(x = Lon, y = Lat, label = paste0("❌ ", City, " (", IATA, ")\nSPOKE FAILED")),
-                   fontface = "bold", size = 3.3, color = "#7A1F5C", fill = alpha("#FBEFF5", 0.95),
-                   box.padding = 0.45, point.padding = 0.35, segment.color = "#B63679", segment.size = 0.5, nudge_y = 2.5, seed = 42) +
   # Top banner
   annotate("label", x = 7.5, y = 66.8, label = "🟢 SPOKE LOSS: System Absorbs Shock (>99% routes intact)",
            fill = "#EEF3F1", color = "#40695B", fontface = "bold", size = 3.8, label.r = unit(0.2, "lines")) +
@@ -173,3 +163,10 @@ ggsave("images/airport_step6_hub.png", p6, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved airport_step6_hub.png\n")
 
 cat("All airport steps generated successfully!\n")
+
+# Crop the empty transparent side margins (same box for every step so the fragments stay aligned);
+# otherwise the wide canvas is squeezed into the narrow slide column and points turn oval
+for (f in sprintf("images/airport_step%s.png", c("1_map", "2_airports", "3_routes", "4_hubs", "4_coreness"))) {
+  magick::image_write(magick::image_crop(magick::image_read(f), "1600x1920+325+0"), f)
+}
+cat("Cropped airport steps to plot area.\n")

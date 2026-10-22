@@ -178,9 +178,9 @@ p4 <- ggplot() +
              aes(x = x, y = y), color = "#DE7BA9", alpha = 0.75, size = 2.8) +
   # Core plants
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#F8765C", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
+             aes(x = x, y = y), color = "#FCFDBF", size = 3.6) +
   # Callout lines for core labels
   geom_segment(data = labels_core, aes(x = x, y = y, xend = lbl_x, yend = lbl_y),
                color = "#8C2981", alpha = 0.6, linewidth = 0.5) +
@@ -224,9 +224,9 @@ p_rand <- ggplot() +
              aes(x = x, y = y), color = "#DE7BA9", alpha = 0.7, size = 2.8) +
   # Core plants surviving
   geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
-             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#F8765C", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant" & !(Species %in% rand_lost_core)),
-             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
+             aes(x = x, y = y), color = "#FCFDBF", size = 3.6) +
   # Knocked out peripheral nodes (Red X)
   geom_point(data = subset(plant_nodes, Species %in% rand_lost_periph),
              aes(x = x, y = y), color = "#B63679", size = 6.0, shape = 4, stroke = 2.5) +
@@ -270,9 +270,9 @@ p5 <- ggplot() +
              aes(x = x, y = y), color = "#DE7BA9", alpha = 0.7, size = 2.8) +
   # Core plants intact
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#8C2981", size = 6.8, alpha = 0.95) +
+             aes(x = x, y = y), color = "#F8765C", size = 6.8, alpha = 0.95) +
   geom_point(data = subset(plant_nodes, Role == "Core Plant"),
-             aes(x = x, y = y), color = "#FEB47B", size = 3.6) +
+             aes(x = x, y = y), color = "#FCFDBF", size = 3.6) +
   # Knocked out peripheral plants (Red X)
   geom_point(data = subset(plant_nodes, Species %in% c("Lathyrus pratensis", "Ranunculus flammula")),
              aes(x = x, y = y), color = "#B63679", size = 6.5, shape = 4, stroke = 2.8) +
@@ -324,3 +324,26 @@ ggsave("images/plant_step6_hub.png", p6, width = 7.5, height = 6.4, dpi = 300)
 cat("Saved plant_step6_hub.png\n")
 
 cat("All plant steps regenerated successfully with organic natural layout!\n")
+
+# --- Text-free versions for the robustness slide (no labels, callouts or banners) ---
+strip_text <- function(p) {
+  keep <- vapply(p$layers, function(l) {
+    is_text <- inherits(l$geom, "GeomLabel") || inherits(l$geom, "GeomText")
+    is_callout <- inherits(l$geom, "GeomSegment") && !is.null(l$mapping$xend) &&
+      grepl("lbl_x", rlang::as_label(l$mapping$xend))
+    !(is_text || is_callout)
+  }, logical(1))
+  p$layers <- p$layers[keep]
+  p
+}
+for (nm in c("step4_coreness", "step_rand", "step5_spoke", "step6_hub")) {
+  p_src <- switch(nm, step4_coreness = p4, step_rand = p_rand, step5_spoke = p5, step6_hub = p6)
+  ggsave(sprintf("images/plant_%s_clean.png", nm), strip_text(p_src), width = 7.5, height = 6.4, dpi = 300)
+}
+cat("Saved text-free robustness network steps.\n")
+
+# Crop the empty transparent side margins (same box for every step) so the slide does not squeeze the network
+for (f in list.files("images", pattern = "^plant_step.*\\.png$", full.names = TRUE)) {
+  magick::image_write(magick::image_crop(magick::image_read(f), "1920x1920+165+0"), f)
+}
+cat("Cropped plant steps to plot area.\n")
