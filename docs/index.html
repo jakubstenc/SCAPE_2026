@@ -321,7 +321,7 @@ Photo: Colin, Wikimedia Commons, CC BY-SA 3.0
 <span style="color: #DE7BA9; font-size: 20px; vertical-align: 1px;">●</span> Step 1: Intact Web
 </div>
 <div style="font-size: 15px; color: #64748B; font-weight: 500;">
-All species (<span class="math inline">\(k \ge 1\)</span>)
+All species (<i>k</i> ≥ 1)
 </div>
 </div>
 <div style="text-align: center; margin-top: 4px;">
@@ -335,7 +335,7 @@ All species (<span class="math inline">\(k \ge 1\)</span>)
 <span style="color: #8C2981; font-size: 20px; vertical-align: 1px;">●</span> Step 2: Iterative Peeling
 </div>
 <div style="font-size: 15px; color: #64748B; font-weight: 500;">
-Pruning periphery (<span class="math inline">\(k \ge 2\)</span>)
+Pruning periphery (<i>k</i> ≥ 2)
 </div>
 </div>
 <div style="text-align: center; margin-top: 4px;">
@@ -349,7 +349,7 @@ Pruning periphery (<span class="math inline">\(k \ge 2\)</span>)
 <span style="color: #3B0F70; font-size: 20px; vertical-align: 1px;">●</span> Step 3: Invariant Core
 </div>
 <div style="font-size: 15px; color: #64748B; font-weight: 500;">
-Mutually linked backbone (<span class="math inline">\(k = k_{\max}\)</span>)
+Mutually linked backbone (<i>k</i> = <i>k</i><sub>max</sub>)
 </div>
 </div>
 <div style="text-align: center; margin-top: 4px;">
@@ -389,7 +389,7 @@ Daucus (periphery)
 </div>
 </div>
 <aside class="notes">
-<p>Slide: What actually makes a species part of the core? Network topology defines this using k-core decomposition (Seidman 1983). [Click 1 – onion]: How do we decide which species form the core? Think of the network as an onion: we peel it layer by layer, and what is left at the centre is the core. Think of it like peeling an onion: - Step 1 (The Entire Web): We start with all species connected (k &gt;= 1). Outer peripheral species (coral/red) connect by only a single link. - Step 2 (Iterative Peeling): We peel away outer shells: any species whose degree drops below k is successively pruned. Single-link leaves fall away first. - Step 3 (The Invariant Core): At k_max, only the mutually reinforcing central backbone remains (navy hubs with gold centers). These core hubs don’t just have visits—they link to each other, creating the structural foundation that holds the entire community together. - Step 5 (Every year): We repeat this for each of the 15 annual networks. Filled dot = species is central that year (standardized coreness Gc &gt; 1). Centaurea jacea (core) is central in all 15 years; Daucus carota (the next-ranked, peripheral species, present all 15 years) only in 5 (2012–14, 2022–23). - Step 6 (onion again): So the core is the centre of the onion, and it stays the same centre year after year. Centrality ranks are strongly preserved between years (Kendall’s W = 0.64 vs 0.23 expected by chance, p = 0.001; consecutive years Spearman median 0.77). Centaurea jacea sits above the null in all 15 years.</p>
+<p>Slide: What actually makes a species part of the core? Network topology defines this using k-core decomposition (Seidman 1983). [Click 1 – onion]: How do we decide which species form the core? Think of the network as an onion: we peel it layer by layer, and what is left at the centre is the core. Think of it like peeling an onion: - Step 1 (The Entire Web): We start with all species connected (k &gt;= 1). Outer peripheral species (coral/red) connect by only a single link. - Step 2 (Iterative Peeling): We peel away outer shells: any species whose degree drops below k is successively pruned. Single-link leaves fall away first. - Step 3 (The Invariant Core): At k_max, only the mutually reinforcing central backbone remains (navy hubs with gold centers). These core hubs don’t just have visits—they link to each other, creating the structural foundation that holds the entire community together. - Step 5 (Every year): We repeat this for each of the 15 annual networks. Filled dot = species is central that year (standardized coreness Gc &gt; 1). Centaurea jacea (core) is central in all 15 years; Daucus carota (the next-ranked, peripheral species, present all 15 years) only in 5 (2012–14, 2022–23). - Step 6 (onion again): So the core is the centre of the onion, and it stays the same centre year after year. - Note: the onion/k-core is the intuition. The core itself is defined by Gc (next slides): how many pollinator taxa visit a plant, vs.&nbsp;the year’s average. Say this so nobody thinks the 6 species come from k-core peeling. Centrality ranks are strongly preserved between years (Kendall’s W = 0.64 vs 0.23 expected by chance, p = 0.001; consecutive years Spearman median 0.77). Centaurea jacea sits above the null in all 15 years.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -750,6 +750,9 @@ Pollinator survey
 <p><img data-src="images/core_stability_simplified.png" class="quarto-figure quarto-figure-center" height="540"></p>
 </figure>
 </div>
+<div class="absolute" style="font-size: 18px; color: #64748B; line-height: 1.3;top: 12px; left: 330px; width: 650px; ">
+<p>Centrality (<i>Gc</i>): number of pollinator taxa visiting the plant, vs.&nbsp;the year’s average (Dáttilo et al.&nbsp;2013)</p>
+</div>
 <div class="absolute" style="text-align: center; font-size: 14px; font-style: italic; color: #3B0F70; line-height: 1.15;top: 40px; left: 0px; width: 150px; ">
 <p><img src="images/Centaurea_jaceae.png" style="width: 128px; margin: 0 auto 2px auto; display: block;">Centaurea jacea <img src="images/Selinum_carvifolia.png" style="width: 128px; margin: 14px auto 2px auto; display: block;">Selinum carvifolia <img src="images/Succisa_pratensis.png" style="width: 128px; margin: 14px auto 2px auto; display: block;">Succisa pratensis</p>
 </div>
@@ -778,14 +781,14 @@ Floral Abundance
 38%
 </div>
 <div style="font-size: 19px; color: #CBD5E1; margin-top: 8px; font-weight: 600;">
-Plant Identity <span style="font-size: 14px; opacity: 0.85; font-weight: 400;">(<span class="math inline">\(p = 1.8 \times 10^{-73}\)</span>)</span>
+Plant Identity <span style="font-size: 14px; opacity: 0.85; font-weight: 400;">(<i>p</i> = 1.8 × 10<sup>−73</sup>)</span>
 </div>
 </div>
 </div>
 </div>
 </div>
 <aside class="notes">
-<p>Bridge (from the NMDS question): Is Frankfurt a hub because it had an extra runway open on a sunny Tuesday, or because of permanent structural routing? Are network hubs just random flowers that happen to bloom heavily? We tested each species’ 15-year standardized coreness against a conservative, presence-conditional null model (1,000 perms/yr). Exactly 6 species maintained statistically significant excess centrality (p_adj &lt;= 0.0015). [Advance to overlay]: A linear mixed model confirms that while floral abundance explains 44% of centrality variance, plant identity independently explains 38% (p = 1.8e-73). Side photos: the 6 core species, in the same order as the chart (left: top three, right: next three).</p>
+<p>Bridge from the onion: peeling gives the idea; in practice we use a simpler score: how many pollinator taxa visit a plant, compared with the average plant that year (Gc, Dáttilo et al.&nbsp;2013). The more pollinators a plant has, the more plants it shares them with. If asked which centrality: degree centrality in the plant–pollinator network, standardized within each year. We checked betweenness, closeness and eigenvector centrality: within each year they correlate with Gc at Spearman rho 0.97–0.99 (median), and each of them picks out exactly the same 6 core species. In the plant–plant sharing network itself (density 0.54–0.89) the measures agree with Gc at rho ~0.89 and recover 5 of the 6 (Sanguisorba or Hypericum swap in for Selinum/Ranunculus). Visit-weighted strength also gives the same 6. Bridge (from the NMDS question): Is Frankfurt a hub because it had an extra runway open on a sunny Tuesday, or because of permanent structural routing? Are network hubs just random flowers that happen to bloom heavily? We tested each species’ 15-year standardized coreness against a conservative, presence-conditional null model (1,000 perms/yr). Exactly 6 species maintained statistically significant excess centrality (p_adj &lt;= 0.0015). [Advance to overlay]: A linear mixed model confirms that while floral abundance explains 44% of centrality variance, plant identity independently explains 38% (p = 1.8e-73). Side photos: the 6 core species, in the same order as the chart (left: top three, right: next three).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -991,8 +994,11 @@ Should we protect species that stay central and keep flowering through perturbat
 <h2>Handrkov</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/Handrkov_group_foto.jpg" class="quarto-figure quarto-figure-center" height="520"></p>
+<p><img data-src="images/Handrkov_group_foto.jpg" class="quarto-figure quarto-figure-center" height="480"></p>
 </figure>
+</div>
+<div style="text-align: center; font-size: 30px; font-weight: 600; margin-top: 6px;">
+<p>Thanks to over 100 people!</p>
 </div>
 </section>
 <section id="handrkov---collaboration" class="slide level2">
@@ -1002,11 +1008,15 @@ Should we protect species that stay central and keep flowering through perturbat
 <section id="handrkov---collaboration-1" class="slide level2">
 <h2>Handrkov - Collaboration</h2>
 
+<img data-src="images/opylovači_core.jpeg" class="quarto-figure quarto-figure-center r-stretch" width="950"></section>
+<section id="handrkov---collaboration-2" class="slide level2">
+<h2>Handrkov - Collaboration</h2>
+
 <img data-src="images/opylovači_empty_niche.jpeg" class="quarto-figure quarto-figure-center r-stretch" width="950"><div style="position: absolute; bottom: 42px; left: 0; right: 0; text-align: center; font-size: 21px;">
 <p><a href="https://pollination-ecology-group.github.io/Handrkov/" target="_blank" style="color: #40695B; font-weight: 600; text-decoration: underline;">https://pollination-ecology-group.github.io/Handrkov/</a> <span style="color: #888; margin: 0 10px;">|</span> <a href="mailto:jakubstenc@gmail.com" style="color: #374151; text-decoration: none;">jakubstenc@gmail.com</a></p>
 </div>
 </section>
-<section id="handrkov---collaboration-2" class="slide level2">
+<section id="handrkov---collaboration-3" class="slide level2">
 <h2>Handrkov - Collaboration</h2>
 
 <img data-src="images/opylovači.jpeg" class="quarto-figure quarto-figure-center r-stretch" width="950"><div class="absolute" style="top: 34%; left: 32%; width: 36%; ">
@@ -1055,6 +1065,15 @@ Should we protect species that stay central and keep flowering through perturbat
 </section>
 <section id="section-3" class="slide level2" data-background-image="images/Fin.jpg">
 <h2></h2>
+<div class="absolute" style="background: white; border-radius: 10px; padding: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);top: -20px; left: -40px; ">
+<p><img src="images/logo2027.png" style="height: 196px; display: block;"></p>
+</div>
+<div class="absolute" style="background: white; border-radius: 10px; padding: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); text-align: center;top: -20px; right: -40px; ">
+<img src="images/ecoflor_qr.png" style="width: 165px; height: 165px; display: block;">
+<div style="font-size: 15px; font-weight: 700; color: #40695B; margin-top: 4px;">
+Ecoflor 2027
+</div>
+</div>
 <p><br></p>
 <div style="text-align: center; margin-bottom: 22px;">
 <div style="display: inline-block; background-color: rgba(0, 0, 0, .65); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, .5); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.18); padding: 18px 38px; color: white; font-size: 38px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
@@ -1097,7 +1116,7 @@ Pillar 1
 Climatic Decoupling
 </div>
 <div style="font-size: 14px; color: #475569; line-height: 1.4;">
-<p>If circular, core removal would cost the same every year. <br><br> Instead, core-loss robustness ranges from <strong>0.69 to 0.41</strong> and drops in <strong>drier summers</strong> (<span class="math inline">\(p = 0.005\)</span>). <br><br> Weather cannot change a mathematical tautology.</p>
+<p>If circular, core removal would cost the same every year. <br><br> Instead, core-loss robustness ranges from <strong>0.69 to 0.41</strong> and drops in <strong>drier summers</strong> (<i>p</i> = 0.005). <br><br> Weather cannot change a mathematical tautology.</p>
 </div>
 </div>
 </div><div class="column" style="width:33%;">
@@ -1109,7 +1128,7 @@ Pillar 2
 Static vs.&nbsp;Dynamic Gap
 </div>
 <div style="font-size: 14px; color: #475569; line-height: 1.4;">
-<p>Core identity is <strong>static</strong> (the same 6 species across 15 yrs from null models). <br><br> Yet the fragility gap (<span class="math inline">\(\Delta R\)</span>) is <strong>dynamic</strong>: it surges with summer drought (<span class="math inline">\(p = 0.018\)</span>) and intensifies over 15 years (<span class="math inline">\(p = 0.014\)</span>). <br><br> A static definition cannot generate a 15-year temporal trend.</p>
+<p>Core identity is <strong>static</strong> (the same 6 species across 15 yrs from null models). <br><br> Yet the fragility gap (Δ<i>R</i>) is <strong>dynamic</strong>: it surges with summer drought (<i>p</i> = 0.018) and intensifies over 15 years (<i>p</i> = 0.014). <br><br> A static definition cannot generate a 15-year temporal trend.</p>
 </div>
 </div>
 </div><div class="column" style="width:33%;">
@@ -1121,7 +1140,7 @@ Pillar 3
 Empirical Biology
 </div>
 <div style="font-size: 14px; color: #475569; line-height: 1.4;">
-<p>Driven by <strong>plant physiology</strong>, not network geometry: <br><br> Peripheral flowering drops <strong>~3×</strong> along the drought gradient (<span class="math inline">\(\beta = -28.0, p = 0.032\)</span>), while core flowering does not. <br><br> Pollinators concentrate onto the core (34–55% → 84–88% of visits), so losing it removes most of the remaining forage.</p>
+<p>Driven by <strong>plant physiology</strong>, not network geometry: <br><br> Peripheral flowering drops <strong>~3×</strong> along the drought gradient (<i>β</i> = −28.0, <i>p</i> = 0.032), while core flowering does not. <br><br> Pollinators concentrate onto the core (34–55% → 84–88% of visits), so losing it removes most of the remaining forage.</p>
 </div>
 </div>
 </div></div>
@@ -1147,7 +1166,7 @@ Empirical Biology
 </figure>
 </div>
 <div style="background-color: #3B0F70; color: #FFF; padding: 12px 20px; border-radius: 8px; text-align: center; font-size: 20px; margin-top: 10px;">
-<p><strong>The Life-Raft Mechanism:</strong> Peripheral flowering drops ~3× across the drought gradient (<span class="math inline">\(\beta = -28.0, p = 0.032\)</span>), core flowering shows no detectable drop (<span class="math inline">\(\beta = +0.9, p = 0.79\)</span>) <span class="math inline">\(\rightarrow\)</span> pollinators concentrate on the core: from 34–55% of visits (2011–14) to 84–88% (2023–25).</p>
+<p><strong>The Life-Raft Mechanism:</strong> Peripheral flowering drops ~3× across the drought gradient (<i>β</i> = −28.0, <i>p</i> = 0.032), core flowering shows no detectable drop (<i>β</i> = +0.9, <i>p</i> = 0.79) → pollinators concentrate on the core: from 34–55% of visits (2011–14) to 84–88% (2023–25).</p>
 </div>
 <aside class="notes">
 <p>Backup: floral response of core vs peripheral species to summer drought. Floral asymmetry: across the drought gradient, the fitted peripheral floral abundance falls about 3-fold (from ~140 to ~46), while the 6 core species keep a steady display. In the two driest years (2015, 2018) peripheral flowering was ~10× below a typical year, but 2019 and 2025 were also dry and peripheral flowering held up much better, so the fitted ~3× is the fair summary. Note: the core species are not the most abundant flowers; peripheral species together have ~6× more flowers. The core is central despite that. Consequence: the share of all pollinator visits going to the core rose from 34–55% (2011–14) to 84–88% (2023–25).</p>
@@ -1163,15 +1182,15 @@ Empirical Biology
           display:block!important;
       }</style></aside>
 </section>
-<section id="appendix-core-dependence-delta-r" class="slide level2">
-<h2>Appendix: Core Dependence (<span class="math inline">\(\Delta R\)</span>)</h2>
+<section id="appendix-core-dependence-δr" class="slide level2">
+<h2>Appendix: Core Dependence (Δ<i>R</i>)</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/mechanism_1_vuln.png" class="quarto-figure quarto-figure-center" height="520"></p>
 </figure>
 </div>
 <div style="font-size: 20px; text-align: center; color: #444; margin-top: 10px;">
-<p>Core dependence (<span class="math inline">\(\Delta R = R_{\text{periph}} - R_{\text{core}}\)</span>) surges during acute summer droughts (<span class="math inline">\(p = 0.018\)</span>) and steadily intensifies over time (<span class="math inline">\(+0.022/\text{yr}, p = 0.014\)</span>).</p>
+<p>Core dependence (Δ<i>R</i> = <i>R</i><sub>periph</sub> − <i>R</i><sub>core</sub>) surges during acute summer droughts (<i>p</i> = 0.018) and steadily intensifies over time (+0.022/yr, <i>p</i> = 0.014).</p>
 </div>
 <aside class="notes">
 <p>Backup Slide: Core dependence surges during droughts and steadily rises across 15 years. When severe droughts strike, losing the core causes far more catastrophic secondary cascades than losing peripheral species.</p>
