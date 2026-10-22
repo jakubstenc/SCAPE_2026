@@ -80,6 +80,8 @@ print(f"{len(refs)} files: {total_in / 1e6:.0f} MB -> {total_out / 1e6:.0f} MB")
 # Export copy of the slides: point at images_web/ and embed everything into one file
 out = qmd.replace("images/", "images_web/")
 out = out.replace("embed-resources: false", "embed-resources: true")
+# otherwise the browser tab shows the export file name next to the site title
+out = out.replace("keep-md: true", 'keep-md: true\npagetitle: "SCAPE 2026"', 1)
 export_qmd = ROOT / f"{NAME}.qmd"
 export_qmd.write_text(out, encoding="utf-8")
 

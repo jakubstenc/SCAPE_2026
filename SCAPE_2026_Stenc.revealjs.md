@@ -19,6 +19,7 @@ format:
     pdf-separate-fragments: true
 bibliography: techroom/references.bib
 keep-md: true
+pagetitle: "SCAPE 2026"
 engine: knitr
 ---
 
